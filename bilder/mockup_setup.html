@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wireframe – Setup-Seite (Desktop)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #d9d9d9;
+      padding: 32px 28px 28px;
+      min-width: 980px;
+    }
+
+    .screen-label {
+      font-size: 11px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ── Desktop Window Frame ──────────────────────────────── */
+    .window {
+      width: 920px;
+      margin: 0 auto;
+      border: 1.5px solid #aaa;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18), 4px 4px 0 #b0b0b0;
+      background: #fff;
+    }
+
+    /* ── Title Bar ─────────────────────────────────────────── */
+    .titlebar {
+      background: #3a3a3a;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 12px;
+    }
+    .win-controls { display: flex; gap: 7px; }
+    .wc {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.2);
+    }
+    .wc-close  { background: #888; }
+    .wc-min    { background: #aaa; }
+    .wc-max    { background: #bbb; }
+    .titlebar-title {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: #ccc;
+      letter-spacing: .02em;
+    }
+
+    /* ── App Toolbar ───────────────────────────────────────── */
+    .toolbar {
+      background: #f0f0f0;
+      border-bottom: 1.5px solid #ccc;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 10px;
+    }
+    .toolbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tb-btn {
+      height: 26px;
+      padding: 0 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      background: #e8e8e8;
+      font-size: 11px;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+    .tb-sep { width: 1px; height: 20px; background: #ccc; margin: 0 4px; }
+    .toolbar-title {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+      text-align: center;
+    }
+    .ph { background: #ddd; border-radius: 3px; }
+
+    /* ── Main Layout ───────────────────────────────────────── */
+    .app-body {
+      display: flex;
+      height: 540px;
+    }
+
+    /* ── Content Area ──────────────────────────────────────── */
+    .content {
+      flex: 1;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    /* ── Setup Card ────────────────────────────────────────── */
+    .setup-card {
+      width: 420px;
+      background: #fff;
+      border: 1.5px solid #c8c8c8;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08), 3px 3px 0 #c8c8c8;
+      overflow: hidden;
+    }
+
+    /* ── Card Header ───────────────────────────────────────── */
+    .card-head {
+      background: #f7f7f7;
+      border-bottom: 1.5px solid #ddd;
+      padding: 22px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-box {
+      width: 48px; height: 48px;
+      border: 1.5px dashed #bbb;
+      border-radius: 6px;
+      background: #efefef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #aaa;
+    }
+    .card-heading {
+      font-size: 17px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .card-desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      width: 84%;
+    }
+
+    /* ── Card Body ─────────────────────────────────────────── */
+    .card-body {
+      padding: 20px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #999;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* ── Steps ─────────────────────────────────────────────── */
+    .steps { display: flex; flex-direction: column; gap: 12px; }
+    .step-row { display: flex; align-items: flex-start; gap: 10px; }
+    .step-num {
+      width: 22px; height: 22px;
+      border: 1.5px solid #aaa;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 600;
+      color: #666;
+      flex-shrink: 0;
+      background: #f5f5f5;
+    }
+    .step-lines {
+      flex: 1;
+      display: flex; flex-direction: column;
+      gap: 5px; padding-top: 4px;
+    }
+
+    /* ── Divider ───────────────────────────────────────────── */
+    .divider { height: 1px; background: #e8e8e8; }
+
+    /* ── Primary Button ────────────────────────────────────── */
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      background: #d0d0d0;
+      border: 1.5px solid #999;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      box-shadow: 2px 2px 0 #bbb;
+      cursor: default;
+    }
+
+    /* ── Hint Line ─────────────────────────────────────────── */
+    .hint {
+      height: 8px;
+      background: #ebebeb;
+      border-radius: 2px;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    /* ── Status Placeholder ────────────────────────────────── */
+    .status-ph {
+      border: 1.5px dashed #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+      font-size: 11px;
+      color: #bbb;
+      background: #fafafa;
+    }
+
+    /* ── Annotations ───────────────────────────────────────── */
+    .annotations {
+      width: 920px;
+      margin: 14px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      border-left: 3px solid #bbb;
+      padding-left: 12px;
+    }
+    .ann {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.8;
+    }
+    .ann::before { content: '↳  '; color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="screen-label">Wireframe · Setup-Seite · Desktop</div>
+
+<!-- Desktop Window -->
+<div class="window">
+
+  <!-- Title Bar -->
+  <div class="titlebar">
+    <div class="win-controls">
+      <div class="wc wc-close"></div>
+      <div class="wc wc-min"></div>
+      <div class="wc wc-max"></div>
+    </div>
+    <div class="titlebar-title">JTL Wawi – BI-Tool</div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-nav">
+      <div class="tb-btn">← Zurück</div>
+      <div class="tb-sep"></div>
+      <div class="tb-btn">⟳</div>
+    </div>
+    <div class="toolbar-title">App-Einrichtung</div>
+    <div class="ph" style="width:80px; height:22px;"></div>
+  </div>
+
+  <!-- App Body -->
+  <div class="app-body">
+
+    <!-- Content -->
+    <div class="content">
+      <div class="setup-card">
+
+        <!-- Card Header -->
+        <div class="card-head">
+          <div class="icon-box">Icon</div>
+          <div class="card-heading">App Setup</div>
+          <div class="card-desc">
+            <div class="ph" style="height:9px; width:100%;"></div>
+            <div class="ph" style="height:9px; width:74%;"></div>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+
+          <!-- Steps -->
+          <div>
+            <div class="section-label">So funktioniert es</div>
+            <div class="steps">
+              <div class="step-row">
+                <div class="step-num">1</div>
+                <div class="step-lines">
+                  <div class="ph" style="height:9px; width:96%;"></div>
+                  <div class="ph" style="height:8px; width:64%;"></div>
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">2</div>
+                <div class="step-lines">
+                  <div class="ph" style="height:9px; width:82%;"></div>
+                  <div class="ph" style="height:8px; width:55%;"></div>
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">3</div>
+                <div class="step-lines">
+                  <div class="ph" style="height:9px; width:72%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Action -->
+          <div>
+            <div class="section-label">Aktion</div>
+            <div class="btn-primary">[ Setup abschließen ]</div>
+          </div>
+
+          <div class="hint"></div>
+
+          <div class="status-ph">[ Erfolgs- / Fehlermeldung ]</div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Annotations -->
+<div class="annotations">
+  <div class="ann">Desktop-Fenster: JTL Wawi mit eingebetteter BI-Tool App (iframe)</div>
+  <div class="ann">Sidebar: Navigationspunkte Setup, Dashboard, Produkte, Lager</div>
+  <div class="ann">Zentrierte Setup-Card mit Icon-Platzhalter, 3 Installationsschritten und Aktions-Button</div>
+  <div class="ann">Button ruft POST /connect-tenant auf und signalisiert setupCompleted via AppBridge</div>
+  <div class="ann">Status-Box zeigt Erfolgs- oder Fehlermeldung nach der Aktion</div>
+</div>
+
+</body>
+</html>

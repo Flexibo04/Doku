@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(latexmk -pdf -interaction=nonstopmode Doku.tex)",
+      "Bash(makeglossaries Doku)",
+      "Bash(biber Doku)",
+      "Bash(pdfinfo Doku.pdf)",
+      "Bash(latexmk -pdf -silent Doku.tex)",
+      "Bash(pdftotext ~/Downloads/Projekt_Dokus/Projektdokumentation-1.pdf -)"
+    ]
+  }
+}

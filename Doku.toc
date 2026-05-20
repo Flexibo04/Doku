@@ -1,0 +1,75 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{Abbildungsverzeichnis}{II}{Doc-Start}%
+\contentsline {chapter}{Tabellenverzeichnis}{III}{Doc-Start}%
+\contentsline {chapter}{Quelltextverzeichnis}{III}{chapter*.1}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{III}{section*.2}%
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Projektbeschreibung}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Projektziel}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Projektumfeld}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Projektbegründung}{2}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Projektschnittstellen}{2}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Projektabgrenzung}{3}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Projektplanung}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Projektphasen}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Ressourcenplanung}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Entwicklungsprozess}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Iterationsplanung}{4}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Analysephase}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ist-Analyse}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Wirtschaftlichkeitsanalyse}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Make-or-Buy-Entscheidung}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Projektkosten}{6}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Amortisationsdauer}{7}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Nicht-monetäre Vorteile}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Anwendungsfälle}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Lastenheft / Fachkonzept}{7}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Entwurfsphase}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Zielplattform}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Architekturdesign}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Entwurf der Benutzeroberfläche}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Datenmodell und API-Kommunikation}{12}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Selbst implementierte Backend-Endpunkte}{12}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}JTL AppBridge-Kommunikation}{13}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}OAuth2-Authentifizierungskonzept}{13}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Pflichtenheft}{14}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Implementierungsphase}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Implementierung der Projektstruktur}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementierung der Geschäftslogik}{15}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Session-Token-Verifikation}{15}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}ERP-API-Proxy}{16}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}GraphQL-Datenabruf}{16}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Implementierung der Benutzeroberfläche}{17}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Setup-Seite mit Token-Verifikation}{17}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Pane-Widget mit Event-Subscription}{18}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}ERP-Dashboard mit Kennzahlen}{18}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Abnahme- und Einführungsphase}{20}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Qualitätssicherung}{20}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Abnahme durch den Auftraggeber}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Deployment und Einführung}{21}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Dokumentation}{22}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Fazit}{23}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Soll-/Ist-Vergleich}{23}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Lessons Learned}{23}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Ausblick}{24}{section.8.3}%
+\contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{25}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{26}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Lastenheft (Auszug)}{27}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Nutzwertanalyse (vollständig)}{27}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Mockups der Benutzeroberfläche}{28}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Pflichtenheft (Auszug)}{28}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Iterationsplan}{29}{section.A.7}%
+\contentsline {section}{\numberline {A.8}Quellcode-Auszüge}{30}{section.A.8}%
+\contentsline {subsection}{\numberline {A.8.1}Backend: OAuth2-Token-Anfrage}{30}{subsection.A.8.1}%
+\contentsline {subsection}{\numberline {A.8.2}Backend: Session-Token-Verifikation}{30}{subsection.A.8.2}%
+\contentsline {subsection}{\numberline {A.8.3}Backend: ERP-API-Proxy-Route}{31}{subsection.A.8.3}%
+\contentsline {subsection}{\numberline {A.8.4}Backend: Tenant-Mapping}{31}{subsection.A.8.4}%
+\contentsline {subsection}{\numberline {A.8.5}Frontend: App-Routing}{31}{subsection.A.8.5}%
+\contentsline {subsection}{\numberline {A.8.6}Frontend: Setup-Seite}{32}{subsection.A.8.6}%
+\contentsline {subsection}{\numberline {A.8.7}Frontend: Pane-Widget}{32}{subsection.A.8.7}%
+\contentsline {subsection}{\numberline {A.8.8}Frontend: ERP-Dashboard-Komponente}{33}{subsection.A.8.8}%
+\contentsline {subsection}{\numberline {A.8.9}Frontend: React-Einstiegspunkt}{34}{subsection.A.8.9}%
+\contentsline {section}{\numberline {A.9}Screenshot der Anwendung}{35}{section.A.9}%
+\contentsline {section}{\numberline {A.10}Entwicklerdokumentation}{35}{section.A.10}%
+\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{36}{section.A.11}%

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wireframe – ERP-Dashboard (Desktop)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #d9d9d9;
+      padding: 32px 28px 28px;
+      min-width: 980px;
+    }
+
+    .screen-label {
+      font-size: 11px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ── Desktop Window Frame ──────────────────────────────── */
+    .window {
+      width: 920px;
+      margin: 0 auto;
+      border: 1.5px solid #aaa;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18), 4px 4px 0 #b0b0b0;
+      background: #fff;
+    }
+
+    /* ── Title Bar ─────────────────────────────────────────── */
+    .titlebar {
+      background: #3a3a3a;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 12px;
+    }
+    .win-controls { display: flex; gap: 7px; }
+    .wc {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.2);
+    }
+    .wc-close { background: #888; }
+    .wc-min   { background: #aaa; }
+    .wc-max   { background: #bbb; }
+    .titlebar-title {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: #ccc;
+      letter-spacing: .02em;
+    }
+
+    /* ── App Toolbar ───────────────────────────────────────── */
+    .toolbar {
+      background: #f0f0f0;
+      border-bottom: 1.5px solid #ccc;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 10px;
+    }
+    .toolbar-nav { display: flex; align-items: center; gap: 4px; }
+    .tb-btn {
+      height: 26px;
+      padding: 0 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      background: #e8e8e8;
+      font-size: 11px;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+    .tb-sep { width: 1px; height: 20px; background: #ccc; margin: 0 4px; }
+    .toolbar-title {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+      text-align: center;
+    }
+    .ph { background: #ddd; border-radius: 3px; }
+
+    /* ── Main Layout ───────────────────────────────────────── */
+    .app-body {
+      display: flex;
+      height: 600px;
+    }
+
+    /* ── Content Area ──────────────────────────────────────── */
+    .content {
+      flex: 1;
+      background: #f5f5f5;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Content Header (Zeitraum-Tabs) ────────────────────── */
+    .content-header {
+      background: #fff;
+      border-bottom: 1.5px solid #e0e0e0;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    .time-tab {
+      padding: 0 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #888;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1.5px;
+      cursor: default;
+    }
+    .time-tab.active {
+      color: #222;
+      font-weight: 600;
+      border-bottom-color: #555;
+    }
+    .content-header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-ph {
+      height: 26px;
+      width: 110px;
+      background: #ebebeb;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* ── Dashboard Grid ────────────────────────────────────── */
+    .dashboard {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── Widget ────────────────────────────────────────────── */
+    .widget {
+      background: #fff;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 6px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .widget-title {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    /* ── KPI Row ───────────────────────────────────────────── */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .kpi-box {
+      background: #fff;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 6px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .kpi-lbl {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #999;
+    }
+    .kpi-val {
+      font-size: 26px;
+      font-weight: 600;
+      color: #2a2a2a;
+      margin-top: 6px;
+      letter-spacing: -.5px;
+    }
+    .kpi-sub {
+      font-size: 10px;
+      color: #bbb;
+      margin-top: 3px;
+    }
+
+    /* ── Charts Row ────────────────────────────────────────── */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* ── Bar Chart ─────────────────────────────────────────── */
+    .bar-chart-area {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 100px;
+      border-left: 1.5px solid #ccc;
+      border-bottom: 1.5px solid #ccc;
+      padding: 0 4px 0 6px;
+      margin-bottom: 4px;
+    }
+    .bar-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .bar-fill {
+      width: 100%;
+      background-color: #d4d4d4;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #c0c0c0 0px, #c0c0c0 2px,
+        #d8d8d8 2px, #d8d8d8 8px
+      );
+      border: 1px solid #bbb;
+      border-radius: 3px 3px 0 0;
+    }
+    .x-labels {
+      display: flex;
+      gap: 6px;
+      padding: 4px 4px 0 8px;
+    }
+    .x-lbl {
+      flex: 1;
+      text-align: center;
+      font-size: 9px;
+      color: #bbb;
+    }
+
+    /* ── Line Chart ────────────────────────────────────────── */
+    .line-chart-wrap { padding-bottom: 2px; }
+
+    /* ── Table Widget ──────────────────────────────────────── */
+    .tbl-head-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 100px;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid #eee;
+      margin-bottom: 4px;
+    }
+    .tbl-head-row span {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #bbb;
+    }
+    .col-amt { text-align: right; }
+    .col-badge { text-align: center; }
+
+    .tbl-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 100px;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .tbl-row:last-child { border-bottom: none; }
+
+    .cell-lines { display: flex; flex-direction: column; gap: 4px; }
+    .line-ph { background: #e0e0e0; border-radius: 2px; height: 9px; }
+    .num-ph  { background: #e0e0e0; border-radius: 2px; height: 9px; width: 52px; margin-left: auto; }
+    .tag-ph  {
+      height: 20px; width: 72px;
+      margin: 0 auto;
+      background: #ebebeb;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
+    }
+
+    /* ── Avg Footer ────────────────────────────────────────── */
+    .avg-row {
+      background: #fff;
+      border: 1.5px dashed #ccc;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 12px;
+      color: #bbb;
+      text-align: center;
+    }
+
+    /* ── Annotations ───────────────────────────────────────── */
+    .annotations {
+      width: 920px;
+      margin: 14px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      border-left: 3px solid #bbb;
+      padding-left: 12px;
+    }
+    .ann { font-size: 11px; color: #666; line-height: 1.8; }
+    .ann::before { content: '↳  '; color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="screen-label">Wireframe · Dashboard-Seite · Desktop</div>
+
+<!-- Desktop Window -->
+<div class="window">
+
+  <!-- Title Bar -->
+  <div class="titlebar">
+    <div class="win-controls">
+      <div class="wc wc-close"></div>
+      <div class="wc wc-min"></div>
+      <div class="wc wc-max"></div>
+    </div>
+    <div class="titlebar-title">JTL Wawi – BI-Tool</div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-nav">
+      <div class="tb-btn">← Zurück</div>
+      <div class="tb-sep"></div>
+      <div class="tb-btn">⟳</div>
+    </div>
+    <div class="toolbar-title">Sales-Übersicht</div>
+    <div class="ph" style="width:80px; height:22px;"></div>
+  </div>
+
+  <!-- App Body -->
+  <div class="app-body">
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- Content Header: Zeitraum-Tabs -->
+      <div class="content-header">
+        <div class="time-tab active">Täglich</div>
+        <div class="time-tab">Wöchentlich</div>
+        <div class="time-tab">Monatlich</div>
+        <div class="time-tab">Jährlich</div>
+        <div class="content-header-right">
+          <div class="filter-ph"></div>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard">
+
+        <!-- KPI Row -->
+        <div class="kpi-row">
+          <div class="kpi-box">
+            <div class="kpi-lbl">Umsatz</div>
+            <div class="kpi-val">0.000 €</div>
+            <div class="kpi-sub">[ Zeitraum ]</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">Bestellungen</div>
+            <div class="kpi-val">000</div>
+            <div class="kpi-sub">[ Zeitraum ]</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-lbl">Ø Bestellwert</div>
+            <div class="kpi-val">0.000 €</div>
+            <div class="kpi-sub">[ Zeitraum ]</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+
+          <!-- Bar Chart -->
+          <div class="widget">
+            <div class="widget-title">Umsatz – Letzte 7 Tage</div>
+            <div class="bar-chart-area">
+              <div class="bar-col"><div class="bar-fill" style="height:38%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:55%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:70%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:46%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:90%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:62%"></div></div>
+              <div class="bar-col"><div class="bar-fill" style="height:30%"></div></div>
+            </div>
+            <div class="x-labels">
+              <div class="x-lbl">Mo</div><div class="x-lbl">Di</div><div class="x-lbl">Mi</div>
+              <div class="x-lbl">Do</div><div class="x-lbl">Fr</div><div class="x-lbl">Sa</div>
+              <div class="x-lbl">So</div>
+            </div>
+          </div>
+
+          <!-- Line Chart -->
+          <div class="widget">
+            <div class="widget-title">Umsatz nach Monat</div>
+            <div class="line-chart-wrap">
+              <svg width="100%" height="110" viewBox="0 0 300 110" preserveAspectRatio="none" style="display:block;overflow:visible">
+                <!-- Grid -->
+                <line x1="24" y1="10" x2="296" y2="10" stroke="#f0f0f0" stroke-width="1"/>
+                <line x1="24" y1="30" x2="296" y2="30" stroke="#f0f0f0" stroke-width="1"/>
+                <line x1="24" y1="50" x2="296" y2="50" stroke="#f0f0f0" stroke-width="1"/>
+                <line x1="24" y1="70" x2="296" y2="70" stroke="#f0f0f0" stroke-width="1"/>
+                <!-- Axes -->
+                <line x1="24" y1="8"  x2="24"  y2="78" stroke="#ccc" stroke-width="1.5"/>
+                <line x1="24" y1="78" x2="298" y2="78" stroke="#ccc" stroke-width="1.5"/>
+                <!-- Fill -->
+                <polygon
+                  points="46,62 68,54 90,46 112,58 134,30 156,38 178,20 200,34 222,28 244,44 266,18 288,26 288,78 46,78"
+                  fill="#e4e4e4" opacity="0.7"
+                />
+                <!-- Line -->
+                <polyline
+                  points="46,62 68,54 90,46 112,58 134,30 156,38 178,20 200,34 222,28 244,44 266,18 288,26"
+                  fill="none" stroke="#777" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                />
+                <!-- Dots -->
+                <circle cx="46"  cy="62" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="68"  cy="54" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="90"  cy="46" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="112" cy="58" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="134" cy="30" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="156" cy="38" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="178" cy="20" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="200" cy="34" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="222" cy="28" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="244" cy="44" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="266" cy="18" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <circle cx="288" cy="26" r="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+                <!-- X-Labels -->
+                <text x="46"  y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Jan</text>
+                <text x="68"  y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Feb</text>
+                <text x="90"  y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Mrz</text>
+                <text x="112" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Apr</text>
+                <text x="134" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Mai</text>
+                <text x="156" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Jun</text>
+                <text x="178" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Jul</text>
+                <text x="200" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Aug</text>
+                <text x="222" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Sep</text>
+                <text x="244" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Okt</text>
+                <text x="266" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Nov</text>
+                <text x="288" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#bbb">Dez</text>
+              </svg>
+            </div>
+          </div>
+
+        </div><!-- /charts-row -->
+
+        <!-- Orders Table -->
+        <div class="widget">
+          <div class="widget-title">Letzte Bestellungen</div>
+          <div class="tbl-head-row">
+            <span>Kunde / Bestellung</span>
+            <span class="col-amt">Betrag</span>
+            <span class="col-badge">Status</span>
+          </div>
+          <div class="tbl-row">
+            <div class="cell-lines">
+              <div class="line-ph" style="width:72%"></div>
+              <div class="line-ph" style="width:48%"></div>
+            </div>
+            <div><div class="num-ph"></div></div>
+            <div><div class="tag-ph"></div></div>
+          </div>
+          <div class="tbl-row">
+            <div class="cell-lines">
+              <div class="line-ph" style="width:60%"></div>
+              <div class="line-ph" style="width:38%"></div>
+            </div>
+            <div><div class="num-ph"></div></div>
+            <div><div class="tag-ph"></div></div>
+          </div>
+          <div class="tbl-row">
+            <div class="cell-lines">
+              <div class="line-ph" style="width:78%"></div>
+              <div class="line-ph" style="width:52%"></div>
+            </div>
+            <div><div class="num-ph"></div></div>
+            <div><div class="tag-ph"></div></div>
+          </div>
+          <div class="tbl-row">
+            <div class="cell-lines">
+              <div class="line-ph" style="width:55%"></div>
+              <div class="line-ph" style="width:34%"></div>
+            </div>
+            <div><div class="num-ph"></div></div>
+            <div><div class="tag-ph"></div></div>
+          </div>
+        </div>
+
+        <!-- Avg Row -->
+        <div class="avg-row">Ø Bestellwert: [ Wert ]</div>
+
+      </div><!-- /dashboard -->
+    </div><!-- /content -->
+
+  </div><!-- /app-body -->
+</div><!-- /window -->
+
+<!-- Annotations -->
+<div class="annotations">
+  <div class="ann">Desktop-Fenster: JTL Wawi mit eingebetteter BI-Tool App (iframe)</div>
+  <div class="ann">Sidebar: Navigationspunkte Dashboard (aktiv), Produkte, Lager, Bestellungen</div>
+  <div class="ann">Zeitraum-Tabs: Täglich / Wöchentlich / Monatlich / Jährlich (Filterung per computeDateRange)</div>
+  <div class="ann">KPI-Kacheln: Umsatz, Bestellungen, Ø Bestellwert — Daten via GraphQL fetchDashboard()</div>
+  <div class="ann">Balkendiagramm: Umsatz letzte 7 Tage (Recharts BarChart), Liniendiagramm: Monatsumsatz</div>
+  <div class="ann">Tabelle: letzte Bestellungen mit Kunde, Betrag und Status-Badge</div>
+</div>
+
+</body>
+</html>

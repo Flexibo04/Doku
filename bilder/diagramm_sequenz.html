@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Sequenzdiagramm – JTL Cloud BI-Tool</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      padding: 20px 24px 16px;
+      font-family: Arial, sans-serif;
+      display: inline-block;
+    }
+    .diagram-heading {
+      font-size: 13px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 4px;
+    }
+    .diagram-sub {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="diagram-heading">Sequenzdiagramm: Authentifizierung &amp; Datenabruf</div>
+<div class="diagram-sub">JTL Cloud BI-Tool · Abschlussprojekt Felix Bock 2026</div>
+
+<svg width="760" height="542"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="Arial, sans-serif"
+     style="border:1px solid #ccc;">
+
+  <defs>
+    <!-- Filled arrowhead: sync/request message -->
+    <marker id="sync" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#000000"/>
+    </marker>
+    <!-- Open arrowhead: return/async message -->
+    <marker id="ret" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000000" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BACKGROUND
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="0" width="760" height="542" fill="#ffffff"/>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCENARIO 1 HEADER
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="0" width="760" height="20" fill="#f5f5f5" stroke="#cccccc" stroke-width="1"/>
+  <text x="12" y="14" font-size="11" font-weight="bold" fill="#333333">
+    Szenario 1: Verbindungsaufbau (POST /connect-tenant)
+  </text>
+
+  <!-- ── Actor: Frontend ── -->
+  <rect x="20" y="22" width="130" height="36" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <text x="85"  y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">Frontend</text>
+  <text x="85"  y="50" text-anchor="middle" font-size="10" fill="#666666">(React App)</text>
+
+  <!-- ── Actor: Backend ── -->
+  <rect x="300" y="22" width="150" height="36" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <text x="375" y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">Backend</text>
+  <text x="375" y="50" text-anchor="middle" font-size="10" fill="#666666">(Express / Node.js)</text>
+
+  <!-- ── Actor: JTL Cloud (JWKS) ── -->
+  <rect x="570" y="22" width="166" height="36" fill="#dae8fc" stroke="#000000" stroke-width="1"/>
+  <text x="653" y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">JTL Cloud</text>
+  <text x="653" y="50" text-anchor="middle" font-size="10" fill="#444444">(JWKS-Endpunkt)</text>
+
+  <!-- ── Lifelines ── -->
+  <line x1="85"  y1="58" x2="85"  y2="250" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="375" y1="58" x2="375" y2="250" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="653" y1="58" x2="653" y2="250" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ── Message 1: F → B: POST /connect-tenant ── -->
+  <line x1="85" y1="80" x2="371" y2="80" stroke="#000000" stroke-width="1.5" marker-end="url(#sync)"/>
+  <text x="228" y="74" text-anchor="middle" font-size="11" fill="#000000">1: POST /connect-tenant( sessionToken )</text>
+
+  <!-- ── Message 2: B → JWKS: GET JWKS ── -->
+  <line x1="375" y1="110" x2="649" y2="110" stroke="#000000" stroke-width="1.5" marker-end="url(#sync)"/>
+  <text x="512" y="104" text-anchor="middle" font-size="11" fill="#000000">2: GET /.well-known/jwks.json</text>
+
+  <!-- ── Message 3: JWKS → B (return, dashed) ── -->
+  <line x1="653" y1="142" x2="379" y2="142" stroke="#000000" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#ret)"/>
+  <text x="512" y="136" text-anchor="middle" font-size="11" fill="#000000">3: JWKS Public Keys  { keys: [...] }</text>
+
+  <!-- ── Activation bar on Backend lifeline ── -->
+  <rect x="371" y="152" width="8" height="80" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+
+  <!-- ── Note box: internal processing (folded corner) ── -->
+  <polygon points="390,152 588,152 600,164 600,232 390,232"
+           fill="#fffacd" stroke="#000000" stroke-width="1"/>
+  <polyline points="588,152 588,164 600,164" fill="none" stroke="#000000" stroke-width="1"/>
+  <text x="398" y="169" font-size="10" fill="#000000">① JWKS-Schlüssel importieren</text>
+  <text x="398" y="184" font-size="10" fill="#000000">② JWT-Signatur verifizieren (EdDSA / jose)</text>
+  <text x="398" y="199" font-size="10" fill="#000000">③ tenantId aus Payload extrahieren</text>
+  <text x="398" y="214" font-size="10" fill="#000000">④ tenantId → In-Memory-Map speichern</text>
+
+  <!-- ── Message 4: B → F (return, dashed) ── -->
+  <line x1="375" y1="252" x2="89" y2="252" stroke="#000000" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#ret)"/>
+  <text x="230" y="246" text-anchor="middle" font-size="11" fill="#000000">4: 200 OK  { success: true }</text>
+
+  <!-- ── Actor feet ── -->
+  <rect x="20"  y="258" width="130" height="10" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="300" y="258" width="150" height="10" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="570" y="258" width="166" height="10" fill="#dae8fc" stroke="#000000" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEPARATOR
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="274" width="760" height="22" fill="#f5f5f5" stroke="#cccccc" stroke-width="1"/>
+  <text x="12" y="289" font-size="11" font-weight="bold" fill="#333333">
+    Szenario 2: Datenabruf über GraphQL-Proxy (fetchDashboard)
+  </text>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCENARIO 2
+  ═══════════════════════════════════════════════════════ -->
+
+  <!-- ── Actors ── -->
+  <rect x="20"  y="298" width="130" height="36" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <text x="85"  y="312" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">Frontend</text>
+  <text x="85"  y="326" text-anchor="middle" font-size="10" fill="#666666">(React App)</text>
+
+  <rect x="300" y="298" width="150" height="36" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <text x="375" y="312" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">Backend</text>
+  <text x="375" y="326" text-anchor="middle" font-size="10" fill="#666666">(Express / Node.js)</text>
+
+  <rect x="555" y="298" width="181" height="36" fill="#dae8fc" stroke="#000000" stroke-width="1"/>
+  <text x="645" y="312" text-anchor="middle" font-size="12" font-weight="bold" fill="#000000">JTL Cloud</text>
+  <text x="645" y="326" text-anchor="middle" font-size="10" fill="#444444">(GraphQL-API)</text>
+
+  <!-- ── Lifelines ── -->
+  <line x1="85"  y1="334" x2="85"  y2="516" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="375" y1="334" x2="375" y2="516" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="645" y1="334" x2="645" y2="516" stroke="#000000" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ── Message 1: F → B: POST /graphql ── -->
+  <line x1="85" y1="358" x2="371" y2="358" stroke="#000000" stroke-width="1.5" marker-end="url(#sync)"/>
+  <text x="228" y="352" text-anchor="middle" font-size="11" fill="#000000">1: POST /graphql( query, sessionToken )</text>
+
+  <!-- ── Activation bar on Backend ── -->
+  <rect x="371" y="366" width="8" height="44" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+
+  <!-- ── Note: Token-Verifikation ── -->
+  <polygon points="390,366 606,366 618,378 618,410 390,410"
+           fill="#fffacd" stroke="#000000" stroke-width="1"/>
+  <polyline points="606,366 606,378 618,378" fill="none" stroke="#000000" stroke-width="1"/>
+  <text x="398" y="382" font-size="10" fill="#000000">① Token-Verifikation (JWKS / EdDSA)</text>
+  <text x="398" y="397" font-size="10" fill="#000000">② tenantId aus In-Memory-Map lesen</text>
+
+  <!-- ── Message 2: B → GraphQL ── -->
+  <line x1="375" y1="430" x2="641" y2="430" stroke="#000000" stroke-width="1.5" marker-end="url(#sync)"/>
+  <text x="510" y="424" text-anchor="middle" font-size="11" fill="#000000">2: POST /erp/v2/graphql</text>
+  <text x="510" y="440" text-anchor="middle" font-size="9"  fill="#666666">{ Authorization, X-Tenant-ID, query }</text>
+
+  <!-- ── Message 3: GraphQL → B (return, dashed) ── -->
+  <line x1="645" y1="462" x2="383" y2="462" stroke="#000000" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#ret)"/>
+  <text x="510" y="456" text-anchor="middle" font-size="11" fill="#000000">3: { data: { kpis, revenue, orders, … } }</text>
+
+  <!-- ── Message 4: B → F (return, dashed) ── -->
+  <line x1="375" y1="494" x2="89" y2="494" stroke="#000000" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#ret)"/>
+  <text x="230" y="488" text-anchor="middle" font-size="11" fill="#000000">4: { data: { … } }  (aggregiert)</text>
+
+  <!-- ── Actor feet ── -->
+  <rect x="20"  y="522" width="130" height="10" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="300" y="522" width="150" height="10" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="555" y="522" width="181" height="10" fill="#dae8fc" stroke="#000000" stroke-width="1"/>
+
+</svg>
+
+</body>
+</html>
