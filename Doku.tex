@@ -568,7 +568,7 @@ und werden von der JTL-Plattform situationsabhängig aufgerufen.
 \section{Lastenheft / Fachkonzept}
 
 Am Ende der Analysephase wurden die Anforderungen des Auftraggebers in einem Lastenheft
-festgehalten. Ein Auszug daraus befindet sich im Anhang~\ref{anhang:lastenheft}.
+festgehalten. Dieses befindet sich vollständig im Anhang~\ref{anhang:lastenheft}.
 
 % ============================================================
 %  4  ENTWURFSPHASE
@@ -871,8 +871,8 @@ bis zur verifizierten Tenant-Zuordnung.
 \section{Pflichtenheft}
 
 Am Ende der Entwurfsphase wurde ein Pflichtenheft erstellt, das beschreibt, wie und
-womit die Anforderungen des Lastenhefts umgesetzt werden. Ein Auszug befindet sich
-im Anhang~\ref{anhang:pflichtenheft}.
+womit die Anforderungen des Lastenhefts umgesetzt werden. Dieses befindet sich
+vollständig im Anhang~\ref{anhang:pflichtenheft}.
 
 % ============================================================
 %  5  IMPLEMENTIERUNGSPHASE
@@ -1175,7 +1175,8 @@ Bedienung des Dashboards. Die Kundendokumentation ist Projektbestandteil und mit
 5~Stunden in der Zeitplanung berücksichtigt (entspricht 6{,}25~\% der
 Gesamtprojektzeit und liegt damit innerhalb des zulässigen Rahmens von maximal
 10~\%). Die vollständige Entwicklerdokumentation befindet sich im
-Anhang~\ref{anhang:entwicklerdoku}.
+Anhang~\ref{anhang:entwicklerdoku}; das Benutzerhandbuch im
+Anhang~\ref{anhang:benutzerhandbuch}.
 
 % ============================================================
 %  8  FAZIT
@@ -1347,26 +1348,103 @@ mit überschaubarem Aufwand vorgenommen werden.
   \item Mitarbeiter \gls{ris} -- Fachgespräche, Code Review und Abnahme
 \end{itemize}
 
-\section{Lastenheft (Auszug)}
+\section{Lastenheft}
 \label{anhang:lastenheft}
 
-Im folgenden Auszug werden die Anforderungen definiert, die die zu entwickelnde
-Anwendung erfüllen muss.
+\textit{Da es sich um ein unternehmensinternes Entwicklungsprojekt der \gls{ris} handelt,
+wurde auf ein ausführliches externes Lastenheft verzichtet. Das nachfolgende Lastenheft
+dokumentiert die wesentlichen Anforderungen des Auftraggebers in vereinfachter Form.}
 
-\textbf{Anforderungen}
+\medskip
+\noindent\textbf{Projektbezeichnung:} JTL Wawi Cloud \gls{bi}-Tool \quad
+\textbf{Version:} 1.0, April 2026 \\
+\textbf{Auftraggeber:} \gls{ris} Web- \& Software-Development GmbH \& Co.\,KG \\
+\textbf{Auftragnehmer:} Felix Bock (Auszubildender)
 
-Von der Anwendung müssen folgende Anforderungen erfüllt werden:
+\subsection*{Ausgangssituation}
+
+Die Kunden der \gls{ris} verfügen über umfangreiche Geschäftsdaten innerhalb der
+JTL-Wawi (Umsätze, Bestellungen, Lagerbestände), haben jedoch keine Möglichkeit,
+diese mobil und visuell aufbereitet abzurufen. Die JTL-Cloud befindet sich in der
+Beta-Phase und stellt eine neue \gls{api}-Struktur bereit, die intern bei \gls{ris}
+bisher nicht erprobt wurde.
+
+\subsection*{Zielstellung}
+
+Ziel ist die Entwicklung eines Prototyps einer \gls{bi}-Applikation als JTL Cloud App,
+der ausgewählte Geschäftskennzahlen aus der JTL-Cloud-\gls{api} abruft und in einem
+Dashboard darstellt. Gleichzeitig soll die technische Umsetzbarkeit der
+JTL-Cloud-\gls{api} bewertet werden.
+
+\subsection*{Funktionale Anforderungen}
+
+\begin{table}[H]
+  \centering
+  \caption{Funktionale Anforderungen (Lastenheft)}
+  \label{tab:lastenheft_fa}
+  \begin{tabularx}{\textwidth}{l l X l}
+    \toprule
+    \textbf{ID} & \textbf{Priorität} & \textbf{Anforderung} & \textbf{Bereich} \\
+    \midrule
+    FA01 & Muss & Die Anwendung authentifiziert sich über
+                  OAuth2 (\texttt{client\_credentials}) gegenüber der JTL-Cloud-\gls{api}. & Sicherheit \\
+    FA02 & Muss & Die Anwendung ruft Umsatzdaten, Auftragszahlen und
+                  Lagerbestände automatisiert aus der JTL-Cloud-\gls{api} ab. & Daten \\
+    FA03 & Muss & Die abgerufenen Daten werden in einem grafischen Dashboard
+                  als \gls{kpi}-Karten und Diagramm visualisiert. & \gls{ui} \\
+    FA04 & Muss & Die App lässt sich als JTL Cloud App in die
+                  JTL-Cloud-Oberfläche einbetten. & Integration \\
+    FA05 & Muss & Die Session-Token-Verifikation erfolgt serverseitig über
+                  \gls{jwks}/EdDSA. & Sicherheit \\
+    FA06 & Muss & Jeder Mandant sieht ausschließlich seine eigenen Daten
+                  (Tenant-Isolation). & Sicherheit \\
+    FA07 & Soll & Ein Seitenleisten-Widget zeigt kontextsensitiv die
+                  Kunden-ID aus der JTL-Cloud an. & \gls{ui} \\
+    FA08 & Soll & Die Anwendung ist modular und erweiterbar aufgebaut. & Architektur \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Nicht-funktionale Anforderungen}
+
+\begin{table}[H]
+  \centering
+  \caption{Nicht-funktionale Anforderungen (Lastenheft)}
+  \label{tab:lastenheft_nfa}
+  \begin{tabularx}{\textwidth}{l l X}
+    \toprule
+    \textbf{ID} & \textbf{Bereich} & \textbf{Anforderung} \\
+    \midrule
+    NFA01 & Sicherheit  & Zugangsdaten (\texttt{CLIENT\_ID}, \texttt{CLIENT\_SECRET})
+                          dürfen ausschließlich serverseitig gespeichert werden. \\
+    NFA02 & Bedienbarkeit & Das Dashboard muss auf mobilen Endgeräten nutzbar sein
+                            (responsives Layout). \\
+    NFA03 & Performance  & Die Dashboard-Daten müssen innerhalb von 5 Sekunden nach
+                            dem Seitenaufruf angezeigt werden. \\
+    NFA04 & Technologie  & Die Anwendung basiert auf dem JTL-Cloud-App-Standard
+                           (AppBridge, JTL-\gls{ui}-Bibliothek). \\
+    NFA05 & Umfang       & Es wird ein Prototyp entwickelt, kein
+                           produktionsreifes System. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Systemgrenzen}
 
 \begin{itemize}[leftmargin=1.5em]
-  \item Die Anwendung muss sich über OAuth2 (\texttt{client\_credentials}) gegenüber
-        der JTL-Cloud authentifizieren.
-  \item Die Anwendung muss Umsatzdaten, Auftragszahlen und Lagerbestände aus der
-        JTL-Cloud-\gls{api} automatisiert abrufen.
-  \item Die Daten müssen in einem grafischen Dashboard visualisiert werden.
-  \item Das Dashboard muss auf mobilen Endgeräten nutzbar sein.
-  \item Der Benutzer muss Zeiträume für Auswertungen filtern können.
-  \item Die Anwendung soll modular und erweiterbar aufgebaut sein.
-  \item[\ldots]
+  \item Kein Echtzeit-Datenbetrieb für mehrere gleichzeitig aktive Mandanten (Prototyp)
+  \item Keine Anbindung externer Systeme außerhalb der JTL-Cloud-\gls{api}
+  \item Keine Veränderung bestehender JTL-Wawi-Daten
+  \item Kein produktionsreifer Deploymentbetrieb im Projektzeitraum
+\end{itemize}
+
+\subsection*{Lieferumfang}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Lauffähiger Prototyp (\textbf{Express}-Backend, \textbf{React}-Frontend, Monorepo-Struktur)
+  \item Entwicklerdokumentation (Anhang~\ref{anhang:entwicklerdoku})
+  \item Benutzerhandbuch (Anhang~\ref{anhang:benutzerhandbuch})
+  \item Projektbericht (IHK-Dokumentation)
 \end{itemize}
 
 \section{Nutzwertanalyse (vollständig)}
@@ -1384,10 +1462,141 @@ Von der Anwendung müssen folgende Anforderungen erfüllt werden:
   \label{fig:mockup}
 \end{figure}
 
-\section{Pflichtenheft (Auszug)}
+\section{Pflichtenheft}
 \label{anhang:pflichtenheft}
 
-\textit{[Pflichtenheft-Auszug hier einfügen]}
+\textit{Da es sich um ein unternehmensinternes Projekt handelt, orientiert sich das
+Pflichtenheft an der vereinfachten Fassung des Lastenhefts (Anhang~\ref{anhang:lastenheft})
+und beschreibt, wie die dort formulierten Anforderungen technisch umgesetzt werden.}
+
+\medskip
+\noindent\textbf{Projektbezeichnung:} JTL Wawi Cloud \gls{bi}-Tool \quad
+\textbf{Version:} 1.0, April 2026 \\
+\textbf{Auftragnehmer:} Felix Bock (Auszubildender) \quad
+\textbf{Auftraggeber:} \gls{ris} Web- \& Software-Development GmbH \& Co.\,KG
+
+\subsection*{Systemarchitektur}
+
+Die Anwendung wird als Monorepo mit zwei Paketen umgesetzt:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Backend} (\texttt{packages/backend}): \textbf{Node.js}/\textbf{Express}-Server auf Port~3005.
+        Zuständig für OAuth2-Authentifizierung, Session-Token-Verifikation und Proxying zur
+        JTL-Cloud-\gls{api}.
+  \item \textbf{Frontend} (\texttt{packages/frontend}): \textbf{React}-\gls{spa}, gebuildet mit \textbf{Vite}.
+        Zuständig für Darstellung der \gls{kpi}-Daten, Routing und AppBridge-Integration.
+\end{itemize}
+
+Das Backend ist der einzige Kommunikationspartner der JTL-Cloud-\gls{api}. Das Frontend
+kommuniziert ausschließlich mit dem eigenen Backend.
+
+\subsection*{Anforderungs-Umsetzungs-Matrix}
+
+\begin{longtable}{@{} l l p{9cm} @{}}
+  \caption{Anforderungs-Umsetzungs-Matrix (Pflichtenheft)}
+  \label{tab:pflichtenheft_matrix} \\
+  \toprule
+  \textbf{Anf.-ID} & \textbf{Komponente} & \textbf{Technische Umsetzung} \\
+  \midrule
+  \endfirsthead
+  \multicolumn{3}{l}{\small\textit{Fortsetzung von vorheriger Seite}} \\
+  \toprule
+  \textbf{Anf.-ID} & \textbf{Komponente} & \textbf{Technische Umsetzung} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{3}{r}{\small\textit{Fortsetzung auf nächster Seite}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  FA01 & Backend & Funktion \texttt{getJwt()} in \texttt{index.ts}: HTTP-POST an
+                  \texttt{auth.jtl-cloud.com/oauth2/token} mit Basic-Auth-Header
+                  (\texttt{CLIENT\_ID}/\texttt{CLIENT\_SECRET}) und Grant-Type
+                  \texttt{client\_credentials}. \\[4pt]
+  FA02 & Backend & \texttt{POST /graphql}-Endpunkt: empfängt GraphQL-Abfragen vom
+                  Frontend, fügt Access-Token und Tenant-ID-Header hinzu und
+                  leitet die Anfrage an die JTL-Cloud-ERP-\gls{api} weiter. \\[4pt]
+  FA03 & Frontend & \texttt{fetchDashboard()} in \texttt{api.ts}: sendet fünf parallele
+                   GraphQL-Abfragen (\texttt{Promise.all}). Die Ergebnisse werden als
+                   \gls{kpi}-Karten und als \textbf{Recharts}-Balkendiagramm dargestellt. \\[4pt]
+  FA04 & Frontend & \texttt{App.tsx}: AppBridge-Initialisierung über
+                   \texttt{@jtl-software/cloud-apps-core}; URL-basiertes Routing
+                   auf die Seiten \texttt{/erp-page}, \texttt{/setup}, \texttt{/pane-page}. \\[4pt]
+  FA05 & Backend & Funktion \texttt{verifySessionTokenAndExtractPayload()}: lädt \gls{jwks}
+                  von \texttt{api.jtl-cloud.com/account/.well-known/jwks.json},
+                  verifiziert das \gls{jwt} per EdDSA und extrahiert \texttt{tenantId}. \\[4pt]
+  FA06 & Backend & Die \texttt{tenantId} wird je Verbindung in einer In-Memory-Map
+                  gespeichert und bei jedem API-Aufruf als \texttt{X-Tenant-ID}-Header
+                  an die JTL-Cloud-\gls{api} übergeben. \\[4pt]
+  FA07 & Frontend & \texttt{pane-page}: abonniert das \texttt{shell:customer-context-changed}-Event
+                   der AppBridge und zeigt die aktuelle Kunden-ID im
+                   Seitenleisten-Widget an. \\[4pt]
+  FA08 & Backend/ Frontend & Monorepo-Struktur mit \textbf{Turbo}: Backend- und
+                            Frontend-Paket können unabhängig weiterentwickelt werden.
+                            Neue Seiten im Frontend werden durch eine Route in
+                            \texttt{App.tsx} registriert. \\[4pt]
+  NFA01 & Backend & \texttt{CLIENT\_ID} und \texttt{CLIENT\_SECRET} werden ausschließlich
+                    über \texttt{.env}-Datei im Backend-Paket eingelesen
+                    (\texttt{process.env}); das Frontend erhält keine Zugangsdaten. \\[4pt]
+  NFA02 & Frontend & \textbf{Tailwind CSS} 4.x mit responsiven Breakpoints; das
+                     Dashboard-Grid bricht auf schmalen Bildschirmen auf eine Spalte um. \\[4pt]
+  NFA03 & Frontend & Fünf parallele GraphQL-Anfragen via \texttt{Promise.all}; durch
+                     parallele Ausführung wird die Ladezeit minimiert. \\[4pt]
+  NFA04 & Frontend & Verwendung von \texttt{@jtl-software/cloud-apps-core} (AppBridge)
+                    und \texttt{@jtl-software/platform-ui-react} (\gls{ui}-Komponenten). \\[4pt]
+  NFA05 & Gesamt & Kein produktionsreifes Deployment; die Anwendung läuft lokal
+                  und kann direkt im JTL Cloud App Developer Portal als
+                  Entwicklungs-App registriert werden. \\
+\end{longtable}
+
+\subsection*{Sicherheitskonzept}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Zugangsdaten:} \texttt{CLIENT\_ID} und \texttt{CLIENT\_SECRET} werden
+        ausschließlich serverseitig über Umgebungsvariablen eingelesen und nie an
+        den Client übertragen.
+  \item \textbf{Token-Verifikation:} Jede Frontend-Anfrage übergibt einen Session-Token
+        (\gls{jwt}), den das Backend kryptographisch gegen den öffentlichen Schlüssel des
+        JTL-\gls{jwks}-Endpunkts verifiziert (EdDSA-Algorithmus). Erst nach erfolgreicher
+        Verifikation wird die Anfrage an die JTL-Cloud-\gls{api} weitergeleitet.
+  \item \textbf{Tenant-Isolation:} Jedem Session-Token ist eine \texttt{tenantId} zugeordnet.
+        Das Backend übergibt diese als \texttt{X-Tenant-ID}-Header — damit werden
+        ausschließlich Daten des jeweiligen Mandanten zurückgegeben.
+  \item \textbf{\gls{cors}:} Das Backend erlaubt Anfragen nur vom eigenen Frontend-Ursprung.
+\end{itemize}
+
+\subsection*{Qualitätssicherung und Testkonzept}
+
+Die Qualitätssicherung erfolgt durch manuelle Funktionsprüfung auf zwei Ebenen:
+
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Backend-Tests:} Alle drei Endpunkte (\texttt{/connect-tenant},
+        \texttt{/graphql}, \texttt{/erp-info}) werden mit \textbf{Bruno} auf korrekte
+        Responses, HTTP-Statuscodes und Fehlerbehandlung geprüft (u.\,a.\ gültige und
+        ungültige Tokens, fehlende Parameter).
+  \item \textbf{Frontend-Tests:} Die Frontend-Seiten werden durch manuelle Durchführung
+        der definierten Anwendungsfälle getestet. Dabei wird insbesondere die korrekte
+        Darstellung der \gls{kpi}-Karten, des Balkendiagramms und der Auftragstabelle
+        geprüft.
+\end{enumerate}
+
+\noindent\textbf{Vitest} ist als Test-Framework im Frontend-Paket eingerichtet
+(\texttt{"test": "vitest run"} in \texttt{package.json}) und steht für künftige
+automatisierte Unit-Tests der Hilfsfunktionen (\texttt{computeDateRange}, Formatter)
+bereit. Im Rahmen des Prototyps wurde auf automatisierte Tests verzichtet.
+
+\subsection*{Prototyp-Einschränkungen}
+
+Da es sich explizit um einen Prototyp handelt (vgl.\ NFA05), gelten folgende
+Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Tenant-Mapping wird im Arbeitsspeicher (In-Memory-Map) gehalten — kein
+        persistenter Datenbankzugriff.
+  \item Keine Fehlerbehandlung für abgelaufene Access-Tokens außerhalb des
+        unmittelbaren Request-Zyklus (kein automatischer Token-Refresh).
+  \item Kein Produktions-Deployment; kein HTTPS-Terminations-Setup beschrieben.
+\end{itemize}
 
 \section{Iterationsplan}
 \label{anhang:iterationsplan}
@@ -1664,35 +1873,339 @@ createRoot(document.getElementById('root')!).render(
 \section{Entwicklerdokumentation}
 \label{anhang:entwicklerdoku}
 
-Die Entwicklerdokumentation wurde mithilfe von TypeScript-Typisierungen und
-JSDoc-Kommentaren erstellt. Nachfolgend die dokumentierten Backend-Funktionen:
+Diese Entwicklerdokumentation richtet sich an Entwickler der \gls{ris}, die das Projekt
+weiterentwickeln oder in eine eigene Infrastruktur integrieren möchten. Sie beschreibt
+Einrichtung, \gls{api}-Referenz und zentrale Datenstrukturen.
 
-\begin{lstlisting}[language=JavaScript, caption={TypeScript-Dokumentation (Backend)}]
-/**
- * Verifiziert ein Session-Token und extrahiert die Payload.
- * Nutzt das JWKS vom JTL-Auth-Server zur EdDSA-Verifikation.
- *
- * @param sessionToken - Das zu verifizierende JWT
- * @returns Promise mit userId und tenantId
- * @throws Error bei ungueltigem Token
- */
-async function verifySessionToken(
-  sessionToken: string
-): Promise<SessionTokenPayload> {
-  // Implementierung...
-}
+\subsection*{Voraussetzungen und Einrichtung}
 
-/**
- * Ruft ein OAuth2 Access-Token vom JTL-Auth-Server ab.
- * Verwendet den client_credentials Grant-Type.
- *
- * @returns Promise mit dem Access-Token-String
- * @throws Error bei fehlenden Credentials oder API-Fehler
- */
-export async function getJwt(): Promise<string> {
-  // Implementierung...
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Node.js} $\geq$\,23 und \textbf{npm} $\geq$\,10 müssen installiert sein.
+  \item Repository klonen und Abhängigkeiten installieren:
+\end{enumerate}
+
+\begin{lstlisting}[language=bash, caption={Projekt einrichten}]
+git clone <repository-url>
+cd felix-projekt
+npm install
+\end{lstlisting}
+
+\begin{enumerate}[leftmargin=1.5em]
+  \setcounter{enumi}{2}
+  \item Im Verzeichnis \texttt{packages/backend/} eine \texttt{.env}-Datei mit den
+        Zugangsdaten aus dem JTL Developer Portal anlegen:
+\end{enumerate}
+
+\begin{lstlisting}[language=bash, caption={Umgebungsvariablen (packages/backend/.env)}]
+CLIENT_ID=<app-client-id-aus-dem-jtl-developer-portal>
+CLIENT_SECRET=<app-client-secret-aus-dem-jtl-developer-portal>
+\end{lstlisting}
+
+\begin{enumerate}[leftmargin=1.5em]
+  \setcounter{enumi}{3}
+  \item Optionale Frontend-Variable: Zeigt das Frontend auf ein anderes Backend,
+        kann in \texttt{packages/frontend/.env} gesetzt werden:
+\end{enumerate}
+
+\begin{lstlisting}[language=bash, caption={Optionale Frontend-Variable}]
+VITE_API_URL=http://localhost:3005   # Standard, kann weggelassen werden
+\end{lstlisting}
+
+\begin{enumerate}[leftmargin=1.5em]
+  \setcounter{enumi}{4}
+  \item Entwicklungsserver starten (startet Backend und Frontend parallel via \textbf{Turbo}):
+\end{enumerate}
+
+\begin{lstlisting}[language=bash, caption={Entwicklungsserver starten}]
+npm run dev
+\end{lstlisting}
+
+Das Backend ist anschließend unter \texttt{http://localhost:3005} erreichbar,
+das Frontend unter \texttt{http://localhost:5173}.
+
+\subsection*{Backend-\gls{api}-Referenz}
+
+Alle Endpunkte sind unter \texttt{http://localhost:3005} erreichbar. Der
+\texttt{session-token}-Header muss bei allen schreibenden Aufrufen übergeben werden.
+
+\paragraph{\texttt{POST /connect-tenant}}
+Verknüpft einen Session-Token mit einer Mandanten-Kennung.
+
+\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant — Beispiel-Request}]
+POST /connect-tenant
+Content-Type: application/json
+
+{
+  "sessionToken": "<jwt-vom-appbridge-event>"
 }
 \end{lstlisting}
+
+\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant — Erfolgs-Response}]
+HTTP 200 OK
+{
+  "tenantId": "tenant-1746351234567"
+}
+\end{lstlisting}
+
+Fehlerfall: Ungültiger Token liefert \texttt{HTTP 401} mit \texttt{\{"error": "..."\}}.
+
+\paragraph{\texttt{POST /graphql}}
+Proxied eine GraphQL-Abfrage an die JTL-Cloud-ERP-\gls{api}. Das Backend fügt
+Access-Token und \texttt{X-Tenant-ID}-Header automatisch hinzu.
+
+\begin{lstlisting}[language=JavaScript, caption={POST /graphql — Beispiel-Request}]
+POST /graphql
+Content-Type: application/json
+session-token: <jwt-vom-appbridge-event>
+
+{
+  "query": "{ orders(first: 5) { nodes { orderId status } } }",
+  "variables": {}
+}
+\end{lstlisting}
+
+Die Response entspricht direkt der GraphQL-Response der JTL-Cloud-\gls{api}
+(\texttt{\{"data": \{...\}, "errors": [...]\}}).
+
+\paragraph{\texttt{ALL /erp-info/:tenantId/:endpoint}}
+Generischer REST-Proxy für künftige Erweiterungen. Leitet beliebige HTTP-Methoden
+an \texttt{https://api.jtl-cloud.com/erp/:endpoint} weiter.
+Wird vom aktuellen Dashboard-Frontend nicht genutzt.
+
+\subsection*{Frontend-Funktionsreferenz}
+
+Alle nachfolgenden Funktionen befinden sich in \texttt{packages/frontend/src/common/api.ts}.
+
+\begin{lstlisting}[language=JavaScript, caption={JSDoc-Dokumentation: fetchDashboard()}]
+/**
+ * Ruft alle Dashboard-KPIs eines Mandanten parallel ab.
+ * Fuehrt fuenf GraphQL-Abfragen gleichzeitig aus (Promise.all).
+ *
+ * @param sessionToken - Aktueller Session-Token aus der AppBridge
+ * @param range - Zeitraum fuer Datenabruf ('daily'|'weekly'|
+ *                'monthly'|'yearly'|'custom')
+ * @returns Promise<DashboardKPIs> mit allen KPI-Werten
+ * @throws Error bei Netzwerkfehler oder ungueltigem Token
+ *
+ * @example
+ * const data = await fetchDashboard(token, 'monthly');
+ * console.log(data.totalRevenue); // z. B. 48320.50
+ */
+async function fetchDashboard(
+  sessionToken: string,
+  range: DateRangeMode
+): Promise<DashboardKPIs>
+\end{lstlisting}
+
+\begin{lstlisting}[language=JavaScript, caption={JSDoc-Dokumentation: computeDateRange()}]
+/**
+ * Berechnet Start- und Enddatum fuer einen benannten Zeitraum.
+ *
+ * @param mode - 'daily' | 'weekly' | 'monthly' | 'yearly' | 'custom'
+ * @param customFrom - Nur bei mode='custom': ISO-Datumsstring Start
+ * @param customTo   - Nur bei mode='custom': ISO-Datumsstring Ende
+ * @returns DateRange mit { from: string, to: string } (ISO-8601)
+ *
+ * @example
+ * computeDateRange('monthly');
+ * // { from: '2026-04-01', to: '2026-04-30' }
+ *
+ * computeDateRange('custom', '2026-01-01', '2026-03-31');
+ * // { from: '2026-01-01', to: '2026-03-31' }
+ */
+function computeDateRange(
+  mode: DateRangeMode,
+  customFrom?: string,
+  customTo?: string
+): DateRange
+\end{lstlisting}
+
+\begin{lstlisting}[language=JavaScript, caption={JSDoc-Dokumentation: Hilfsfunktionen}]
+/**
+ * Formatiert einen Eurobetrag als deutschsprachigen Geldwert.
+ * @param value - Betrag in Euro (Zahl)
+ * @returns Formatierter String, z. B. "1.234,56 EUR"
+ */
+function formatEur(value: number): string
+
+/**
+ * Formatiert ein ISO-Datum als deutsches Kurzformat.
+ * @param iso - ISO-8601-Datumsstring
+ * @returns Formatierter String, z. B. "15.04.2026"
+ */
+function formatDate(iso: string): string
+\end{lstlisting}
+
+\subsection*{TypeScript-Schnittstellen}
+
+\begin{lstlisting}[language=JavaScript, caption={TypeScript-Interfaces (api.ts)}]
+/** Alle Dashboard-Kennzahlen eines Mandanten */
+interface DashboardKPIs {
+  totalRevenue:   number;       // Gesamtumsatz im Zeitraum
+  orderCount:     number;       // Anzahl Auftraege
+  avgOrderValue:  number;       // Durchschnittlicher Auftragswert
+  revenueByDay:   RevenuePoint[];  // Umsatz je Tag (fuer Balkendiagramm)
+  topProducts:    TopProduct[];    // Top-Produkte nach Umsatz
+  recentOrders:   Order[];         // Letzte Auftraege
+  lowStockItems:  LowStockItem[];  // Artikel unter Mindestbestand
+}
+
+/** Einzelner Datenpunkt fuer das Umsatzdiagramm */
+interface RevenuePoint {
+  date:    string;  // ISO-Datum
+  revenue: number;  // Tagesumsatz in Euro
+}
+
+/** Auftragsstatus-Mapping */
+type OrderStatus =
+  'open' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled';
+
+/** Einzelner Auftrag */
+interface Order {
+  orderId:    string;
+  status:     OrderStatus;
+  totalValue: number;
+  orderDate:  string;
+}
+
+/** Artikel mit niedrigem Lagerbestand */
+interface LowStockItem {
+  productId:    string;
+  productName:  string;
+  stockQuantity: number;
+  minStock:     number;
+}
+\end{lstlisting}
+
+\subsection*{Test-Setup}
+
+\textbf{Vitest} ist als Test-Framework konfiguriert und kann über das npm-Script
+gestartet werden, sobald Testdateien angelegt werden:
+
+\begin{lstlisting}[language=bash, caption={Test-Script starten (packages/frontend)}]
+cd packages/frontend
+npx vitest run
+\end{lstlisting}
+
+Für künftige Tests empfehlen sich Unit-Tests der Hilfsfunktionen \texttt{computeDateRange},
+\texttt{formatEur} und \texttt{formatDate} in
+\texttt{packages/frontend/src/\_\_tests\_\_/}.
+
+\section{Benutzerhandbuch}
+\label{anhang:benutzerhandbuch}
+
+Dieses Benutzerhandbuch richtet sich an JTL-Händler, die das BI-Dashboard als
+JTL Cloud App verwenden. Es beschreibt, wie die Anwendung gestartet, eingerichtet
+und im Alltag genutzt wird.
+
+\subsection*{Über die Anwendung}
+
+Das JTL Wawi Cloud \gls{bi}-Tool ist eine Cloud App, die direkt in der
+JTL-Cloud-Oberfläche eingebettet läuft. Es zeigt ausgewählte Geschäftskennzahlen
+des verbundenen JTL-Wawi-Mandanten in einem übersichtlichen Dashboard: Umsatz,
+Auftragsanzahl, durchschnittlicher Auftragswert, Top-Produkte, aktuelle Aufträge
+und Artikel mit niedrigem Lagerbestand.
+
+\subsection*{Voraussetzungen}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Aktiver JTL-Cloud-Zugang mit installierter App
+  \item JTL-Wawi-Mandant mit vorhandenen Auftragsdaten
+  \item Unterstützter Browser: aktuelle Version von Chrome, Firefox oder Edge
+\end{itemize}
+
+\subsection*{Ersteinrichtung}
+
+Beim ersten Aufruf der App öffnet sich automatisch die \textbf{Setup-Seite}:
+
+\begin{enumerate}[leftmargin=1.5em]
+  \item Klick auf \textit{„Verbindung herstellen"}: Die App überträgt den
+        Session-Token aus der JTL-Cloud automatisch an das Backend und legt
+        eine Mandantenverbindung an.
+  \item Nach erfolgreicher Verifikation erscheint die Bestätigung
+        \textit{„Verbindung hergestellt"} und die \textbf{ID des Mandanten}.
+  \item Über den Link \textit{„Zum Dashboard"} wechselt die App zur
+        Dashboard-Ansicht. Bei jedem weiteren Aufruf wird die Setup-Seite
+        automatisch übersprungen, sofern die Session noch gültig ist.
+\end{enumerate}
+
+\subsection*{Das Dashboard}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{image}
+  \caption{Dashboard-Ansicht (Screenshot)}
+  \label{fig:screenshot_dashboard}
+\end{figure}
+
+Das Dashboard besteht aus vier Bereichen:
+
+\paragraph{\gls{kpi}-Karten (oben)}
+Vier Kennzahlenkarten zeigen auf einen Blick:
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Gesamtumsatz} im aktuellen Monat in Euro
+  \item \textbf{Anzahl Aufträge} im aktuellen Monat
+  \item \textbf{Durchschnittlicher Auftragswert} in Euro
+  \item \textbf{Artikel unter Mindestbestand} (Anzahl)
+\end{itemize}
+
+\paragraph{Umsatzdiagramm (Mitte)}
+Ein Balkendiagramm stellt den täglichen Umsatzverlauf des aktuellen Monats dar.
+Die horizontale Achse zeigt das Datum, die vertikale Achse den Tagesumsatz in Euro.
+
+\paragraph{Letzte Aufträge (unten links)}
+Eine Tabelle listet die zuletzt eingegangenen Aufträge mit Auftrags-ID,
+Datum, Gesamtwert und aktuellem Status. Der Status wird farbig hervorgehoben:
+
+\begin{table}[H]
+  \centering
+  \caption{Auftragsstatus im Dashboard}
+  \label{tab:auftragsstatus}
+  \begin{tabularx}{0.65\textwidth}{l X}
+    \toprule
+    \textbf{Status} & \textbf{Bedeutung} \\
+    \midrule
+    Offen       & Auftrag eingegangen, noch nicht bestätigt \\
+    Bestätigt   & Auftrag angenommen, in Bearbeitung \\
+    Versendet   & Paket übergeben an Versanddienstleister \\
+    Geliefert   & Zustellung bestätigt \\
+    Storniert   & Auftrag wurde storniert \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\paragraph{Niedrige Lagerbestände (unten rechts)}
+Eine Liste zeigt alle Artikel, deren aktueller Lagerbestand den definierten
+Mindestbestand unterschreitet, mit Produktname und verbleibendem Bestand.
+
+\subsection*{Seitenleisten-Widget (Pane)}
+
+Das Seitenleisten-Widget erscheint innerhalb der JTL-Cloud-Oberfläche in der
+rechten Seitenleiste. Es zeigt kontextsensitiv die Kunden-ID des gerade in der
+JTL-Cloud geöffneten Kundendatensatzes an. Das Widget aktualisiert sich automatisch,
+wenn in der JTL-Cloud zu einem anderen Kunden gewechselt wird.
+
+\subsection*{Fehlerbehebung}
+
+\begin{table}[H]
+  \centering
+  \caption{Häufige Probleme und Lösungen}
+  \label{tab:fehlerbehebung}
+  \begin{tabularx}{\textwidth}{l X}
+    \toprule
+    \textbf{Problem} & \textbf{Lösung} \\
+    \midrule
+    Dashboard zeigt keine Daten & Seite neu laden; bei erneutem Ausbleiben
+                                   die Setup-Seite erneut aufrufen. \\
+    Fehlermeldung „Token ungültig" & JTL-Cloud-Sitzung abgelaufen — erneut
+                                      in der JTL-Cloud anmelden. \\
+    Kein Umsatz angezeigt & Prüfen ob im gewählten Zeitraum Aufträge im
+                              JTL-Wawi-Mandanten vorliegen. \\
+    App lädt nicht & Sicherstellen, dass das Backend unter
+                      \texttt{http://localhost:3005} erreichbar ist. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
 
 \section{Eigenständigkeitserklärung}
 

@@ -55,21 +55,29 @@
 \contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{25}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{26}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Lastenheft (Auszug)}{27}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Nutzwertanalyse (vollständig)}{27}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Mockups der Benutzeroberfläche}{28}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Pflichtenheft (Auszug)}{28}{section.A.6}%
-\contentsline {section}{\numberline {A.7}Iterationsplan}{29}{section.A.7}%
-\contentsline {section}{\numberline {A.8}Quellcode-Auszüge}{30}{section.A.8}%
-\contentsline {subsection}{\numberline {A.8.1}Backend: OAuth2-Token-Anfrage}{30}{subsection.A.8.1}%
-\contentsline {subsection}{\numberline {A.8.2}Backend: Session-Token-Verifikation}{30}{subsection.A.8.2}%
-\contentsline {subsection}{\numberline {A.8.3}Backend: ERP-API-Proxy-Route}{31}{subsection.A.8.3}%
-\contentsline {subsection}{\numberline {A.8.4}Backend: Tenant-Mapping}{31}{subsection.A.8.4}%
-\contentsline {subsection}{\numberline {A.8.5}Frontend: App-Routing}{31}{subsection.A.8.5}%
-\contentsline {subsection}{\numberline {A.8.6}Frontend: Setup-Seite}{32}{subsection.A.8.6}%
-\contentsline {subsection}{\numberline {A.8.7}Frontend: Pane-Widget}{32}{subsection.A.8.7}%
-\contentsline {subsection}{\numberline {A.8.8}Frontend: ERP-Dashboard-Komponente}{33}{subsection.A.8.8}%
-\contentsline {subsection}{\numberline {A.8.9}Frontend: React-Einstiegspunkt}{34}{subsection.A.8.9}%
-\contentsline {section}{\numberline {A.9}Screenshot der Anwendung}{35}{section.A.9}%
-\contentsline {section}{\numberline {A.10}Entwicklerdokumentation}{35}{section.A.10}%
-\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{36}{section.A.11}%
+\contentsline {section}{\numberline {A.3}Lastenheft}{27}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Nutzwertanalyse (vollständig)}{29}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Mockups der Benutzeroberfläche}{29}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Pflichtenheft}{29}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Iterationsplan}{33}{section.A.7}%
+\contentsline {section}{\numberline {A.8}Quellcode-Auszüge}{34}{section.A.8}%
+\contentsline {subsection}{\numberline {A.8.1}Backend: OAuth2-Token-Anfrage}{34}{subsection.A.8.1}%
+\contentsline {subsection}{\numberline {A.8.2}Backend: Session-Token-Verifikation}{34}{subsection.A.8.2}%
+\contentsline {subsection}{\numberline {A.8.3}Backend: ERP-API-Proxy-Route}{35}{subsection.A.8.3}%
+\contentsline {subsection}{\numberline {A.8.4}Backend: Tenant-Mapping}{35}{subsection.A.8.4}%
+\contentsline {subsection}{\numberline {A.8.5}Frontend: App-Routing}{35}{subsection.A.8.5}%
+\contentsline {subsection}{\numberline {A.8.6}Frontend: Setup-Seite}{36}{subsection.A.8.6}%
+\contentsline {subsection}{\numberline {A.8.7}Frontend: Pane-Widget}{36}{subsection.A.8.7}%
+\contentsline {subsection}{\numberline {A.8.8}Frontend: ERP-Dashboard-Komponente}{37}{subsection.A.8.8}%
+\contentsline {subsection}{\numberline {A.8.9}Frontend: React-Einstiegspunkt}{38}{subsection.A.8.9}%
+\contentsline {section}{\numberline {A.9}Screenshot der Anwendung}{39}{section.A.9}%
+\contentsline {section}{\numberline {A.10}Entwicklerdokumentation}{39}{section.A.10}%
+\contentsline {paragraph}{\texttt {POST /connect-tenant}}{40}{lstnumber.A.13.1}%
+\contentsline {paragraph}{\texttt {POST /graphql}}{41}{lstnumber.A.15.4}%
+\contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{41}{lstnumber.A.16.8}%
+\contentsline {section}{\numberline {A.11}Benutzerhandbuch}{43}{section.A.11}%
+\contentsline {paragraph}{\gls {kpi}-Karten (oben)}{45}{figure.caption.19}%
+\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{45}{figure.caption.19}%
+\contentsline {paragraph}{Letzte Aufträge (unten links)}{45}{figure.caption.19}%
+\contentsline {paragraph}{Niedrige Lagerbestände (unten rechts)}{46}{table.caption.20}%
+\contentsline {section}{\numberline {A.12}Eigenständigkeitserklärung}{46}{section.A.12}%
