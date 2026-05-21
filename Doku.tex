@@ -605,18 +605,18 @@ JTL-Paket \texttt{@jtl-software/platform-ui-react} stellt ausschließlich React-
 UI-Komponenten bereit, und die AppBridge-Integration in \texttt{@jtl-software/cloud-apps-core}
 setzt React-Hooks voraus. Der Einsatz eines anderen Frameworks hätte die Kompatibilität
 mit diesen Plattformpaketen ausgeschlossen, weshalb eine Alternativbewertung entfällt.
-Darüber hinaus fügt sich React inhaltlich gut in das Projekt ein: Die verwendete
-Diagrammbibliothek Recharts ist eine React-native Bibliothek und ist unmittelbar auf
-Dashboard-Anwendungsfälle ausgelegt. React bietet erstklassige TypeScript-Unterstützung,
+Darüber hinaus fügt sich \textbf{React} inhaltlich gut in das Projekt ein: Die verwendete
+Diagrammbibliothek \textbf{Recharts} ist eine React-native Bibliothek und ist unmittelbar auf
+Dashboard-Anwendungsfälle ausgelegt. \textbf{React} bietet erstklassige TypeScript-Unterstützung,
 was angesichts des durchgehenden TypeScript-Einsatzes im gesamten Monorepo die
-Konsistenz erhöht. Schließlich begünstigte die weite Verbreitung von React den engen
+Konsistenz erhöht. Schließlich begünstigte die weite Verbreitung von \textbf{React} den engen
 Zeitrahmen von 80\,h, da auf eine umfangreiche Dokumentation und erprobte Lösungsmuster
 zurückgegriffen werden konnte.
 
 Für das Backend-Framework wurde eine Nutzwertanalyse\footnote{Vgl.
 Anhang~\ref{anhang:nutzwert}.} zwischen den JavaScript-Frameworks
 \textbf{Express}, \textbf{NestJS} und \textbf{Fastify} durchgeführt, da alle drei
-im gleichen Ökosystem (Node.js / TypeScript) betrieben werden und somit eine
+im gleichen Ökosystem (\textbf{Node.js} / \textbf{TypeScript}) betrieben werden und somit eine
 vergleichbare Grundlage bilden. Die Gewichtung (Gew.) spiegelt die Bedeutung
 des jeweiligen Kriteriums für dieses Projekt wider; der Höchstwert 5 bedeutet
 unverzichtbar, 1 bedeutet vernachlässigbar. Die Bewertung (Bew.) gibt an, wie
@@ -648,38 +648,38 @@ Summe aller Gewichtungen.
   \end{tabularx}
 \end{table}
 
-Express erzielt mit einem Nutzwert von 4{,}82 das beste Ergebnis und wird daher
+\textbf{Express} erzielt mit einem Nutzwert von 4{,}82 das beste Ergebnis und wird daher
 für das Backend eingesetzt. Die fünf Kriterien wurden wie folgt gewichtet und
 bewertet:
 
 \textbf{Bibliotheks-Kompatibilität (Gew. 5):} Die im Backend verwendeten Pakete
 \texttt{jose} und \texttt{graphql-request} sind Standard-npm-Pakete, die mit
-jedem Node.js-Framework funktionieren. Express erhält die volle Punktzahl, da
+jedem Node.js-Framework funktionieren. \textbf{Express} erhält die volle Punktzahl, da
 es der am weitesten verbreitete Standard ist, für den alle Bibliotheken primär
-getestet sind; NestJS erhält einen Punkt Abzug, weil die zusätzliche
+getestet sind; \textbf{NestJS} erhält einen Punkt Abzug, weil die zusätzliche
 Abstraktionsschicht gelegentlich Anpassungen erfordert.
 
 \textbf{Einarbeitungsaufwand (Gew. 5):} Innerhalb des 80-Stunden-Zeitbudgets
-war minimaler Overhead entscheidend. Express erfordert kein
+war minimaler Overhead entscheidend. \textbf{Express} erfordert kein
 Framework-spezifisches Architekturmuster und erlaubt den sofortigen Einstieg.
-NestJS verlangt Kenntnisse in Decorators, Dependency Injection und
+\textbf{NestJS} verlangt Kenntnisse in Decorators, Dependency Injection und
 Modulstrukturen, was für einen Prototyp unverhältnismäßig aufwändig ist und
 daher mit 2 bewertet wird.
 
-\textbf{TypeScript-Unterstützung (Gew. 4):} TypeScript ist im gesamten
-Monorepo durchgehend eingesetzt. NestJS und Fastify sind TypeScript-first
-entwickelt (Bewertung 5), während Express auf Community-Typings
+\textbf{TypeScript-Unterstützung (Gew. 4):} \textbf{TypeScript} ist im gesamten
+Monorepo durchgehend eingesetzt. \textbf{NestJS} und \textbf{Fastify} sind TypeScript-first
+entwickelt (Bewertung 5), während \textbf{Express} auf Community-Typings
 (\texttt{@types/express}) angewiesen ist (Bewertung 4).
 
-\textbf{Kenntnisstand (Gew. 4):} Express war aus früheren Projekten bereits
+\textbf{Kenntnisstand (Gew. 4):} \textbf{Express} war aus früheren Projekten bereits
 bekannt, was die Implementierungszeit direkt verkürzt (Bewertung 5).
-NestJS und Fastify waren neu und hätten zusätzliche Einarbeitungszeit
+\textbf{NestJS} und \textbf{Fastify} waren neu und hätten zusätzliche Einarbeitungszeit
 erfordert (Bewertung 2).
 
-\textbf{Prototyp-Eignung (Gew. 4):} Express erlaubt es, Endpunkte ohne
-Boilerplate direkt zu definieren. NestJS ist als Enterprise-Framework für einen
+\textbf{Prototyp-Eignung (Gew. 4):} \textbf{Express} erlaubt es, Endpunkte ohne
+Boilerplate direkt zu definieren. \textbf{NestJS} ist als Enterprise-Framework für einen
 Prototyp überdimensioniert und erhält daher die niedrigste Bewertung (2).
-Fastify liegt mit seinem schlanken Plugin-System dazwischen (Bewertung 4).
+\textbf{Fastify} liegt mit seinem schlanken Plugin-System dazwischen (Bewertung 4).
 
 \section{Architekturdesign}
 
@@ -991,7 +991,7 @@ daher stets dem zum Abgabezeitpunkt gültigen Schema der JTL-Cloud-\gls{api}.
 
 \section{Implementierung der Benutzeroberfläche}
 
-Die Implementierung der Benutzeroberfläche erfolgte mit React 19 und der
+Die Implementierung der Benutzeroberfläche erfolgte mit \textbf{React} 19 und der
 \gls{jtl} Platform UI React-Komponentenbibliothek
 (\texttt{@jtl-software/platform-ui-react}), die vorgefertigte, im JTL-Design-System
 gestaltete Elemente wie Schaltflächen, Eingabefelder und Listen bereitstellt.
@@ -1100,8 +1100,8 @@ Anhang~\ref{anhang:screenshot_app}.
 
 Im Rahmen der Qualitätssicherung wurden Funktionstests für alle drei
 Anwendungsseiten (Setup, Dashboard, Pane) durchgeführt. Die Tests wurden
-manuell gegen die JTL-Cloud-\gls{api} und über das \gls{api}-Testwerkzeug Bruno
-ausgeführt; Unit-Tests einzelner Hilfsfunktionen wurden mit Vitest realisiert.
+manuell gegen die JTL-Cloud-\gls{api} und über das \gls{api}-Testwerkzeug \textbf{Bruno}
+ausgeführt; Unit-Tests einzelner Hilfsfunktionen wurden mit \textbf{Vitest} realisiert.
 Tabelle~\ref{tab:testfaelle} zeigt eine Auswahl der durchgeführten Testfälle.
 
 \begin{table}[H]
@@ -1321,24 +1321,24 @@ mit überschaubarem Aufwand vorgenommen werden.
 
 \textbf{Software}
 \begin{itemize}[leftmargin=1.5em]
-  \item Ubuntu 24.04 LTS -- Betriebssystem
-  \item Visual Studio Code -- Entwicklungsumgebung
-  \item Node.js 23 -- Backend-Laufzeitumgebung
-  \item Express 5.1 -- HTTP-Server-Framework
-  \item React 19 -- Frontend-Framework
-  \item TypeScript 6.x -- Typisierte JavaScript-Erweiterung
-  \item Vite 8.x -- Build-Tool und Dev-Server
-  \item Turbo 2.5 -- Monorepo-Orchestrierung
-  \item Tailwind CSS 4.x -- Utility-first CSS-Framework
-  \item Recharts 3.x -- Diagrammbibliothek für React
-  \item graphql-request 7.x -- Typsicherer GraphQL-Client
-  \item @jtl-software/cloud-apps-core -- JTL AppBridge
-  \item @jtl-software/platform-ui-react -- JTL UI-Komponenten
-  \item jose 6.0 -- JWT-Verifikation (EdDSA)
-  \item Vitest -- Testframework
-  \item Git / GitHub -- Versionskontrolle
-  \item Bruno / Postman -- \gls{api}-Testing
-  \item MiKTeX / TeX Live -- Textsatzsystem \LaTeX
+  \item \textbf{Ubuntu} 24.04 LTS -- Betriebssystem
+  \item \textbf{Visual Studio Code} -- Entwicklungsumgebung
+  \item \textbf{Node.js} 23 -- Backend-Laufzeitumgebung
+  \item \textbf{Express} 5.1 -- HTTP-Server-Framework
+  \item \textbf{React} 19 -- Frontend-Framework
+  \item \textbf{TypeScript} 6.x -- Typisierte JavaScript-Erweiterung
+  \item \textbf{Vite} 8.x -- Build-Tool und Dev-Server
+  \item \textbf{Turbo} 2.5 -- Monorepo-Orchestrierung
+  \item \textbf{Tailwind CSS} 4.x -- Utility-first CSS-Framework
+  \item \textbf{Recharts} 3.x -- Diagrammbibliothek für React
+  \item \textbf{graphql-request} 7.x -- Typsicherer GraphQL-Client
+  \item \textbf{@jtl-software/cloud-apps-core} -- JTL AppBridge
+  \item \textbf{@jtl-software/platform-ui-react} -- JTL UI-Komponenten
+  \item \textbf{jose} 6.0 -- JWT-Verifikation (EdDSA)
+  \item \textbf{Vitest} -- Testframework
+  \item \textbf{Git} / \textbf{GitHub} -- Versionskontrolle
+  \item \textbf{Bruno} / \textbf{Postman} -- \gls{api}-Testing
+  \item \textbf{MiKTeX} / \textbf{TeX Live} -- Textsatzsystem \LaTeX
 \end{itemize}
 
 \textbf{Personal}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.6)  20 MAY 2026 16:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.6)  21 MAY 2026 10:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1313,15 +1313,15 @@ Package logreq Info: Writing requests to 'Doku.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34350 strings out of 476056
- 597336 string characters out of 5791605
+ 34374 strings out of 476056
+ 597540 string characters out of 5791605
  2299975 words of memory out of 5000000
  55268 multiletter control sequences out of 15000+600000
- 616982 words of font info for 247 fonts, out of 8000000 for 9000
+ 617730 words of font info for 263 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
  94i,13n,99p,2397b,2463s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1200.600pk> </home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk> </home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feybr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Doku.pdf (40 pages, 593601 bytes).
+Output written on Doku.pdf (40 pages, 594097 bytes).
 PDF statistics:
  1219 PDF objects out of 1440 (max. 8388607)
  921 compressed objects within 10 object streams
