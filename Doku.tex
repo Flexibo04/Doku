@@ -6,7 +6,7 @@
 %  Erstellen einer JTL Wawi Cloud App in Form eines BI-Tools
 % ============================================================
 
-\documentclass[12pt, a4paper, oneside]{report}
+\documentclass[11pt, a4paper, oneside]{report}
 
 % ── Encoding & Sprache ──────────────────────────────────────
 \usepackage[utf8]{inputenc}
@@ -130,7 +130,7 @@
 \renewcommand{\cftlottitlefont}{\Large\bfseries}
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftbeforeloftitleskip}{0pt}
-\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftbeforelottitleskip}{1.5em}
 \setlength{\cftaftertoctitleskip}{6pt}
 \setlength{\cftafterloftitleskip}{6pt}
 \setlength{\cftafterlottitleskip}{6pt}
@@ -145,6 +145,13 @@
 \setlength{\cftsecnumwidth}{3.6em}
 \setlength{\cftsubsecnumwidth}{3.6em}
 \setlength{\cftsubsubsecnumwidth}{3.6em}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftfignumwidth}{3.6em}
+\setlength{\cfttabindent}{0pt}
+\setlength{\cfttabnumwidth}{3.6em}
+\makeatletter
+\renewcommand*{\l@lstlisting}{\@dottedtocline{1}{0pt}{3.6em}}
+\makeatother
 
 % ── Abkürzungen ─────────────────────────────────────────────
 \usepackage[acronym, toc, nonumberlist, nogroupskip]{glossaries}
@@ -309,6 +316,10 @@
   \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
   \lstlistoflistings
   \addcontentsline{toc}{chapter}{Quelltextverzeichnis}
+}
+
+\clearpage
+{\singlespacing
   \printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
 }
 
@@ -1336,8 +1347,8 @@ mit überschaubarem Aufwand vorgenommen werden.
   \item \textbf{jose} 6.0 -- JWT-Verifikation (EdDSA)
   \item \textbf{Vitest} -- Testframework
   \item \textbf{Git} / \textbf{GitHub} -- Versionskontrolle
-  \item \textbf{Bruno} / \textbf{Postman} -- \gls{api}-Testing
-  \item \textbf{MiKTeX} / \textbf{TeX Live} -- Textsatzsystem \LaTeX
+  \item \textbf{Bruno} -- \gls{api}-Testing
+  \item \textbf{TeX Live} -- Textsatzsystem \LaTeX
 \end{itemize}
 
 \textbf{Personal}
