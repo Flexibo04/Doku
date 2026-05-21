@@ -51,23 +51,23 @@
 \contentsline {chapter}{\numberline {8}Fazit}{20}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Soll-/Ist-Vergleich}{20}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Lessons Learned}{20}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Ausblick}{20}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Ausblick}{21}{section.8.3}%
 \contentsline {chapter}{\numberline {A}Anhang}{22}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{22}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{22}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Lastenheft}{23}{section.A.3}%
+\contentsline {section}{\numberline {A.3}Lastenheft}{24}{section.A.3}%
 \contentsline {section}{\numberline {A.4}Mockups der Benutzeroberfläche}{26}{section.A.4}%
 \contentsline {section}{\numberline {A.5}Pflichtenheft}{26}{section.A.5}%
 \contentsline {section}{\numberline {A.6}Iterationsplan}{29}{section.A.6}%
-\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{30}{section.A.7}%
-\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{30}{subsection.A.7.1}%
+\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{29}{section.A.7}%
+\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{29}{subsection.A.7.1}%
 \contentsline {subsection}{\numberline {A.7.2}Backend: Session-Token-Verifikation}{30}{subsection.A.7.2}%
 \contentsline {subsection}{\numberline {A.7.3}Backend: ERP-API-Proxy-Route}{30}{subsection.A.7.3}%
 \contentsline {subsection}{\numberline {A.7.4}Backend: Tenant-Mapping}{31}{subsection.A.7.4}%
 \contentsline {subsection}{\numberline {A.7.5}Frontend: App-Routing}{31}{subsection.A.7.5}%
-\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{32}{subsection.A.7.6}%
+\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{31}{subsection.A.7.6}%
 \contentsline {subsection}{\numberline {A.7.7}Frontend: Pane-Widget}{32}{subsection.A.7.7}%
-\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{33}{subsection.A.7.8}%
+\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{32}{subsection.A.7.8}%
 \contentsline {subsection}{\numberline {A.7.9}Frontend: React-Einstiegspunkt}{33}{subsection.A.7.9}%
 \contentsline {section}{\numberline {A.8}Screenshot der Anwendung}{34}{section.A.8}%
 \contentsline {section}{\numberline {A.9}Entwicklerdokumentation}{34}{section.A.9}%

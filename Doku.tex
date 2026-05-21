@@ -1227,6 +1227,13 @@ gegenübergestellt.
   \end{tabularx}
 \end{table}
 
+Auf Phasenebene wurden die geplanten Zeiten eingehalten. Innerhalb der Implementierungsphase
+ergab sich jedoch eine interne Verschiebung: Die Session-Token-Verifikation über den
+\gls{jwks}-Endpunkt (Iteration~4) beanspruchte zwei Stunden mehr als geplant, da dieser
+entgegen der verfügbaren Dokumentation eine eigene Bearer-Authentifizierung erforderte.
+Dieser Mehraufwand wurde durch den generischen REST-Proxy (Iteration~6) kompensiert,
+der aufgrund des Umstiegs auf GraphQL deutlich einfacher ausfiel als ursprünglich vorgesehen.
+
 \section{Lessons Learned}
 
 Die größte Herausforderung im Projektverlauf war der Beta-Status der
@@ -1332,6 +1339,11 @@ mit überschaubarem Aufwand vorgenommen werden.
 
 \section{Verwendete Ressourcen}
 \label{anhang:ressourcen}
+
+\textbf{Hardware}
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Fujitsu LIFEBOOK U9310X} -- Entwicklungsrechner (Laptop)
+\end{itemize}
 
 \textbf{Externe Dienste}
 \begin{itemize}[leftmargin=1.5em]
@@ -1626,9 +1638,9 @@ Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
   \multicolumn{5}{l}{\textit{Implementierungsphase}} \\
   \midrule
   3 & Implementierung OAuth2-Authentifizierung (Backend, \texttt{getJwt}) & 5 & 5 & 0 \\
-  4 & Implementierung Session-Token-Verifikation mit \gls{jwks} & 5 & 5 & 0 \\
+  4 & Implementierung Session-Token-Verifikation mit \gls{jwks} & 5 & 7 & +2 \\
   5 & Implementierung GraphQL-Proxy-Route (\texttt{/graphql}) & 4 & 4 & 0 \\
-  6 & Implementierung generischer REST-Proxy (\texttt{/erp-info}) & 3 & 3 & 0 \\
+  6 & Implementierung generischer REST-Proxy (\texttt{/erp-info}) & 3 & 1 & -2 \\
   7 & Implementierung React-App-Routing und AppBridge-Integration & 5 & 5 & 0 \\
   8 & Implementierung Setup-Seite mit Token-Flow & 4 & 4 & 0 \\
   9 & Implementierung ERP-Dashboard: GraphQL-Datenabruf, KPI-Karten, Chart & 8 & 8 & 0 \\
@@ -1644,13 +1656,6 @@ Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
   & \textbf{Gesamt} & \textbf{65} & \textbf{65} & \textbf{0} \\
   \bottomrule
 \end{tabularx}
-
-\noindent\textit{Zuordnung zu den Projektphasen: Iter.~1–2 (7\,h) gehören zur Entwurfsphase
-(Gesamtbudget Entwurf: 12\,h); Iter.~3–12 (51\,h) zur Implementierungsphase;
-Iter.~13 (5\,h) zur Dokumentationsphase; Iter.~14 (2\,h) zur Abschlussphase.
-Die Analysephase (10\,h) ist im Iterationsplan nicht enthalten, da sie keine
-iterativen Entwicklungsschritte umfasst. Die Ist-Zeiten und Differenzen sind
-nach Projektabschluss einzutragen.}
 
 \section{Quellcode-Auszüge}
 \label{anhang:quellcode}
