@@ -11,6 +11,7 @@
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{2}
+\glossaryentry{HTTPS?\glossentry{https}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{REST?\glossentry{rest}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{2}
 \glossaryentry{SPA?\glossentry{spa}|setentrycounter[]{page}"\glsnumberformat}{2}
@@ -26,9 +27,12 @@
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{5}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{6}
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{6}
+\glossaryentry{URL?\glossentry{url}|setentrycounter[]{page}"\glsnumberformat}{6}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{IPC?\glossentry{ipc}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{JWT?\glossentry{jwt}|setentrycounter[]{page}"\glsnumberformat}{7}
+\glossaryentry{EdDSA?\glossentry{eddsa}|setentrycounter[]{page}"\glsnumberformat}{7}
+\glossaryentry{EdDSA?\glossentry{eddsa}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{JWT?\glossentry{jwt}|setentrycounter[]{page}"\glsnumberformat}{7}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{8}
 \glossaryentry{JTL?\glossentry{jtl}|setentrycounter[]{page}"\glsnumberformat}{9}
@@ -54,12 +58,16 @@
 \glossaryentry{JWKS?\glossentry{jwks}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{JWKS?\glossentry{jwks}|setentrycounter[]{page}"\glsnumberformat}{14}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{ISO?\glossentry{iso}|setentrycounter[]{page}"\glsnumberformat}{14}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{14}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{14}
 \glossaryentry{JTL?\glossentry{jtl}|setentrycounter[]{page}"\glsnumberformat}{15}
+\glossaryentry{URL?\glossentry{url}|setentrycounter[]{page}"\glsnumberformat}{15}
 \glossaryentry{UI?\glossentry{ui}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{KPI?\glossentry{kpi}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{16}
+\glossaryentry{ISO?\glossentry{iso}|setentrycounter[]{page}"\glsnumberformat}{16}
+\glossaryentry{ISO?\glossentry{iso}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{17}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{17}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{17}
@@ -81,6 +89,8 @@
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{22}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{22}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{23}
+\glossaryentry{LTS?\glossentry{lts}|setentrycounter[]{page}"\glsnumberformat}{23}
+\glossaryentry{EdDSA?\glossentry{eddsa}|setentrycounter[]{page}"\glsnumberformat}{23}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{23}
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{23}
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{23}
@@ -108,6 +118,7 @@
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{26}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{27}
 \glossaryentry{KPI?\glossentry{kpi}|setentrycounter[]{page}"\glsnumberformat}{27}
+\glossaryentry{URL?\glossentry{url}|setentrycounter[]{page}"\glsnumberformat}{27}
 \glossaryentry{JWKS?\glossentry{jwks}|setentrycounter[]{page}"\glsnumberformat}{27}
 \glossaryentry{JWT?\glossentry{jwt}|setentrycounter[]{page}"\glsnumberformat}{27}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{27}
@@ -117,6 +128,7 @@
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{28}
 \glossaryentry{CORS?\glossentry{cors}|setentrycounter[]{page}"\glsnumberformat}{28}
 \glossaryentry{KPI?\glossentry{kpi}|setentrycounter[]{page}"\glsnumberformat}{28}
+\glossaryentry{HTTPS?\glossentry{https}|setentrycounter[]{page}"\glsnumberformat}{29}
 \glossaryentry{JWKS?\glossentry{jwks}|setentrycounter[]{page}"\glsnumberformat}{29}
 \glossaryentry{RIS?\glossentry{ris}|setentrycounter[]{page}"\glsnumberformat}{34}
 \glossaryentry{API?\glossentry{api}|setentrycounter[]{page}"\glsnumberformat}{34}

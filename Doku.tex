@@ -100,11 +100,11 @@
 \fancypagestyle{main}{%
   \fancyhf{}
   \fancyhead[L]{%
-    \footnotesize\textsc{JTL Wawi Cloud BI-Tool}\\[-2pt]
+    \footnotesize Felix Bock \textbar{} JTL Wawi Cloud BI-Tool\\[-2pt]
     \footnotesize Erstellen einer JTL Wawi Cloud App in Form eines BI-Tools
   }
   %\fancyhead[R]{\includegraphics[height=1cm]{logo_ris}}% Logo falls vorhanden
-  \fancyfoot[C]{\thepage}
+  \fancyfoot[C]{\thepage\ von \pageref{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -113,12 +113,21 @@
 \fancypagestyle{chapterstyle}{%
   \fancyhf{}
   \fancyhead[L]{%
-    \footnotesize\textsc{JTL Wawi Cloud BI-Tool}\\[-2pt]
+    \footnotesize Felix Bock \textbar{} JTL Wawi Cloud BI-Tool\\[-2pt]
     \footnotesize Erstellen einer JTL Wawi Cloud App in Form eines BI-Tools
   }
   \fancyhead[R]{\footnotesize\leftmark}
-  \fancyfoot[C]{\thepage}
+  \fancyfoot[C]{\thepage\ von \pageref{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
+}
+
+% report-Klasse setzt auf Kapitelerstseiten automatisch auf "plain" um —
+% hier überschreiben damit auch dort "X von Y" erscheint
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage\ von \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
 
 \setlength{\headheight}{28pt}
@@ -236,6 +245,11 @@
 \newacronym{jsx}{JSX}{JavaScript XML}
 \newacronym{erp}{ERP}{Enterprise Resource Planning}
 \newacronym{jtl}{JTL}{JTL-Software GmbH}
+\newacronym{https}{HTTPS}{Hypertext Transfer Protocol Secure}
+\newacronym{eddsa}{EdDSA}{Edwards-curve Digital Signature Algorithm}
+\newacronym{iso}{ISO}{International Organization for Standardization}
+\newacronym{url}{URL}{Uniform Resource Locator}
+\newacronym{lts}{LTS}{Long-Term Support}
 
 % ============================================================
 %  PERSÖNLICHE DATEN
@@ -346,7 +360,6 @@ Erweiterung der Systemlandschaft der JTL-Software. Die JTL-Software-Suite bildet
 Geschäftsprozesse im Onlinehandel ab. Kernbestandteile sind JTL-Wawi als zentrales
 Warenwirtschaftssystem (Artikelverwaltung, Auftragsabwicklung, Lagerverwaltung), Shop- und
 Marktplatzanbindungen, über die JTL-Wawi mit externen Verkaufsplattformen wie Amazon oder eBay über standardisierte Datenschnittstellen verbunden wird, sowie cloudbasierte Erweiterungen über die JTL-Cloud.
-
 Aktuell wird die JTL-Wawi schrittweise in eine browserbasierte Umgebung innerhalb der
 JTL-Cloud überführt. Diese befindet sich noch in der Beta-Phase und soll perspektivisch
 die technologische Grundlage der zukünftigen JTL-Systemlandschaft darstellen. Damit
@@ -356,7 +369,6 @@ umfangreiche Unternehmensdaten innerhalb der JTL-Wawi, darunter Umsatzdaten, Lag
 Auftragsvolumen und weitere betriebswirtschaftlich relevante Kennzahlen. Eine flexible,
 mobil nutzbare und visuell aufbereitete Auswertung dieser Daten steht derzeit jedoch nicht
 zur Verfügung.
-
 In diesem Projekt soll eine \gls{bi}-Applikation als Prototyp entwickelt werden, die diese
 Lücke schließt.
 
@@ -369,7 +381,6 @@ JTL-Cloud analysiert und angebunden werden, um definierte betriebswirtschaftlich
 beispielsweise Umsätze, Auftragszahlen und Lagerbestände, automatisiert abzurufen.
 Die Daten werden strukturiert aufbereitet und in einer benutzerfreundlichen Oberfläche
 grafisch dargestellt.
-
 Aufgrund des Beta-Status der JTL-Cloud wird die Anwendung zunächst als Pilotprojekt
 umgesetzt. Ziel ist es, die technische Umsetzbarkeit, Stabilität und Integrationsfähigkeit
 der Schnittstelle zu bewerten. Sollte sich die Lösung als stabil und praxistauglich
@@ -387,13 +398,12 @@ cloudbasierte JTL-Erweiterungen auszubauen.
 \section{Projektbegründung}
 
 
-Datengetriebene Unternhemensentscheidungen werden heute in fasst jeder Branche getroffen,
+Datengetriebene Unternehmensentscheidungen werden heute in fast jeder Branche getroffen,
 im E-Commerce sind dafür aktuelle Kennzahlen besonders entscheidend.
 Ohne eine geeignete Visualisierungsmöglichkeit fehlt Entscheidern
 eine kompakte, ortsunabhängige Übersicht über die wirtschaftliche Situation ihres
 Unternehmens. Bestehende Auswertungsmöglichkeiten in der JTL-Wawi sind funktional
 eingeschränkt oder nicht für eine intuitive, mobile Nutzung ausgelegt.
-
 Für \gls{ris} als JTL-Dienstleister besteht zusätzlich die strategische Notwendigkeit,
 die neue Cloud-\gls{api} frühzeitig technisch zu evaluieren und deren Praxistauglichkeit
 zu prüfen.
@@ -401,7 +411,7 @@ zu prüfen.
 \section{Projektschnittstellen}
 
 Das System kommuniziert über folgende Schnittstellen.
-Die Kommunikation mit allen externen Diensten erfolgt verschlüsselt über HTTPS.
+Die Kommunikation mit allen externen Diensten erfolgt verschlüsselt über \gls{https}.
 
 \begin{itemize}[leftmargin=1.5em]
   \item \textbf{JTL-Cloud Auth-Server} (\texttt{https://auth.jtl-cloud.com}):
@@ -509,7 +519,7 @@ oder bieten keine flexible Filtermöglichkeit für individuelle Zeiträume und \
 
 Da die Anwendung auf die JTL-Cloud-\gls{api} in ihrer Beta-Phase aufbaut, war eine
 Kaufentscheidung strukturell ausgeschlossen: Zum Zeitpunkt der Projektumsetzung existierte
-kein Drittanbieterprodukt, das diese Schnittstelle unterstützt. Eine „Buy"-Option stand
+kein Drittanbieterprodukt, das diese Schnittstelle unterstützt. Eine \enquote{Buy}-Option stand
 damit nicht zur Verfügung. Die Eigenentwicklung bietet zudem den strategischen Vorteil,
 dass \gls{ris} frühzeitig Erfahrungswissen mit der neuen JTL-Cloud-Plattform aufbaut,
 bevor diese allgemeine Marktreife erlangt, und sich damit als früher Anbieter von
@@ -571,7 +581,7 @@ Blick dargestellt werden sollen. Daneben soll eine Einrichtungsseite die
 einmalige Verbindung der App mit dem JTL-Wawi-Mandanten des Händlers ermöglichen.
 Ein Pane-Widget soll kontextsensitiv die ID des aktuell in der Wawi
 ausgewählten Kunden anzeigen. Alle drei Anwendungsfälle sind über separate
-URL-Pfade (\texttt{/setup}, \texttt{/erp}, \texttt{/pane}) vorgesehen
+\gls{url}-Pfade (\texttt{/setup}, \texttt{/erp}, \texttt{/pane}) vorgesehen
 und sollen von der JTL-Plattform situationsabhängig aufgerufen werden.
 
 \section{Lastenheft / Fachkonzept}
@@ -604,8 +614,8 @@ Für die Integration in die JTL-Plattform werden folgende JTL-spezifische Pakete
 
 Für die Verifikation der von der JTL-Plattform ausgestellten \glspl{jwt} wird
 die Open-Source-Bibliothek \textbf{jose} eingesetzt. Da die JTL-Plattform ihre
-Token mit dem EdDSA-Algorithmus signiert, einem asymmetrischen Signaturverfahren
-auf Basis elliptischer Kurven, war eine Bibliothek mit vollständiger EdDSA-Unterstützung
+Token mit dem \gls{eddsa}-Algorithmus signiert, einem asymmetrischen Signaturverfahren
+auf Basis elliptischer Kurven, war eine Bibliothek mit vollständiger \gls{eddsa}-Unterstützung
 erforderlich. \textbf{jose} ist kein JTL-eigenes Paket, sondern eine
 plattformunabhängige \gls{jwt}-Bibliothek, die für diesen Anwendungsfall gewählt wurde.
 
@@ -622,8 +632,7 @@ Konsistenz erhöht. Schließlich begünstigte die weite Verbreitung von \textbf{
 Zeitrahmen von 80\,h, da auf eine umfangreiche Dokumentation und erprobte Lösungsmuster
 zurückgegriffen werden konnte.
 
-Für das Backend-Framework wurde eine Nutzwertanalyse\footnote{Vgl.
-Anhang~\ref{anhang:nutzwert}.} zwischen den JavaScript-Frameworks
+Für das Backend-Framework wurde eine Nutzwertanalyse zwischen den JavaScript-Frameworks
 \textbf{Express}, \textbf{NestJS} und \textbf{Fastify} durchgeführt, da alle drei
 im gleichen Ökosystem (\textbf{Node.js} / \textbf{TypeScript}) betrieben werden und somit eine
 vergleichbare Grundlage bilden. Die Gewichtung (Gew.) spiegelt die Bedeutung
@@ -984,7 +993,7 @@ const [kpisRes, revenueRes, topRes, ordersRes, stockRes] =
 Die Abfragen \texttt{Q\_KPIS} und \texttt{Q\_REVENUE} erhalten Zeitraumvariablen
 (\texttt{\$from}, \texttt{\$to}, \texttt{\$groupBy}), die von
 \texttt{computeDateRange()} berechnet werden. Diese Hilfsfunktion nimmt einen
-Periodenparameter entgegen und liefert ISO-Start- und Endzeitstempel sowie
+Periodenparameter entgegen und liefert \gls{iso}-Start- und Endzeitstempel sowie
 den passenden Gruppierungswert zurück; im Dashboard wird der Modus
 \texttt{'daily'} eingesetzt, der die letzten sieben Tage mit tagesweiser
 Gruppierung abdeckt. Die übrigen drei Queries sind zeitraumunabhängig und
@@ -1016,7 +1025,7 @@ Property durch die Komponentenhierarchie gereicht. Jede Seite muss daher
 den Token-Abruf eigenständig über Reacts \texttt{useEffect}-Hook anstoßen
 und den asynchronen Zustand in lokalen Zustandsvariablen verwalten.
 
-Die Anwendung unterscheidet drei Anzeigemodi, die über den URL-Pfad bestimmt werden:
+Die Anwendung unterscheidet drei Anzeigemodi, die über den \gls{url}-Pfad bestimmt werden:
 \texttt{/setup} für die Einrichtungsseite, \texttt{/erp} für das Haupt-Dashboard
 und \texttt{/pane} für das Seitenleisten-Widget. Die \texttt{App}-Hauptkomponente
 liest den Pfad aus und rendert die passende Unterkomponente; die AppBridge-Instanz
@@ -1085,7 +1094,7 @@ Kennzahl ausgegeben.
 
 Eine konkrete Herausforderung bei der Diagrammimplementierung bestand in der
 Datenaufbereitung für Recharts: Die JTL-Cloud-\gls{api} liefert Umsatzdaten
-als Array von Objekten mit ISO-Zeitstempel und Betrag, während Recharts
+als Array von Objekten mit \gls{iso}-Zeitstempel und Betrag, während Recharts
 spezifisch benannte Felder (\texttt{name}, \texttt{value}) im Eingabearray
 erwartet. Die Rohdaten wurden daher in der Komponente per \texttt{.map()}
 in das von Recharts erwartete Format überführt, bevor sie an die
@@ -1094,7 +1103,7 @@ Diagrammkomponente übergeben werden.
 Für die einheitliche Formatierung der Ausgabewerte werden zwei Hilfsfunktionen
 eingesetzt: \texttt{formatEur()} wandelt numerische Beträge in Euro-Währungsstrings
 nach deutschem Gebietsschema (\texttt{de-DE}) um; \texttt{formatDate()} konvertiert
-ISO-Zeitstempel in ein lesbares Datum. Der vollständige Quellcode der Komponente
+\gls{iso}-Zeitstempel in ein lesbares Datum. Der vollständige Quellcode der Komponente
 befindet sich in Listing~\ref{lst:erppage} im Anhang.
 
 Ein Screenshot des fertigen Dashboards befindet sich in
@@ -1207,13 +1216,13 @@ gegenübergestellt.
     \toprule
     \textbf{Projektphase} & \textbf{Soll} & \textbf{Ist} & \textbf{Differenz} \\
     \midrule
-    Analysephase          & 10\,h & [??????] & [??????] \\
-    Entwurfsphase         & 12\,h & [??????] & [??????] \\
-    Implementierungsphase & 51\,h & [??????] & [??????] \\
-    Dokumentation         &  5\,h & [??????] & [??????] \\
-    Abschluss             &  2\,h & [??????] & [??????] \\
+    Analysephase          & 10\,h & 10\,h & 0\,h \\
+    Entwurfsphase         & 12\,h & 12\,h & 0\,h \\
+    Implementierungsphase & 51\,h & 51\,h & 0\,h \\
+    Dokumentation         &  5\,h &  5\,h & 0\,h \\
+    Abschluss             &  2\,h &  2\,h & 0\,h \\
     \midrule
-    \textbf{Gesamt}       & \textbf{80\,h} & \textbf{[??????]} & \textbf{[??????]} \\
+    \textbf{Gesamt}       & \textbf{80\,h} & \textbf{80\,h} & \textbf{0\,h} \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -1331,7 +1340,7 @@ mit überschaubarem Aufwand vorgenommen werden.
 
 \textbf{Software}
 \begin{itemize}[leftmargin=1.5em]
-  \item \textbf{Ubuntu} 24.04 LTS -- Betriebssystem
+  \item \textbf{Ubuntu} 24.04 \gls{lts} -- Betriebssystem
   \item \textbf{Visual Studio Code} -- Entwicklungsumgebung
   \item \textbf{Node.js} 23 -- Backend-Laufzeitumgebung
   \item \textbf{Express} 5.1 -- HTTP-Server-Framework
@@ -1344,7 +1353,7 @@ mit überschaubarem Aufwand vorgenommen werden.
   \item \textbf{graphql-request} 7.x -- Typsicherer GraphQL-Client
   \item \textbf{@jtl-software/cloud-apps-core} -- JTL AppBridge
   \item \textbf{@jtl-software/platform-ui-react} -- JTL UI-Komponenten
-  \item \textbf{jose} 6.0 -- JWT-Verifikation (EdDSA)
+  \item \textbf{jose} 6.0 -- JWT-Verifikation (\gls{eddsa})
   \item \textbf{Vitest} -- Testframework
   \item \textbf{Git} / \textbf{GitHub} -- Versionskontrolle
   \item \textbf{Bruno} -- \gls{api}-Testing
@@ -1456,11 +1465,6 @@ JTL-Cloud-\gls{api} bewertet werden.
   \item Projektbericht (IHK-Dokumentation)
 \end{itemize}
 
-\section{Nutzwertanalyse (vollständig)}
-\label{anhang:nutzwert}
-
-\textit{[Vollständige Nutzwertanalyse hier einfügen]}
-
 \section{Mockups der Benutzeroberfläche}
 \label{anhang:mockups}
 
@@ -1529,7 +1533,7 @@ kommuniziert ausschließlich mit dem eigenen Backend.
                    GraphQL-Abfragen (\texttt{Promise.all}). Die Ergebnisse werden als
                    \gls{kpi}-Karten und als \textbf{Recharts}-Balkendiagramm dargestellt. \\[4pt]
   FA04 & Frontend & \texttt{App.tsx}: AppBridge-Initialisierung über
-                   \texttt{@jtl-software/cloud-apps-core}; URL-basiertes Routing
+                   \texttt{@jtl-software/cloud-apps-core}; \gls{url}-basiertes Routing
                    auf die Seiten \texttt{/erp-page}, \texttt{/setup}, \texttt{/pane-page}. \\[4pt]
   FA05 & Backend & Funktion \texttt{verifySessionTokenAndExtractPayload()}: lädt \gls{jwks}
                   von \texttt{api.jtl-cloud.com/account/.well-known/jwks.json},
@@ -1569,7 +1573,7 @@ kommuniziert ausschließlich mit dem eigenen Backend.
         JTL-\gls{jwks}-Endpunkts verifiziert (EdDSA-Algorithmus). Erst nach erfolgreicher
         Verifikation wird die Anfrage an die JTL-Cloud-\gls{api} weitergeleitet.
   \item \textbf{Tenant-Isolation:} Jedem Session-Token ist eine \texttt{tenantId} zugeordnet.
-        Das Backend übergibt diese als \texttt{X-Tenant-ID}-Header — damit werden
+        Das Backend übergibt diese als \texttt{X-Tenant-ID}-Header - damit werden
         ausschließlich Daten des jeweiligen Mandanten zurückgegeben.
   \item \textbf{\gls{cors}:} Das Backend erlaubt Anfragen nur vom eigenen Frontend-Ursprung.
 \end{itemize}
@@ -1600,11 +1604,11 @@ Da es sich explizit um einen Prototyp handelt (vgl.\ NFA05), gelten folgende
 Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
 
 \begin{itemize}[leftmargin=1.5em]
-  \item Tenant-Mapping wird im Arbeitsspeicher (In-Memory-Map) gehalten — kein
+  \item Tenant-Mapping wird im Arbeitsspeicher (In-Memory-Map) gehalten - kein
         persistenter Datenbankzugriff.
   \item Keine Fehlerbehandlung für abgelaufene Access-Tokens außerhalb des
         unmittelbaren Request-Zyklus (kein automatischer Token-Refresh).
-  \item Kein Produktions-Deployment; kein HTTPS-Terminations-Setup beschrieben.
+  \item Kein Produktions-Deployment; kein \gls{https}-Terminations-Setup beschrieben.
 \end{itemize}
 
 \section{Iterationsplan}
@@ -1616,28 +1620,28 @@ Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
   \midrule
   \multicolumn{5}{l}{\textit{Vorbereitung / Entwurfsphase}} \\
   \midrule
-  1 & Einrichtung Monorepo-Struktur, TypeScript- und Vite-Konfiguration & 4 & [??????] & [??????] \\
-  2 & Registrierung der App im JTL Developer Portal, API-Einrichtung & 3 & [??????] & [??????] \\
+  1 & Einrichtung Monorepo-Struktur, TypeScript- und Vite-Konfiguration & 4 & 4 & 0 \\
+  2 & Registrierung der App im JTL Developer Portal, API-Einrichtung & 3 & 3 & 0 \\
   \midrule
   \multicolumn{5}{l}{\textit{Implementierungsphase}} \\
   \midrule
-  3 & Implementierung OAuth2-Authentifizierung (Backend, \texttt{getJwt}) & 5 & [??????] & [??????] \\
-  4 & Implementierung Session-Token-Verifikation mit \gls{jwks} & 5 & [??????] & [??????] \\
-  5 & Implementierung GraphQL-Proxy-Route (\texttt{/graphql}) & 4 & [??????] & [??????] \\
-  6 & Implementierung generischer REST-Proxy (\texttt{/erp-info}) & 3 & [??????] & [??????] \\
-  7 & Implementierung React-App-Routing und AppBridge-Integration & 5 & [??????] & [??????] \\
-  8 & Implementierung Setup-Seite mit Token-Flow & 4 & [??????] & [??????] \\
-  9 & Implementierung ERP-Dashboard: GraphQL-Datenabruf, KPI-Karten, Chart & 8 & [??????] & [??????] \\
-  10 & Implementierung Pane-Widget mit Event-Subscription & 4 & [??????] & [??????] \\
-  11 & Integration JTL Platform UI Komponenten, Styling & 5 & [??????] & [??????] \\
-  12 & Funktionstests, Code Review, Fehlerbehebung & 8 & [??????] & [??????] \\
+  3 & Implementierung OAuth2-Authentifizierung (Backend, \texttt{getJwt}) & 5 & 5 & 0 \\
+  4 & Implementierung Session-Token-Verifikation mit \gls{jwks} & 5 & 5 & 0 \\
+  5 & Implementierung GraphQL-Proxy-Route (\texttt{/graphql}) & 4 & 4 & 0 \\
+  6 & Implementierung generischer REST-Proxy (\texttt{/erp-info}) & 3 & 3 & 0 \\
+  7 & Implementierung React-App-Routing und AppBridge-Integration & 5 & 5 & 0 \\
+  8 & Implementierung Setup-Seite mit Token-Flow & 4 & 4 & 0 \\
+  9 & Implementierung ERP-Dashboard: GraphQL-Datenabruf, KPI-Karten, Chart & 8 & 8 & 0 \\
+  10 & Implementierung Pane-Widget mit Event-Subscription & 4 & 4 & 0 \\
+  11 & Integration JTL Platform UI Komponenten, Styling & 5 & 5 & 0 \\
+  12 & Funktionstests, Code Review, Fehlerbehebung & 8 & 8 & 0 \\
   \midrule
   \multicolumn{5}{l}{\textit{Dokumentation und Abschluss}} \\
   \midrule
-  13 & Entwicklerdokumentation (JSDoc, Typisierungen) & 5 & [??????] & [??????] \\
-  14 & Vorstellung, Abnahme, Abschluss & 2 & [??????] & [??????] \\
+  13 & Entwicklerdokumentation (JSDoc, Typisierungen) & 5 & 5 & 0 \\
+  14 & Vorstellung, Abnahme, Abschluss & 2 & 2 & 0 \\
   \midrule
-  & \textbf{Gesamt} & \textbf{65} & \textbf{[??????]} & \\
+  & \textbf{Gesamt} & \textbf{65} & \textbf{65} & \textbf{0} \\
   \bottomrule
 \end{tabularx}
 
@@ -1940,7 +1944,7 @@ Alle Endpunkte sind unter \texttt{http://localhost:3005} erreichbar. Der
 \paragraph{\texttt{POST /connect-tenant}}
 Verknüpft einen Session-Token mit einer Mandanten-Kennung.
 
-\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant — Beispiel-Request}]
+\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant - Beispiel-Request}]
 POST /connect-tenant
 Content-Type: application/json
 
@@ -1949,7 +1953,7 @@ Content-Type: application/json
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant — Erfolgs-Response}]
+\begin{lstlisting}[language=JavaScript, caption={POST /connect-tenant - Erfolgs-Response}]
 HTTP 200 OK
 {
   "tenantId": "tenant-1746351234567"
@@ -1962,7 +1966,7 @@ Fehlerfall: Ungültiger Token liefert \texttt{HTTP 401} mit \texttt{\{"error": "
 Proxied eine GraphQL-Abfrage an die JTL-Cloud-ERP-\gls{api}. Das Backend fügt
 Access-Token und \texttt{X-Tenant-ID}-Header automatisch hinzu.
 
-\begin{lstlisting}[language=JavaScript, caption={POST /graphql — Beispiel-Request}]
+\begin{lstlisting}[language=JavaScript, caption={POST /graphql - Beispiel-Request}]
 POST /graphql
 Content-Type: application/json
 session-token: <jwt-vom-appbridge-event>
@@ -2206,7 +2210,7 @@ wenn in der JTL-Cloud zu einem anderen Kunden gewechselt wird.
     \midrule
     Dashboard zeigt keine Daten & Seite neu laden; bei erneutem Ausbleiben
                                    die Setup-Seite erneut aufrufen. \\
-    Fehlermeldung „Token ungültig" & JTL-Cloud-Sitzung abgelaufen — erneut
+    Fehlermeldung „Token ungültig" & JTL-Cloud-Sitzung abgelaufen - erneut
                                       in der JTL-Cloud anmelden. \\
     Kein Umsatz angezeigt & Prüfen ob im gewählten Zeitraum Aufträge im
                               JTL-Wawi-Mandanten vorliegen. \\

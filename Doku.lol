@@ -13,9 +13,9 @@
 \contentsline {lstlisting}{\numberline {A.11}{\ignorespaces Umgebungsvariablen (packages/backend/.env)}}{35}{lstlisting.A.11}%
 \contentsline {lstlisting}{\numberline {A.12}{\ignorespaces Optionale Frontend-Variable}}{35}{lstlisting.A.12}%
 \contentsline {lstlisting}{\numberline {A.13}{\ignorespaces Entwicklungsserver starten}}{35}{lstlisting.A.13}%
-\contentsline {lstlisting}{\numberline {A.14}{\ignorespaces POST /connect-tenant — Beispiel-Request}}{35}{lstlisting.A.14}%
-\contentsline {lstlisting}{\numberline {A.15}{\ignorespaces POST /connect-tenant — Erfolgs-Response}}{35}{lstlisting.A.15}%
-\contentsline {lstlisting}{\numberline {A.16}{\ignorespaces POST /graphql — Beispiel-Request}}{35}{lstlisting.A.16}%
+\contentsline {lstlisting}{\numberline {A.14}{\ignorespaces POST /connect-tenant - Beispiel-Request}}{35}{lstlisting.A.14}%
+\contentsline {lstlisting}{\numberline {A.15}{\ignorespaces POST /connect-tenant - Erfolgs-Response}}{35}{lstlisting.A.15}%
+\contentsline {lstlisting}{\numberline {A.16}{\ignorespaces POST /graphql - Beispiel-Request}}{35}{lstlisting.A.16}%
 \contentsline {lstlisting}{\numberline {A.17}{\ignorespaces JSDoc-Dokumentation: fetchDashboard()}}{36}{lstlisting.A.17}%
 \contentsline {lstlisting}{\numberline {A.18}{\ignorespaces JSDoc-Dokumentation: computeDateRange()}}{36}{lstlisting.A.18}%
 \contentsline {lstlisting}{\numberline {A.19}{\ignorespaces JSDoc-Dokumentation: Hilfsfunktionen}}{37}{lstlisting.A.19}%
