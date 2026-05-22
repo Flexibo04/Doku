@@ -10,75 +10,75 @@
 \contentsline {section}{\numberline {1.4}Projektbegründung}{2}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Projektschnittstellen}{2}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Projektabgrenzung}{2}{section.1.6}%
-\contentsline {chapter}{\numberline {2}Projektplanung}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Projektphasen}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Ressourcenplanung}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Entwicklungsprozess}{3}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Iterationsplanung}{3}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Analysephase}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Ist-Analyse}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Wirtschaftlichkeitsanalyse}{5}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Make-or-Buy-Entscheidung}{5}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Projektkosten}{5}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Amortisationsdauer}{5}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Nicht-monetäre Vorteile}{6}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Anwendungsfälle}{6}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Lastenheft / Fachkonzept}{6}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Entwurfsphase}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Zielplattform}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Architekturdesign}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Entwurf der Benutzeroberfläche}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Datenmodell und API-Kommunikation}{10}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Selbst implementierte Backend-Endpunkte}{10}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}JTL AppBridge-Kommunikation}{11}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}OAuth2-Authentifizierungskonzept}{12}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Pflichtenheft}{12}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Implementierungsphase}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Implementierung der Projektstruktur}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementierung der Geschäftslogik}{13}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Session-Token-Verifikation}{13}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}ERP-API-Proxy}{13}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}GraphQL-Datenabruf}{14}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Implementierung der Benutzeroberfläche}{15}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Setup-Seite mit Token-Verifikation}{15}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Pane-Widget mit Event-Subscription}{15}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}ERP-Dashboard mit Kennzahlen}{16}{subsection.5.3.3}%
-\contentsline {chapter}{\numberline {6}Abnahme- und Einführungsphase}{17}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Qualitätssicherung}{17}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Abnahme durch den Auftraggeber}{17}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Deployment und Einführung}{18}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Dokumentation}{19}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Fazit}{20}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Soll-/Ist-Vergleich}{20}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Lessons Learned}{20}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Ausblick}{21}{section.8.3}%
-\contentsline {chapter}{Literaturverzeichnis}{22}{chapter*.15}%
-\contentsline {chapter}{\numberline {A}Anhang}{23}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{23}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{23}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Lastenheft}{25}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Mockups der Benutzeroberfläche}{27}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Pflichtenheft}{27}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Iterationsplan}{30}{section.A.6}%
-\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{30}{section.A.7}%
-\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{30}{subsection.A.7.1}%
-\contentsline {subsection}{\numberline {A.7.2}Backend: Session-Token-Verifikation}{31}{subsection.A.7.2}%
-\contentsline {subsection}{\numberline {A.7.3}Backend: ERP-API-Proxy-Route}{31}{subsection.A.7.3}%
-\contentsline {subsection}{\numberline {A.7.4}Backend: Tenant-Mapping}{32}{subsection.A.7.4}%
-\contentsline {subsection}{\numberline {A.7.5}Frontend: App-Routing}{32}{subsection.A.7.5}%
-\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{32}{subsection.A.7.6}%
-\contentsline {subsection}{\numberline {A.7.7}Frontend: Pane-Widget}{33}{subsection.A.7.7}%
-\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{33}{subsection.A.7.8}%
-\contentsline {subsection}{\numberline {A.7.9}Frontend: React-Einstiegspunkt}{34}{subsection.A.7.9}%
-\contentsline {section}{\numberline {A.8}Screenshot der Anwendung}{35}{section.A.8}%
-\contentsline {section}{\numberline {A.9}Entwicklerdokumentation}{35}{section.A.9}%
-\contentsline {paragraph}{\texttt {POST /connect-tenant}}{36}{lstnumber.A.13.1}%
-\contentsline {paragraph}{\texttt {POST /graphql}}{36}{lstnumber.A.15.4}%
-\contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{37}{lstnumber.A.16.8}%
-\contentsline {section}{\numberline {A.10}Benutzerhandbuch}{39}{section.A.10}%
-\contentsline {paragraph}{\gls {kpi}-Karten (oben)}{40}{figure.caption.20}%
-\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{40}{figure.caption.20}%
-\contentsline {paragraph}{Letzte Aufträge (unten links)}{40}{figure.caption.20}%
-\contentsline {paragraph}{Niedrige Lagerbestände (unten rechts)}{41}{table.caption.21}%
-\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{41}{section.A.11}%
-\contentsline {section}{\numberline {A.12}Protokoll der durchgeführten Projektarbeit}{42}{section.A.12}%
+\contentsline {chapter}{\numberline {2}Projektplanung}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Projektphasen}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Ressourcenplanung}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Entwicklungsprozess}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Iterationsplanung}{4}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Analysephase}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ist-Analyse}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Wirtschaftlichkeitsanalyse}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Make-or-Buy-Entscheidung}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Projektkosten}{6}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Amortisationsdauer}{6}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Nicht-monetäre Vorteile}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Anwendungsfälle}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Lastenheft / Fachkonzept}{7}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Entwurfsphase}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Zielplattform}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Architekturdesign}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Entwurf der Benutzeroberfläche}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Datenmodell und API-Kommunikation}{11}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Selbst implementierte Backend-Endpunkte}{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}JTL AppBridge-Kommunikation}{12}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}OAuth2-Authentifizierungskonzept}{13}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Pflichtenheft}{13}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Implementierungsphase}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Implementierung der Projektstruktur}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementierung der Geschäftslogik}{14}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Session-Token-Verifikation}{14}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}ERP-API-Proxy}{14}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}GraphQL-Datenabruf}{15}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Implementierung der Benutzeroberfläche}{16}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Setup-Seite mit Token-Verifikation}{16}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Pane-Widget mit Event-Subscription}{16}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}ERP-Dashboard mit Kennzahlen}{17}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Abnahme- und Einführungsphase}{18}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Qualitätssicherung}{18}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Abnahme durch den Auftraggeber}{18}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Deployment und Einführung}{19}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Dokumentation}{20}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Fazit}{21}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Soll-/Ist-Vergleich}{21}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Lessons Learned}{21}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Ausblick}{22}{section.8.3}%
+\contentsline {chapter}{Literaturverzeichnis}{23}{chapter*.16}%
+\contentsline {chapter}{\numberline {A}Anhang}{24}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{24}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{24}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Lastenheft}{26}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Mockups der Benutzeroberfläche}{28}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Pflichtenheft}{28}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Iterationsplan}{31}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{31}{section.A.7}%
+\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{32}{subsection.A.7.1}%
+\contentsline {subsection}{\numberline {A.7.2}Backend: Session-Token-Verifikation}{32}{subsection.A.7.2}%
+\contentsline {subsection}{\numberline {A.7.3}Backend: ERP-API-Proxy-Route}{32}{subsection.A.7.3}%
+\contentsline {subsection}{\numberline {A.7.4}Backend: Tenant-Mapping}{33}{subsection.A.7.4}%
+\contentsline {subsection}{\numberline {A.7.5}Frontend: App-Routing}{33}{subsection.A.7.5}%
+\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{33}{subsection.A.7.6}%
+\contentsline {subsection}{\numberline {A.7.7}Frontend: Pane-Widget}{34}{subsection.A.7.7}%
+\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{35}{subsection.A.7.8}%
+\contentsline {subsection}{\numberline {A.7.9}Frontend: React-Einstiegspunkt}{35}{subsection.A.7.9}%
+\contentsline {section}{\numberline {A.8}Screenshot der Anwendung}{36}{section.A.8}%
+\contentsline {section}{\numberline {A.9}Entwicklerdokumentation}{36}{section.A.9}%
+\contentsline {paragraph}{\texttt {POST /connect-tenant}}{37}{lstnumber.A.15.1}%
+\contentsline {paragraph}{\texttt {POST /graphql}}{37}{lstnumber.A.17.4}%
+\contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{38}{lstnumber.A.18.8}%
+\contentsline {section}{\numberline {A.10}Benutzerhandbuch}{40}{section.A.10}%
+\contentsline {paragraph}{\gls {kpi}-Karten (oben)}{41}{figure.caption.21}%
+\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{41}{figure.caption.21}%
+\contentsline {paragraph}{Letzte Aufträge (unten)}{41}{figure.caption.21}%
+\contentsline {paragraph}{Durchschnittlicher Bestellwert (unten)}{42}{table.caption.22}%
+\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{43}{section.A.11}%
+\contentsline {section}{\numberline {A.12}Protokoll der durchgeführten Projektarbeit}{43}{section.A.12}%

@@ -29,6 +29,10 @@
 \usepackage{setspace}
 \onehalfspacing
 
+% Letzter-Ausweg-Dehnung gegen Overfull-hboxes bei nicht umbrechbaren
+% Monospace-Begriffen (z. B. \texttt{}-Pfaden), statt Rand-Überlauf
+\setlength{\emergencystretch}{3em}
+
 % ── Farben ──────────────────────────────────────────────────
 \usepackage[dvipsnames, table]{xcolor}
 \definecolor{ihkblue}{RGB}{0, 70, 127}
@@ -191,6 +195,16 @@
 \usepackage{footnote}
 \usepackage{pdfpages}
 
+% ── Durchgehende Nummerierung (Abb./Tab./Listings ohne Kapitelpräfix) ─
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\AtBeginDocument{\counterwithout{lstlisting}{chapter}}
+
+% ── Diagramme (Break-Even-Grafik) ───────────────────────────
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 % ── Kapitel/Abschnitt-Format (nach Vorlage: seriflos, fett) ─
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]
@@ -225,27 +239,19 @@
 \newacronym{bi}{BI}{Business Intelligence}
 \newacronym{ui}{UI}{User Interface}
 \newacronym{rest}{REST}{Representational State Transfer}
-\newacronym{oauth}{OAuth}{Open Authorization}
 \newacronym{jwt}{JWT}{JSON Web Token}
-\newacronym{json}{JSON}{JavaScript Object Notation}
 \newacronym{spa}{SPA}{Single Page Application}
 \newacronym{kpi}{KPI}{Key Performance Indicator}
 \newacronym{ihk}{IHK}{Industrie- und Handelskammer}
 \newacronym{ris}{RIS}{RIS Web- \& Software-Development GmbH \& Co. KG}
-\newacronym{mvp}{MVP}{Minimum Viable Product}
 \newacronym{http}{HTTP}{Hypertext Transfer Protocol}
-\newacronym{mvc}{MVC}{Model-View-Controller}
-\newacronym{orm}{ORM}{Object-Relational Mapping}
 \newacronym{ipc}{IPC}{Inter-Process Communication}
 \newacronym{cors}{CORS}{Cross-Origin Resource Sharing}
-\newacronym{jwk}{JWK}{JSON Web Key}
 \newacronym{jwks}{JWKS}{JSON Web Key Set}
-\newacronym{hmr}{HMR}{Hot Module Replacement}
 \newacronym{css}{CSS}{Cascading Style Sheets}
-\newacronym{tsx}{TSX}{TypeScript XML}
-\newacronym{jsx}{JSX}{JavaScript XML}
 \newacronym{erp}{ERP}{Enterprise Resource Planning}
 \newacronym{jtl}{JTL}{JTL-Software GmbH}
+\newacronym{wawi}{Wawi}{Warenwirtschaft}
 \newacronym{https}{HTTPS}{Hypertext Transfer Protocol Secure}
 \newacronym{eddsa}{EdDSA}{Edwards-curve Digital Signature Algorithm}
 \newacronym{iso}{ISO}{International Organization for Standardization}
@@ -259,7 +265,7 @@
 \newcommand{\AutorStrasse}{Ludwig-Erhard-Str. 34}
 \newcommand{\AutorOrt}{93077 Bad Abbach}
 \newcommand{\Prueflingsnummer}{(166)-95084}
-\newcommand{\PruefungsZeitraum}{04.04.2026 - 22.05.2026}
+\newcommand{\PruefungsZeitraum}{04.05.2026 - 22.05.2026}
 \newcommand{\Ausbildungsbetrieb}{RIS Web- \& Software-Development GmbH \& Co. KG}
 \newcommand{\BetriebStrasse}{Siemensstr. 9}
 \newcommand{\BetriebOrt}{93055 Regensburg}
@@ -359,7 +365,7 @@ E-Commerce-Unternehmen in Deutschland, Österreich und der Schweiz.\footcite{ris
 
 Ein zentraler Schwerpunkt der Unternehmenstätigkeit liegt auf der Implementierung und
 Erweiterung der Systemlandschaft der JTL-Software. Die JTL-Software-Suite bildet typische
-Geschäftsprozesse im Onlinehandel ab. Kernbestandteile sind JTL-Wawi als zentrales
+Geschäftsprozesse im Onlinehandel ab. Kernbestandteile sind JTL-\gls{wawi} als zentrales
 Warenwirtschaftssystem (Artikelverwaltung, Auftragsabwicklung, Lagerverwaltung), Shop- und
 Marktplatzanbindungen, über die JTL-Wawi mit externen Verkaufsplattformen wie Amazon oder eBay über standardisierte Datenschnittstellen verbunden wird, sowie cloudbasierte Erweiterungen über die JTL-Cloud.
 Aktuell wird die JTL-Wawi schrittweise in eine browserbasierte Umgebung innerhalb der
@@ -418,12 +424,12 @@ Die Kommunikation mit allen externen Diensten erfolgt verschlüsselt über \gls{
 \begin{itemize}[leftmargin=1.5em]
   \item \textbf{JTL-Cloud Auth-Server} (\texttt{https://auth.jtl-cloud.com}):
         Stellt über OAuth2, einem offenen Standard zur sicheren Zugriffsautorisierung,
-        Zugriffstoken aus.\footcite{oauth2_rfc} Der verwendete \texttt{client\_credentials}-Flow ist ein
+        Zugriffstoken aus.\footcite{oauth2_rfc} Der verwendete \\\texttt{client\_credentials}-Flow ist ein
         Server-zu-Server-Verfahren, bei dem die Anwendung sich direkt mit App-ID
         und App-Secret ausweist, ohne dass eine Nutzerinteraktion erforderlich ist.
   \item \textbf{JTL-Cloud API} (\texttt{https://api.jtl-cloud.com}):
         \gls{rest}-\gls{api}, die einen standardisierten Datenaustausch über das
-        HTTP-Protokoll ermöglicht, zum Abruf von Geschäftsdaten wie Aufträgen,
+        \gls{http} ermöglicht, zum Abruf von Geschäftsdaten wie Aufträgen,
         Artikeln und Lagerbeständen
   \item \textbf{Frontend} (React-\gls{spa}): Kommuniziert mit dem eigenen Backend über eine
         interne REST-\gls{api}
@@ -440,6 +446,11 @@ Da der Projektumfang auf 80 Stunden begrenzt ist, sind folgende Punkte ausdrück
   \item Mandantenfähigkeit für mehrere gleichzeitige JTL-Kunden
   \item Migration oder Veränderung bestehender JTL-Wawi-Daten
 \end{itemize}
+
+Abweichend vom ursprünglichen Projektantrag wurde der Datenabruf im Verlauf der
+Implementierung von einer rein REST-basierten Anbindung auf die leistungsfähigere
+GraphQL-Schnittstelle der JTL-Cloud-\gls{api} umgestellt. Diese Entscheidung wird
+in den Lessons Learned (Abschnitt~\ref{sec:lessons}) begründet.
 
 % ============================================================
 %  2  PROJEKTPLANUNG
@@ -559,10 +570,43 @@ erwartenden Lizenzeinnahmen. Als Planungsgrundlage wird folgendes Szenario
 zugrunde gelegt: Bei einer monatlichen Lizenzgebühr von 29\,\EUR{} pro Mandant und
 fünf zahlenden Kunden beläuft sich der monatliche Deckungsbeitrag auf 145\,\EUR{}.
 Bei Projektkosten von 1.450\,\EUR{} ergibt sich eine rechnerische Amortisationsdauer
-von zehn Monaten. Dieses Szenario stellt eine konservative Schätzung dar; bei
+von zehn Monaten (vgl. Abbildung~\ref{fig:breakeven}). Dieses Szenario stellt eine
+konservative Schätzung dar; bei
 höherer Kundenzahl oder einem höheren Lizenzpreis verkürzt sich der Zeitraum
 entsprechend. Der tatsächliche Lizenzpreis wird nach Abschluss der Beta-Phase auf
 Basis von Markt- und Kundenfeedback festgelegt.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.85\textwidth,
+      height=6.2cm,
+      xlabel={Monate nach Markteinführung},
+      ylabel={Betrag in Euro},
+      xmin=0, xmax=14,
+      ymin=0, ymax=2050,
+      xtick={0,2,4,6,8,10,12,14},
+      ytick={0,500,1000,1450,2000},
+      legend pos=north west,
+      legend cell align=left,
+      grid=both,
+      grid style={gray!20},
+      every axis plot/.append style={thick},
+    ]
+      \addplot[ihkblue, domain=0:14] {145*x};
+      \addlegendentry{Kumulierte Lizenzerlöse}
+      \addplot[BrickRed, dashed, domain=0:14] {1450};
+      \addlegendentry{Projektkosten (einmalig)}
+      \addplot[only marks, mark=*, black] coordinates {(10,1450)};
+      \draw[dotted] (axis cs:10,0) -- (axis cs:10,1450);
+      \node[anchor=west, font=\footnotesize] at (axis cs:4.2,1780)
+        {Break-Even nach 10 Monaten};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Break-Even-Analyse: Amortisation nach zehn Monaten}
+  \label{fig:breakeven}
+\end{figure}
 
 \section{Nicht-monetäre Vorteile}
 
@@ -673,7 +717,7 @@ für das Backend eingesetzt.\footcite{express_docs} Die fünf Kriterien wurden w
 bewertet:
 
 \textbf{Bibliotheks-Kompatibilität (Gew. 5):} Die im Backend verwendeten Pakete
-\texttt{jose} und \texttt{graphql-request} sind Standard-npm-Pakete, die mit
+\texttt{jose} und \\\texttt{graphql-request} sind Standard-npm-Pakete, die mit
 jedem Node.js-Framework funktionieren. \textbf{Express} erhält die volle Punktzahl, da
 es der am weitesten verbreitete Standard ist, für den alle Bibliotheken primär
 getestet sind; \textbf{NestJS} erhält einen Punkt Abzug, weil die zusätzliche
@@ -872,7 +916,7 @@ zeigt die verfügbaren Methoden und Events.
 Die JTL-Cloud-\gls{api} erfordert eine OAuth2-Authentifizierung nach dem
 \texttt{client\_credentials}-Flow.\footcite{jtl_auth}
 Das Backend sendet dabei \texttt{CLIENT\_ID} und \texttt{CLIENT\_SECRET} als
-Base64-kodierte Basic-Auth-Kombination an \url{https://auth.jtl-cloud.com/oauth2/token}
+Base64-kodierte Basic-Auth-Kombi\-nation an \url{https://auth.jtl-cloud.com/oauth2/token}
 und erhält im Gegenzug ein kurzlebiges Access-Token zurück. Dieses Token wird bei
 jedem Aufruf der JTL-Cloud-\gls{api} als \texttt{Authorization: Bearer}-Header
 mitgeschickt. Client-Daten werden ausschließlich als Umgebungsvariablen im Backend
@@ -1239,6 +1283,7 @@ Dieser Mehraufwand wurde durch den generischen REST-Proxy (Iteration~6) kompensi
 der aufgrund des Umstiegs auf GraphQL deutlich einfacher ausfiel als ursprünglich vorgesehen.
 
 \section{Lessons Learned}
+\label{sec:lessons}
 
 Die größte Herausforderung im Projektverlauf war der Beta-Status der
 JTL-Cloud-\gls{api}. Beta-\glspl{api} befinden sich noch in der Vorabveröffentlichung,
@@ -1351,7 +1396,7 @@ mit überschaubarem Aufwand vorgenommen werden.
 
 \textbf{Externe Dienste}
 \begin{itemize}[leftmargin=1.5em]
-  \item JTL-Cloud-Testzugang -- Beta-\gls{api}, deren Funktionsumfang und Stabilität zum Projektzeitpunkt noch nicht final festgeschrieben waren
+  \item \textbf{JTL-Cloud-Testzugang} -- Beta-\gls{api}, deren Funktionsumfang und Stabilität zum Projektzeitpunkt noch nicht final festgeschrieben waren
 \end{itemize}
 
 \textbf{Software}
@@ -1364,7 +1409,7 @@ mit überschaubarem Aufwand vorgenommen werden.
   \item \textbf{TypeScript} 6.x -- Typisierte JavaScript-Erweiterung
   \item \textbf{Vite} 8.x -- Build-Tool und Dev-Server
   \item \textbf{Turbo} 2.5 -- Monorepo-Orchestrierung
-  \item \textbf{Tailwind CSS} 4.x -- Utility-first CSS-Framework
+  \item \textbf{Tailwind CSS} 4.x -- Utility-first \gls{css}-Framework
   \item \textbf{Recharts} 3.x -- Diagrammbibliothek für React
   \item \textbf{graphql-request} 7.x -- Typsicherer GraphQL-Client
   \item \textbf{@jtl-software/cloud-apps-core} -- JTL AppBridge
@@ -1420,16 +1465,16 @@ JTL-Cloud-\gls{api} bewertet werden.
     \toprule
     \textbf{ID} & \textbf{Priorität} & \textbf{Anforderung} & \textbf{Bereich} \\
     \midrule
-    FA01 & Muss & Die Anwendung authentifiziert sich über
-                  OAuth2 (\texttt{client\_credentials}) gegenüber der JTL-Cloud-\gls{api}. & Sicherheit \\
+    FA01 & Muss & Die Anwendung authentifiziert sich sicher und ohne
+                  Nutzerinteraktion gegenüber der JTL-Cloud-\gls{api}. & Sicherheit \\
     FA02 & Muss & Die Anwendung ruft Umsatzdaten, Auftragszahlen und
                   Lagerbestände automatisiert aus der JTL-Cloud-\gls{api} ab. & Daten \\
     FA03 & Muss & Die abgerufenen Daten werden in einem grafischen Dashboard
                   als \gls{kpi}-Karten und Diagramm visualisiert. & \gls{ui} \\
     FA04 & Muss & Die App lässt sich als JTL Cloud App in die
                   JTL-Cloud-Oberfläche einbetten. & Integration \\
-    FA05 & Muss & Die Session-Token-Verifikation erfolgt serverseitig über
-                  \gls{jwks}/EdDSA. & Sicherheit \\
+    FA05 & Muss & Die Berechtigung jeder Anfrage wird serverseitig geprüft,
+                  bevor Daten ausgeliefert werden. & Sicherheit \\
     FA06 & Muss & Jeder Mandant sieht ausschließlich seine eigenen Daten
                   (Tenant-Isolation). & Sicherheit \\
     FA07 & Soll & Ein Seitenleisten-Widget zeigt kontextsensitiv die
@@ -1455,8 +1500,9 @@ JTL-Cloud-\gls{api} bewertet werden.
                             (responsives Layout). \\
     NFA03 & Performance  & Die Dashboard-Daten müssen innerhalb von 5 Sekunden nach
                             dem Seitenaufruf angezeigt werden. \\
-    NFA04 & Technologie  & Die Anwendung basiert auf dem JTL-Cloud-App-Standard
-                           (AppBridge, JTL-\gls{ui}-Bibliothek). \\
+    NFA04 & Integration  & Die Anwendung integriert sich nahtlos in die
+                           JTL-Cloud-Oberfläche und hält deren Bedien- und
+                           Designstandards ein. \\
     NFA05 & Umfang       & Es wird ein Prototyp entwickelt, kein
                            produktionsreifes System. \\
     \bottomrule
@@ -1544,7 +1590,7 @@ kommuniziert ausschließlich mit dem eigenen Backend.
                   \texttt{client\_credentials}. \\[4pt]
   FA02 & Backend & \texttt{POST /graphql}-Endpunkt: empfängt GraphQL-Abfragen vom
                   Frontend, fügt Access-Token und Tenant-ID-Header hinzu und
-                  leitet die Anfrage an die JTL-Cloud-ERP-\gls{api} weiter. \\[4pt]
+                  leitet die Anfrage an die JTL-Cloud-\gls{erp}-\gls{api} weiter. \\[4pt]
   FA03 & Frontend & \texttt{fetchDashboard()} in \texttt{api.ts}: sendet fünf parallele
                    GraphQL-Abfragen (\texttt{Promise.all}). Die Ergebnisse werden als
                    \gls{kpi}-Karten und als \textbf{Recharts}-Balkendiagramm dargestellt. \\[4pt]
@@ -1552,12 +1598,12 @@ kommuniziert ausschließlich mit dem eigenen Backend.
                    \texttt{@jtl-software/cloud-apps-core}; \gls{url}-basiertes Routing
                    auf die Seiten \texttt{/erp-page}, \texttt{/setup}, \texttt{/pane-page}. \\[4pt]
   FA05 & Backend & Funktion \texttt{verifySessionTokenAndExtractPayload()}: lädt \gls{jwks}
-                  von \texttt{api.jtl-cloud.com/account/.well-known/jwks.json},
+                  von \texttt{api.jtl-cloud.com/account/\ .well-known/jwks.json},
                   verifiziert das \gls{jwt} per EdDSA und extrahiert \texttt{tenantId}. \\[4pt]
   FA06 & Backend & Die \texttt{tenantId} wird je Verbindung in einer In-Memory-Map
                   gespeichert und bei jedem API-Aufruf als \texttt{X-Tenant-ID}-Header
                   an die JTL-Cloud-\gls{api} übergeben. \\[4pt]
-  FA07 & Frontend & \texttt{pane-page}: abonniert das \texttt{shell:customer-context-changed}-Event
+  FA07 & Frontend & \texttt{pane-page}: abonniert das \texttt{CustomerChanged}-Event
                    der AppBridge und zeigt die aktuelle Kunden-ID im
                    Seitenleisten-Widget an. \\[4pt]
   FA08 & Backend/ Frontend & Monorepo-Struktur mit \textbf{Turbo}: Backend- und
@@ -1629,6 +1675,12 @@ Einschränkungen, die für ein produktionsreifes System behoben werden müssten:
 
 \section{Iterationsplan}
 \label{anhang:iterationsplan}
+
+Der Iterationsplan bildet die iterativen Umsetzungsschritte des Projekts ab und
+summiert sich daher auf 65\,h. Die vorgelagerte Analyse- und Konzeptarbeit ist
+nicht iterativ organisiert und daher hier nicht enthalten; die vollständige
+Zeitplanung über alle 80\,h findet sich in der detaillierten Zeitplanung
+(Anhang~\ref{anhang:zeitplanung}).
 
 \begin{tabularx}{\textwidth}{l X r r r}
   \toprule
@@ -1926,7 +1978,7 @@ CLIENT_SECRET=<app-client-secret-aus-dem-jtl-developer-portal>
 \begin{enumerate}[leftmargin=1.5em]
   \setcounter{enumi}{3}
   \item Optionale Frontend-Variable: Zeigt das Frontend auf ein anderes Backend,
-        kann in \texttt{packages/frontend/.env} gesetzt werden:
+        kann in \texttt{packages/\ frontend/.env} gesetzt werden:
 \end{enumerate}
 
 \begin{lstlisting}[language=bash, caption={Optionale Frontend-Variable}]
@@ -2064,7 +2116,8 @@ function formatDate(iso: string): string
 /** Alle Dashboard-Kennzahlen eines Mandanten */
 interface DashboardKPIs {
   totalRevenue:   number;       // Gesamtumsatz im Zeitraum
-  orderCount:     number;       // Anzahl Auftraege
+  totalOrders:    number;       // Anzahl Bestellungen im Zeitraum
+  totalCustomers: number;       // Anzahl Kunden im Zeitraum
   avgOrderValue:  number;       // Durchschnittlicher Auftragswert
   revenueByDay:   RevenuePoint[];  // Umsatz je Tag (fuer Balkendiagramm)
   topProducts:    TopProduct[];    // Top-Produkte nach Umsatz
@@ -2124,9 +2177,9 @@ und im Alltag genutzt wird.
 
 Das JTL Wawi Cloud \gls{bi}-Tool ist eine Cloud App, die direkt in der
 JTL-Cloud-Oberfläche eingebettet läuft. Es zeigt ausgewählte Geschäftskennzahlen
-des verbundenen JTL-Wawi-Mandanten in einem übersichtlichen Dashboard: Umsatz,
-Auftragsanzahl, durchschnittlicher Auftragswert, Top-Produkte, aktuelle Aufträge
-und Artikel mit niedrigem Lagerbestand.
+des verbundenen JTL-Wawi-Mandanten in einem übersichtlichen Dashboard: Gesamtumsatz,
+Anzahl der Bestellungen, durchschnittlicher Auftragswert, den Umsatzverlauf der
+letzten sieben Tage sowie die jüngsten Aufträge.
 
 \subsection*{Voraussetzungen}
 
@@ -2160,24 +2213,22 @@ Beim ersten Aufruf der App öffnet sich automatisch die \textbf{Setup-Seite}:
   \label{fig:screenshot_dashboard}
 \end{figure}
 
-Das Dashboard besteht aus vier Bereichen:
+Das Dashboard gliedert sich in die folgenden Bereiche:
 
 \paragraph{\gls{kpi}-Karten (oben)}
-Vier Kennzahlenkarten zeigen auf einen Blick:
+Zwei Kennzahlenkarten zeigen auf einen Blick:
 \begin{itemize}[leftmargin=1.5em]
-  \item \textbf{Gesamtumsatz} im aktuellen Monat in Euro
-  \item \textbf{Anzahl Aufträge} im aktuellen Monat
-  \item \textbf{Durchschnittlicher Auftragswert} in Euro
-  \item \textbf{Artikel unter Mindestbestand} (Anzahl)
+  \item \textbf{Gesamtumsatz} der letzten sieben Tage in Euro
+  \item \textbf{Anzahl der Bestellungen} im selben Zeitraum
 \end{itemize}
 
 \paragraph{Umsatzdiagramm (Mitte)}
-Ein Balkendiagramm stellt den täglichen Umsatzverlauf des aktuellen Monats dar.
+Ein Balkendiagramm stellt den täglichen Umsatzverlauf der letzten sieben Tage dar.
 Die horizontale Achse zeigt das Datum, die vertikale Achse den Tagesumsatz in Euro.
 
-\paragraph{Letzte Aufträge (unten links)}
-Eine Tabelle listet die zuletzt eingegangenen Aufträge mit Auftrags-ID,
-Datum, Gesamtwert und aktuellem Status. Der Status wird farbig hervorgehoben:
+\paragraph{Letzte Aufträge (unten)}
+Eine Liste führt die zuletzt eingegangenen Aufträge mit Firmenname, Bestellnummer,
+Datum, Bruttobetrag und aktuellem Status auf. Der Status wird farbig hervorgehoben:
 
 \begin{table}[H]
   \centering
@@ -2196,9 +2247,9 @@ Datum, Gesamtwert und aktuellem Status. Der Status wird farbig hervorgehoben:
   \end{tabularx}
 \end{table}
 
-\paragraph{Niedrige Lagerbestände (unten rechts)}
-Eine Liste zeigt alle Artikel, deren aktueller Lagerbestand den definierten
-Mindestbestand unterschreitet, mit Produktname und verbleibendem Bestand.
+\paragraph{Durchschnittlicher Bestellwert (unten)}
+Am unteren Rand des Dashboards wird der durchschnittliche Bestellwert des
+ausgewerteten Zeitraums als zusammenfassende Kennzahl ausgegeben.
 
 \subsection*{Seitenleisten-Widget (Pane)}
 
@@ -2229,6 +2280,7 @@ wenn in der JTL-Cloud zu einem anderen Kunden gewechselt wird.
   \end{tabularx}
 \end{table}
 
+\clearpage
 \section{Eigenständigkeitserklärung}
 
 \vspace{0.5cm}
