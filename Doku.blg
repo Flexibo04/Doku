@@ -1,9 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'Doku.blg'
-[79] biber:340> INFO - === Di Mai 19, 2026, 11:45:16
-[98] Biber.pm:419> INFO - Reading 'Doku.bcf'
-[164] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
-[177] bbl.pm:660> INFO - Writing 'Doku.bbl' with encoding 'UTF-8'
-[178] bbl.pm:763> INFO - Output to Doku.bbl
-[178] Biber.pm:131> WARN - The file 'Doku.bcf' does not contain any citations!
-[178] Biber.pm:133> INFO - WARNINGS: 1
+[54] biber:340> INFO - === Fri May 22, 2026, 10:40:26
+[63] Biber.pm:419> INFO - Reading 'Doku.bcf'
+[97] Biber.pm:979> INFO - Found 14 citekeys in bib section 0
+[104] Biber.pm:4419> INFO - Processing section 0
+[110] Biber.pm:4610> INFO - Looking for bibtex file 'literatur.bib' for section 0
+[111] bibtex.pm:1713> INFO - LaTeX decoding ...
+[117] bibtex.pm:1519> INFO - Found BibTeX data source 'literatur.bib'
+[184] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[184] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[184] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
+[184] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[194] bbl.pm:660> INFO - Writing 'Doku.bbl' with encoding 'UTF-8'
+[197] bbl.pm:763> INFO - Output to Doku.bbl

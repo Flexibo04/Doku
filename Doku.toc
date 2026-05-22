@@ -26,7 +26,7 @@
 \contentsline {section}{\numberline {3.5}Lastenheft / Fachkonzept}{6}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Entwurfsphase}{7}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Zielplattform}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Architekturdesign}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Architekturdesign}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Entwurf der Benutzeroberfläche}{10}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Datenmodell und API-Kommunikation}{10}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Selbst implementierte Backend-Endpunkte}{10}{subsection.4.4.1}%
@@ -52,31 +52,33 @@
 \contentsline {section}{\numberline {8.1}Soll-/Ist-Vergleich}{20}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Lessons Learned}{20}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Ausblick}{21}{section.8.3}%
-\contentsline {chapter}{\numberline {A}Anhang}{22}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{22}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{22}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Lastenheft}{24}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Mockups der Benutzeroberfläche}{26}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Pflichtenheft}{26}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Iterationsplan}{29}{section.A.6}%
-\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{29}{section.A.7}%
-\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{29}{subsection.A.7.1}%
-\contentsline {subsection}{\numberline {A.7.2}Backend: Session-Token-Verifikation}{30}{subsection.A.7.2}%
-\contentsline {subsection}{\numberline {A.7.3}Backend: ERP-API-Proxy-Route}{30}{subsection.A.7.3}%
-\contentsline {subsection}{\numberline {A.7.4}Backend: Tenant-Mapping}{31}{subsection.A.7.4}%
-\contentsline {subsection}{\numberline {A.7.5}Frontend: App-Routing}{31}{subsection.A.7.5}%
-\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{31}{subsection.A.7.6}%
-\contentsline {subsection}{\numberline {A.7.7}Frontend: Pane-Widget}{32}{subsection.A.7.7}%
-\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{32}{subsection.A.7.8}%
-\contentsline {subsection}{\numberline {A.7.9}Frontend: React-Einstiegspunkt}{33}{subsection.A.7.9}%
-\contentsline {section}{\numberline {A.8}Screenshot der Anwendung}{34}{section.A.8}%
-\contentsline {section}{\numberline {A.9}Entwicklerdokumentation}{34}{section.A.9}%
-\contentsline {paragraph}{\texttt {POST /connect-tenant}}{35}{lstnumber.A.13.1}%
-\contentsline {paragraph}{\texttt {POST /graphql}}{35}{lstnumber.A.15.4}%
-\contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{36}{lstnumber.A.16.8}%
-\contentsline {section}{\numberline {A.10}Benutzerhandbuch}{38}{section.A.10}%
-\contentsline {paragraph}{\gls {kpi}-Karten (oben)}{39}{figure.caption.19}%
-\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{39}{figure.caption.19}%
-\contentsline {paragraph}{Letzte Aufträge (unten links)}{39}{figure.caption.19}%
-\contentsline {paragraph}{Niedrige Lagerbestände (unten rechts)}{40}{table.caption.20}%
-\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{40}{section.A.11}%
+\contentsline {chapter}{Literaturverzeichnis}{22}{chapter*.15}%
+\contentsline {chapter}{\numberline {A}Anhang}{23}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Detaillierte Zeitplanung}{23}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Verwendete Ressourcen}{23}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Lastenheft}{25}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Mockups der Benutzeroberfläche}{27}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Pflichtenheft}{27}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Iterationsplan}{30}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Quellcode-Auszüge}{30}{section.A.7}%
+\contentsline {subsection}{\numberline {A.7.1}Backend: OAuth2-Token-Anfrage}{30}{subsection.A.7.1}%
+\contentsline {subsection}{\numberline {A.7.2}Backend: Session-Token-Verifikation}{31}{subsection.A.7.2}%
+\contentsline {subsection}{\numberline {A.7.3}Backend: ERP-API-Proxy-Route}{31}{subsection.A.7.3}%
+\contentsline {subsection}{\numberline {A.7.4}Backend: Tenant-Mapping}{32}{subsection.A.7.4}%
+\contentsline {subsection}{\numberline {A.7.5}Frontend: App-Routing}{32}{subsection.A.7.5}%
+\contentsline {subsection}{\numberline {A.7.6}Frontend: Setup-Seite}{32}{subsection.A.7.6}%
+\contentsline {subsection}{\numberline {A.7.7}Frontend: Pane-Widget}{33}{subsection.A.7.7}%
+\contentsline {subsection}{\numberline {A.7.8}Frontend: ERP-Dashboard-Komponente}{33}{subsection.A.7.8}%
+\contentsline {subsection}{\numberline {A.7.9}Frontend: React-Einstiegspunkt}{34}{subsection.A.7.9}%
+\contentsline {section}{\numberline {A.8}Screenshot der Anwendung}{35}{section.A.8}%
+\contentsline {section}{\numberline {A.9}Entwicklerdokumentation}{35}{section.A.9}%
+\contentsline {paragraph}{\texttt {POST /connect-tenant}}{36}{lstnumber.A.13.1}%
+\contentsline {paragraph}{\texttt {POST /graphql}}{36}{lstnumber.A.15.4}%
+\contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{37}{lstnumber.A.16.8}%
+\contentsline {section}{\numberline {A.10}Benutzerhandbuch}{39}{section.A.10}%
+\contentsline {paragraph}{\gls {kpi}-Karten (oben)}{40}{figure.caption.20}%
+\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{40}{figure.caption.20}%
+\contentsline {paragraph}{Letzte Aufträge (unten links)}{40}{figure.caption.20}%
+\contentsline {paragraph}{Niedrige Lagerbestände (unten rechts)}{41}{table.caption.21}%
+\contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{41}{section.A.11}%
+\contentsline {section}{\numberline {A.12}Protokoll der durchgeführten Projektarbeit}{42}{section.A.12}%

@@ -189,6 +189,7 @@
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{footnote}
+\usepackage{pdfpages}
 
 % ── Kapitel/Abschnitt-Format (nach Vorlage: seriflos, fett) ─
 \usepackage{titlesec}
@@ -261,9 +262,9 @@
 \newcommand{\PruefungsZeitraum}{04.04.2026 - 22.05.2026}
 \newcommand{\Ausbildungsbetrieb}{RIS Web- \& Software-Development GmbH \& Co. KG}
 \newcommand{\BetriebStrasse}{Siemensstr. 9}
-\newcommand{\BetriebOrt}{93049 Regensburg}
-\newcommand{\BetreuerName}{[????????]}
-\newcommand{\BetreuerTelefon}{[????????]}
+\newcommand{\BetriebOrt}{93055 Regensburg}
+\newcommand{\BetreuerName}{Sven Ottmann}
+\newcommand{\BetreuerTelefon}{0941 200 012 50}
 \newcommand{\Abgabetermin}{25.05.2026}
 \newcommand{\PruefungsJahr}{2026}
 
@@ -305,6 +306,7 @@
   {\color{ihkblue}\normalsize
     Ausbildungsbetrieb: \Ausbildungsbetrieb\\[0.2cm]
     Projektbetreuer: \BetreuerName\\[0.2cm]
+    Telefon: \BetreuerTelefon\\[0.2cm]
     Prüflingsnummer: \Prueflingsnummer\\[0.2cm]
     Ausführungszeit: \PruefungsZeitraum
   }
@@ -352,7 +354,7 @@ im Rahmen der Ausbildung zum Fachinformatiker Anwendungsentwicklung durchgeführ
 Ausbildungsbetrieb ist die \gls{ris} mit Sitz in Regensburg. Das Unternehmen wurde im Jahr 2015
 gegründet und beschäftigt derzeit acht Mitarbeiter. Als IT-Dienstleister ist \gls{ris} auf die
 Entwicklung individueller Web- und Softwarelösungen spezialisiert und betreut insbesondere
-E-Commerce-Unternehmen in Deutschland, Österreich und der Schweiz.
+E-Commerce-Unternehmen in Deutschland, Österreich und der Schweiz.\footcite{ris_website}
 \section{Projektbeschreibung}
 
 Ein zentraler Schwerpunkt der Unternehmenstätigkeit liegt auf der Implementierung und
@@ -416,7 +418,7 @@ Die Kommunikation mit allen externen Diensten erfolgt verschlüsselt über \gls{
 \begin{itemize}[leftmargin=1.5em]
   \item \textbf{JTL-Cloud Auth-Server} (\texttt{https://auth.jtl-cloud.com}):
         Stellt über OAuth2, einem offenen Standard zur sicheren Zugriffsautorisierung,
-        Zugriffstoken aus. Der verwendete \texttt{client\_credentials}-Flow ist ein
+        Zugriffstoken aus.\footcite{oauth2_rfc} Der verwendete \texttt{client\_credentials}-Flow ist ein
         Server-zu-Server-Verfahren, bei dem die Anwendung sich direkt mit App-ID
         und App-Secret ausweist, ohne dass eine Nutzerinteraktion erforderlich ist.
   \item \textbf{JTL-Cloud API} (\texttt{https://api.jtl-cloud.com}):
@@ -606,10 +608,10 @@ Für die Integration in die JTL-Plattform werden folgende JTL-spezifische Pakete
 \begin{itemize}[leftmargin=1.5em]
   \item \textbf{@jtl-software/cloud-apps-core}: AppBridge, die plattformeigene
         Kommunikationsschicht zwischen der eingebetteten App und dem JTL-Host-System,
-        für \gls{ipc}-Kommunikation mit der JTL-Wawi
+        für \gls{ipc}-Kommunikation mit der JTL-Wawi\footcite{jtl_appbridge}
   \item \textbf{@jtl-software/platform-ui-react}: Bibliothek vorgefertigter
         UI-Komponenten, die wiederverwendbare visuelle Bausteine wie Schaltflächen
-        oder Tabellen im JTL-Design-System bereitstellt
+        oder Tabellen im JTL-Design-System bereitstellt\footcite{jtl_platform_ui}
 \end{itemize}
 
 Für die Verifikation der von der JTL-Plattform ausgestellten \glspl{jwt} wird
@@ -617,7 +619,7 @@ die Open-Source-Bibliothek \textbf{jose} eingesetzt. Da die JTL-Plattform ihre
 Token mit dem \gls{eddsa}-Algorithmus signiert, einem asymmetrischen Signaturverfahren
 auf Basis elliptischer Kurven, war eine Bibliothek mit vollständiger \gls{eddsa}-Unterstützung
 erforderlich. \textbf{jose} ist kein JTL-eigenes Paket, sondern eine
-plattformunabhängige \gls{jwt}-Bibliothek, die für diesen Anwendungsfall gewählt wurde.
+plattformunabhängige \gls{jwt}-Bibliothek, die für diesen Anwendungsfall gewählt wurde.\footcite{jose_npm}
 
 Das Frontend-Framework war durch die JTL-Plattform technisch vorgegeben: Das offizielle
 JTL-Paket \texttt{@jtl-software/platform-ui-react} stellt ausschließlich React-spezifische
@@ -626,16 +628,16 @@ setzt React-Hooks voraus. Der Einsatz eines anderen Frameworks hätte die Kompat
 mit diesen Plattformpaketen ausgeschlossen, weshalb eine Alternativbewertung entfällt.
 Darüber hinaus fügt sich \textbf{React} inhaltlich gut in das Projekt ein: Die verwendete
 Diagrammbibliothek \textbf{Recharts} ist eine React-native Bibliothek und ist unmittelbar auf
-Dashboard-Anwendungsfälle ausgelegt. \textbf{React} bietet erstklassige TypeScript-Unterstützung,
+Dashboard-Anwendungsfälle ausgelegt.\footcite{recharts} \textbf{React} bietet erstklassige TypeScript-Unterstützung,
 was angesichts des durchgehenden TypeScript-Einsatzes im gesamten Monorepo die
 Konsistenz erhöht. Schließlich begünstigte die weite Verbreitung von \textbf{React} den engen
 Zeitrahmen von 80\,h, da auf eine umfangreiche Dokumentation und erprobte Lösungsmuster
-zurückgegriffen werden konnte.
+zurückgegriffen werden konnte.\footcite{react_docs}
 
 Für das Backend-Framework wurde eine Nutzwertanalyse zwischen den JavaScript-Frameworks
 \textbf{Express}, \textbf{NestJS} und \textbf{Fastify} durchgeführt, da alle drei
 im gleichen Ökosystem (\textbf{Node.js} / \textbf{TypeScript}) betrieben werden und somit eine
-vergleichbare Grundlage bilden. Die Gewichtung (Gew.) spiegelt die Bedeutung
+vergleichbare Grundlage bilden.\footcite{nodejs_docs} Die Gewichtung (Gew.) spiegelt die Bedeutung
 des jeweiligen Kriteriums für dieses Projekt wider; der Höchstwert 5 bedeutet
 unverzichtbar, 1 bedeutet vernachlässigbar. Die Bewertung (Bew.) gibt an, wie
 gut ein Framework das Kriterium erfüllt: 5 = sehr gut, 1 = unzureichend. Der
@@ -667,7 +669,7 @@ Summe aller Gewichtungen.
 \end{table}
 
 \textbf{Express} erzielt mit einem Nutzwert von 4{,}82 das beste Ergebnis und wird daher
-für das Backend eingesetzt. Die fünf Kriterien wurden wie folgt gewichtet und
+für das Backend eingesetzt.\footcite{express_docs} Die fünf Kriterien wurden wie folgt gewichtet und
 bewertet:
 
 \textbf{Bibliotheks-Kompatibilität (Gew. 5):} Die im Backend verwendeten Pakete
@@ -685,7 +687,7 @@ Modulstrukturen, was für einen Prototyp unverhältnismäßig aufwändig ist und
 daher mit 2 bewertet wird.
 
 \textbf{TypeScript-Unterstützung (Gew. 4):} \textbf{TypeScript} ist im gesamten
-Monorepo durchgehend eingesetzt. \textbf{NestJS} und \textbf{Fastify} sind TypeScript-first
+Monorepo durchgehend eingesetzt.\footcite{typescript_docs} \textbf{NestJS} und \textbf{Fastify} sind TypeScript-first
 entwickelt (Bewertung 5), während \textbf{Express} auf Community-Typings
 (\texttt{@types/express}) angewiesen ist (Bewertung 4).
 
@@ -781,7 +783,7 @@ Zwischenschicht zwischen Frontend und JTL-Cloud-\gls{api} und übernehmen
 Authentifizierung, Token-Verifikation und Weiterleitung.
 
 Die JTL-Cloud-\gls{api} stellt neben klassischen REST-Endpunkten eine
-GraphQL-Schnittstelle bereit. GraphQL ist eine Abfragesprache für \glspl{api},
+GraphQL-Schnittstelle bereit.\footcite{jtl_cloud_api} GraphQL ist eine Abfragesprache für \glspl{api},
 bei der der Client exakt vorgibt, welche Felder zurückgegeben werden sollen,
 anstatt fest definierte Antwortstrukturen zu empfangen. Für das Dashboard
 wurde diese Schnittstelle bewusst gewählt: Die fünf Anzeigebereiche des
@@ -868,7 +870,7 @@ zeigt die verfügbaren Methoden und Events.
 \subsection{OAuth2-Authentifizierungskonzept}
 
 Die JTL-Cloud-\gls{api} erfordert eine OAuth2-Authentifizierung nach dem
-\texttt{client\_credentials}-Flow.\footnote{Vgl. JTL-Software GmbH [2026].}
+\texttt{client\_credentials}-Flow.\footcite{jtl_auth}
 Das Backend sendet dabei \texttt{CLIENT\_ID} und \texttt{CLIENT\_SECRET} als
 Base64-kodierte Basic-Auth-Kombination an \url{https://auth.jtl-cloud.com/oauth2/token}
 und erhält im Gegenzug ein kurzlebiges Access-Token zurück. Dieses Token wird bei
@@ -1160,7 +1162,7 @@ Tabelle~\ref{tab:testfaelle} zeigt eine Auswahl der durchgeführten Testfälle.
 
 Darüber hinaus wurde, als \textbf{Fremdleistung} durch einen weiteren Entwickler
 des Teams der \gls{ris}, ein Code Review des erstellten Quellcodes durchgeführt.
-Dabei wurden Lesbarkeit, Einhaltung von Coding-Standards sowie potenzielle
+Dabei wurden Lesbarkeit, Einhaltung von Coding-Standards\footcite{clean_code} sowie potenzielle
 Sicherheitsschwachstellen bewertet. Die im Review identifizierten Anmerkungen wurden
 vor der finalen Abnahme eingearbeitet.
 
@@ -1168,10 +1170,12 @@ vor der finalen Abnahme eingearbeitet.
 
 Nachdem der Prototyp fertiggestellt war, wurde dieser dem Team von \gls{ris} im
 Rahmen einer internen Vorstellung präsentiert. Die Abnahme sowie Bewertung der Ergebnisse erfolgte durch den zuständigen
-Projektbetreuer der \gls{ris}, [EINTRAGEN: Name des Betreuers],
+Projektbetreuer der \gls{ris}, Sven Ottmann,
 ebenfalls eine \textbf{Fremdleistung}, die nicht Bestandteil der eigenen
 Projektarbeit ist. Aufgrund des iterativen Vorgehens während der Entwicklung
-ergaben sich bei der Endabnahme keine wesentlichen Einwände.
+ergaben sich bei der Endabnahme keine wesentlichen Einwände. Das von beiden Seiten
+unterzeichnete Protokoll der durchgeführten Projektarbeit befindet sich in
+Anhang~\ref{anhang:protokoll}.
 
 \section{Deployment und Einführung}
 
@@ -1508,7 +1512,7 @@ Die Anwendung wird als Monorepo mit zwei Paketen umgesetzt:
   \item \textbf{Backend} (\texttt{packages/backend}): \textbf{Node.js}/\textbf{Express}-Server auf Port~3005.
         Zuständig für OAuth2-Authentifizierung, Session-Token-Verifikation und Proxying zur
         JTL-Cloud-\gls{api}.
-  \item \textbf{Frontend} (\texttt{packages/frontend}): \textbf{React}-\gls{spa}, gebuildet mit \textbf{Vite}.
+  \item \textbf{Frontend} (\texttt{packages/frontend}): \textbf{React}-\gls{spa}, gebuildet mit \textbf{Vite}.\footcite{vite_docs}
         Zuständig für Darstellung der \gls{kpi}-Daten, Routing und AppBridge-Integration.
 \end{itemize}
 
@@ -2246,5 +2250,14 @@ freigegeben sind.
   \rule{5cm}{0.4pt} & \quad & \rule{7cm}{0.4pt} \\
   Ort, Datum        &       & Unterschrift \AutorName \\
 \end{tabular}
+
+\section{Protokoll der durchgeführten Projektarbeit}
+\label{anhang:protokoll}
+
+Das nachfolgende, von Prüfungsteilnehmer und Projektverantwortlichem unterzeichnete
+Protokoll dokumentiert die Durchführung der Projektarbeit gemäß den Vorgaben der
+\gls{ihk} Regensburg.
+
+\includepdf[pages=-, pagecommand={\thispagestyle{empty}}]{protokoll.pdf}
 
 \end{document}

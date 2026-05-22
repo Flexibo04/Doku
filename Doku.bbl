@@ -16,5 +16,459 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{oauth2_rfc}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=645c23d98c8c0ad0899cb4be651e6a02}{%
+           family={Hardt},
+           familyi={H\bibinitperiod},
+           given={Dick},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{fullhash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{bibnamehash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{authorbibnamehash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{authornamehash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{authorfullhash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The OAuth 2.0 Authorization Framework (RFC 6749)}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2012}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc6749
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc6749
+      \endverb
+    \endentry
+    \entry{jtl_appbridge}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd77a086eb5e927c3ce9e45edf466d0b}{%
+           family={{JTL-Software GmbH}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{fullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{bibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorbibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authornamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorfullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \field{extraname}{1}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{JTL Cloud Apps Core -- AppBridge Documentation}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.npmjs.com/package/@jtl-software/cloud-apps-core
+      \endverb
+      \verb{url}
+      \verb https://www.npmjs.com/package/@jtl-software/cloud-apps-core
+      \endverb
+    \endentry
+    \entry{jtl_platform_ui}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd77a086eb5e927c3ce9e45edf466d0b}{%
+           family={{JTL-Software GmbH}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{fullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{bibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorbibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authornamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorfullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \field{extraname}{2}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{JTL Platform UI React Components}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.npmjs.com/package/@jtl-software/platform-ui-react
+      \endverb
+      \verb{url}
+      \verb https://www.npmjs.com/package/@jtl-software/platform-ui-react
+      \endverb
+    \endentry
+    \entry{jtl_cloud_api}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd77a086eb5e927c3ce9e45edf466d0b}{%
+           family={{JTL-Software GmbH}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{fullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{bibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorbibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authornamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorfullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \field{extraname}{3}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{JTL-Cloud Developer Documentation}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developer.jtl-cloud.com
+      \endverb
+      \verb{url}
+      \verb https://developer.jtl-cloud.com
+      \endverb
+    \endentry
+    \entry{jtl_auth}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd77a086eb5e927c3ce9e45edf466d0b}{%
+           family={{JTL-Software GmbH}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{fullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{bibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorbibnamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authornamehash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \strng{authorfullhash}{bd77a086eb5e927c3ce9e45edf466d0b}
+      \field{extraname}{4}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradate}{4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{JTL-Cloud OAuth2 Authentication}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://auth.jtl-cloud.com
+      \endverb
+      \verb{url}
+      \verb https://auth.jtl-cloud.com
+      \endverb
+    \endentry
+    \entry{clean_code}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6f41df64eb0dc4855be70172368604c2}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{fullhash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{bibnamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authorbibnamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authornamehash}{6f41df64eb0dc4855be70172368604c2}
+      \strng{authorfullhash}{6f41df64eb0dc4855be70172368604c2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-13-235088-4}
+      \field{title}{Clean Code: A Handbook of Agile Software Craftsmanship}
+      \field{year}{2008}
+    \endentry
+    \entry{react_docs}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=350a86b0327152e3a50596538f38a5db}{%
+           family={{Meta Platforms, Inc.}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{fullhash}{350a86b0327152e3a50596538f38a5db}
+      \strng{bibnamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authorbibnamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authornamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authorfullhash}{350a86b0327152e3a50596538f38a5db}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{React – The Library for Web and Native User Interfaces}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://react.dev
+      \endverb
+      \verb{url}
+      \verb https://react.dev
+      \endverb
+    \endentry
+    \entry{typescript_docs}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b9a8b868588ad4bc6b36c29936e26423}{%
+           family={{Microsoft Corporation}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b9a8b868588ad4bc6b36c29936e26423}
+      \strng{fullhash}{b9a8b868588ad4bc6b36c29936e26423}
+      \strng{bibnamehash}{b9a8b868588ad4bc6b36c29936e26423}
+      \strng{authorbibnamehash}{b9a8b868588ad4bc6b36c29936e26423}
+      \strng{authornamehash}{b9a8b868588ad4bc6b36c29936e26423}
+      \strng{authorfullhash}{b9a8b868588ad4bc6b36c29936e26423}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TypeScript -- JavaScript With Syntax For Types}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.typescriptlang.org
+      \endverb
+      \verb{url}
+      \verb https://www.typescriptlang.org
+      \endverb
+    \endentry
+    \entry{express_docs}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=263642944f6c498301458458c276f5f3}{%
+           family={{OpenJS Foundation}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhash}{263642944f6c498301458458c276f5f3}
+      \strng{bibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorbibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authornamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhash}{263642944f6c498301458458c276f5f3}
+      \field{extraname}{1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Express.js -- Fast, unopinionated, minimalist web framework}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://expressjs.com
+      \endverb
+      \verb{url}
+      \verb https://expressjs.com
+      \endverb
+    \endentry
+    \entry{nodejs_docs}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=263642944f6c498301458458c276f5f3}{%
+           family={{OpenJS Foundation}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhash}{263642944f6c498301458458c276f5f3}
+      \strng{bibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorbibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authornamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhash}{263642944f6c498301458458c276f5f3}
+      \field{extraname}{2}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Node.js Documentation}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://nodejs.org/en/docs
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/en/docs
+      \endverb
+    \endentry
+    \entry{jose_npm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=22751c724c839543fc760bbde9f02346}{%
+           family={Panva},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{22751c724c839543fc760bbde9f02346}
+      \strng{fullhash}{22751c724c839543fc760bbde9f02346}
+      \strng{bibnamehash}{22751c724c839543fc760bbde9f02346}
+      \strng{authorbibnamehash}{22751c724c839543fc760bbde9f02346}
+      \strng{authornamehash}{22751c724c839543fc760bbde9f02346}
+      \strng{authorfullhash}{22751c724c839543fc760bbde9f02346}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{jose -- JavaScript Object Signing and Encryption}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.npmjs.com/package/jose
+      \endverb
+      \verb{url}
+      \verb https://www.npmjs.com/package/jose
+      \endverb
+    \endentry
+    \entry{recharts}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c50186cbdd0d59a1e6b16f1de5a5c735}{%
+           family={{Recharts Group}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \strng{fullhash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \strng{bibnamehash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \strng{authorbibnamehash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \strng{authornamehash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \strng{authorfullhash}{c50186cbdd0d59a1e6b16f1de5a5c735}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Recharts -- A Redefined Chart Library Built with React}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://recharts.org
+      \endverb
+      \verb{url}
+      \verb https://recharts.org
+      \endverb
+    \endentry
+    \entry{ris_website}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=867ea504a17bde9ff4312ba77b29a5a1}{%
+           family={{RIS Web- \& Software-Development GmbH \& Co. KG}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \strng{fullhash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \strng{bibnamehash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \strng{authorbibnamehash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \strng{authornamehash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \strng{authorfullhash}{867ea504a17bde9ff4312ba77b29a5a1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{RIS -- Ihr Partner fuer individuelle Softwareloesungen}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ris-software.de
+      \endverb
+      \verb{url}
+      \verb https://www.ris-software.de
+      \endverb
+    \endentry
+    \entry{vite_docs}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c181205d8e6010f589e6c498afe0fe11}{%
+           family={You},
+           familyi={Y\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c181205d8e6010f589e6c498afe0fe11}
+      \strng{fullhash}{c181205d8e6010f589e6c498afe0fe11}
+      \strng{bibnamehash}{c181205d8e6010f589e6c498afe0fe11}
+      \strng{authorbibnamehash}{c181205d8e6010f589e6c498afe0fe11}
+      \strng{authornamehash}{c181205d8e6010f589e6c498afe0fe11}
+      \strng{authorfullhash}{c181205d8e6010f589e6c498afe0fe11}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Vite -- Next Generation Frontend Tooling}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://vitejs.dev
+      \endverb
+      \verb{url}
+      \verb https://vitejs.dev
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
