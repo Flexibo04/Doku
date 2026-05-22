@@ -1,24 +1,24 @@
 # Fdb version 4
-["biber Doku"] 1779453012.93816 "Doku.bcf" "Doku.bbl" "Doku" 1779458094.54857 0
-  "Doku.bcf" 1779458094.4512 108682 5b6aeb30532a9077cbd630b60c5e4d41 "pdflatex"
+["biber Doku"] 1779453012.93816 "Doku.bcf" "Doku.bbl" "Doku" 1779493775.75497 0
+  "Doku.bcf" 1779493775.57751 108682 5b6aeb30532a9077cbd630b60c5e4d41 "pdflatex"
   "literatur.bib" 1779435181.68287 3225 871e39a46e858127c0b5452922791043 ""
   (generated)
   "Doku.bbl"
   "Doku.blg"
   (rewritten before read)
-["cusdep acn acr Doku"] 1779456976.3998 "Doku.acn" "Doku.acr" "Doku" 1779458094.54884 0
-  "Doku.acn" 1779458094.4524 11961 77509dffc9797d450ca0f341a84dcf61 "pdflatex"
+["cusdep acn acr Doku"] 1779456976.3998 "Doku.acn" "Doku.acr" "Doku" 1779493775.75543 0
+  "Doku.acn" 1779493775.57943 11961 77509dffc9797d450ca0f341a84dcf61 "pdflatex"
   (generated)
   "Doku.acr"
   (rewritten before read)
-["pdflatex"] 1779458092.18198 "/home/felix/Projekte/Projektarbeit/fuer_Dokumentation/Doku/Doku.tex" "Doku.pdf" "Doku" 1779458094.5489 0
+["pdflatex"] 1779493771.24692 "/home/felix/Projekte/Projektarbeit/fuer_Dokumentation/Doku/Doku.tex" "Doku.pdf" "Doku" 1779493775.75554 0
   "/etc/texmf/web2c/texmf.cnf" 1779284693.56395 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0900.600pk" 1779436821.34174 22964 5773b5646fc7616500ea2394910dbdf7 ""
   "/home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk" 1779436821.85442 17492 cc7b2ba2f8e369a26c566c4f9c65fe1f ""
   "/home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk" 1779436822.33341 20008 ac4a72cbe34e69111911a7d183772f8a ""
   "/home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk" 1779436822.72241 21952 9e39267038cb36eee5ddc6a7c06e76e2 ""
   "/home/felix/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk" 1779436820.95643 11620 9a457920e978120032c5c928d043b4b5 ""
-  "/home/felix/Projekte/Projektarbeit/fuer_Dokumentation/Doku/Doku.tex" 1779458092.0709 101890 cb78f270ec7564421dcc64730f9b9e50 ""
+  "/home/felix/Projekte/Projektarbeit/fuer_Dokumentation/Doku/Doku.tex" 1779493771.06104 101890 cb78f270ec7564421dcc64730f9b9e50 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1136768653 4484 b828043cbd581d289d955903c1339981 ""
@@ -336,16 +336,16 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1779436763.41599 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1779436780 7277473 06c8e6cdb3bd5bcc8418c937edec40f3 ""
   "Doku.acr" 1779456976.42876 5303 c31583565145fae6462c802bb2883715 "cusdep acn acr Doku"
-  "Doku.aux" 1779458094.4392 48032 bae5fa0516a1de2a84f451936fb426ec "pdflatex"
+  "Doku.aux" 1779493775.55651 48032 bae5fa0516a1de2a84f451936fb426ec "pdflatex"
   "Doku.bbl" 1779453013.43612 17669 bbef46cdcb8aaa78cf5ad6f41e80d226 "biber Doku"
-  "Doku.lof" 1779458094.4524 1053 37550880faaf6fec16bbdfb97a3bd06a "pdflatex"
-  "Doku.lol" 1779458094.4524 2776 dfbc5909f1a3f5c132134311058d52b8 "pdflatex"
-  "Doku.lot" 1779458094.4524 1652 afec62b229c4f0ae403a495daa4b1f25 "pdflatex"
-  "Doku.run.xml" 1779458094.4524 2340 73e93f8d97030324fc283f77a6108693 "pdflatex"
-  "Doku.tex" 1779458092.0709 101890 cb78f270ec7564421dcc64730f9b9e50 ""
-  "Doku.toc" 1779458094.4524 6937 63d87e756d59b9566769c1db71a74e60 "pdflatex"
+  "Doku.lof" 1779493775.57943 1053 37550880faaf6fec16bbdfb97a3bd06a "pdflatex"
+  "Doku.lol" 1779493775.57943 2776 dfbc5909f1a3f5c132134311058d52b8 "pdflatex"
+  "Doku.lot" 1779493775.57943 1652 afec62b229c4f0ae403a495daa4b1f25 "pdflatex"
+  "Doku.run.xml" 1779493775.57943 2340 73e93f8d97030324fc283f77a6108693 "pdflatex"
+  "Doku.tex" 1779493771.06104 101890 cb78f270ec7564421dcc64730f9b9e50 ""
+  "Doku.toc" 1779493775.57943 6937 63d87e756d59b9566769c1db71a74e60 "pdflatex"
   "bilder/Felix_Bock_signature.png" 1779458024.35054 9197 ba4d9d435ab3044ddafa3a409d2c648f ""
-  "bilder/image.png" 1779435181.68087 181703 4b9abb95ce32338e4509a9ea0d40156b ""
+  "bilder/image.png" 1779493649.43071 189579 52ce2c89f45481bddc86e8ed71a90e75 ""
   "bilder/image2.png" 1779435181.68087 141074 b39c30442849509343dc9352f4d9542f ""
   "bilder/image3.png" 1779435181.68187 126087 426b56e7a74b19b32cf062d05e9279d2 ""
   "bilder/image4.png" 1779435181.68187 43187 801c10f11688f038b53378685ac24b9f ""
