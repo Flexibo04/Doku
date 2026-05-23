@@ -542,7 +542,8 @@ JTL-Cloud-Erweiterungen positioniert.
 
 Den Berechnungen liegt ein interner Verrechnungssatz von 15\,\EUR{}/h für den
 Auszubildenden sowie 25\,\EUR{}/h für Mitarbeiter zugrunde, entsprechend den
-betrieblichen Kostensätzen der \gls{ris}.
+betrieblichen Kostensätzen der \gls{ris}. Tabelle~\ref{tab:kosten} schlüsselt die
+Projektkosten auf.
 
 \begin{table}[H]
   \centering
@@ -604,7 +605,7 @@ Basis von Markt- und Kundenfeedback festgelegt.
         {Break-Even nach 10 Monaten};
     \end{axis}
   \end{tikzpicture}
-  \caption{Break-Even-Analyse: Amortisation nach zehn Monaten}
+  \caption[Break-Even-Analyse: Amortisation nach zehn Monaten]{Break-Even-Analyse: Amortisation nach zehn Monaten\\\footnotesize Quelle: Eigene Darstellung}
   \label{fig:breakeven}
 \end{figure}
 
@@ -681,7 +682,8 @@ zurückgegriffen werden konnte.\footcite{react_docs}
 Für das Backend-Framework wurde eine Nutzwertanalyse zwischen den JavaScript-Frameworks
 \textbf{Express}, \textbf{NestJS} und \textbf{Fastify} durchgeführt, da alle drei
 im gleichen Ökosystem (\textbf{Node.js} / \textbf{TypeScript}) betrieben werden und somit eine
-vergleichbare Grundlage bilden.\footcite{nodejs_docs} Die Gewichtung (Gew.) spiegelt die Bedeutung
+vergleichbare Grundlage bilden.\footcite{nodejs_docs} Das Ergebnis fasst
+Tabelle~\ref{tab:nutzwert} zusammen. Die Gewichtung (Gew.) spiegelt die Bedeutung
 des jeweiligen Kriteriums für dieses Projekt wider; der Höchstwert 5 bedeutet
 unverzichtbar, 1 bedeutet vernachlässigbar. Die Bewertung (Bew.) gibt an, wie
 gut ein Framework das Kriterium erfüllt: 5 = sehr gut, 1 = unzureichend. Der
@@ -752,7 +754,9 @@ Das Backend übernimmt Datenbeschaffung, Authentifizierung und die Kommunikation
 mit der JTL-Cloud-\gls{api}; das Frontend ist ausschließlich für die Darstellung
 und Benutzerinteraktion zuständig. Die Trennung von Datenzugriff und Darstellung
 orientiert sich an bewährten Architekturprinzipien und erleichtert die
-unabhängige Weiterentwicklung beider Schichten.
+unabhängige Weiterentwicklung beider Schichten. Einen Überblick über die Schichten
+gibt Abbildung~\ref{fig:architektur}, das zugehörige Komponentendiagramm
+Abbildung~\ref{fig:komponenten}.
 
 Eine JTL-Cloud App ist eine vom Entwickler eigenständig gehostete
 Webanwendung, die über den JTL App Shell als sandboxierter \texttt{iframe}
@@ -798,14 +802,14 @@ Session-Tokens übermittelt sowie Methoden und Events der JTL-Wawi abgerufen.
     {\small Session-Token ~$\cdot$~ Events ~$\cdot$~ Methoden}
     \vspace{0.5cm}
   }}
-  \caption{Systemarchitektur, Übersicht}
+  \caption[Systemarchitektur, Übersicht]{Systemarchitektur, Übersicht\\\footnotesize Quelle: Eigene Darstellung}
   \label{fig:architektur}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{image3}
-  \caption{Komponentendiagramm der Systemarchitektur}
+  \caption[Komponentendiagramm der Systemarchitektur]{Komponentendiagramm der Systemarchitektur\\\footnotesize Quelle: Eigene Darstellung}
   \label{fig:komponenten}
 \end{figure}
 
@@ -815,7 +819,7 @@ Um die Anwendung möglichst benutzerfreundlich zu gestalten, wurde zunächst ein
 der Oberfläche als Mockup angefertigt. Dabei wurde auf eine klare, übersichtliche
 Darstellung der \glspl{kpi} geachtet. Die Dashboard-Hauptansicht zeigt Karten für
 Umsatz und Auftragszahlen sowie ein Balkendiagramm für den Umsatzverlauf der
-letzten sieben Tage und eine Auflistung der jüngsten Bestellungen. Mockups befinden sich im Anhang~\ref{anhang:mockups}.
+letzten sieben Tage und eine Auflistung der jüngsten Bestellungen. Mockups befinden sich im Anhang~\ref{anhang:mockups} (Abbildung~\ref{fig:mockup}).
 
 \section{Datenmodell und API-Kommunikation}
 
@@ -824,7 +828,8 @@ letzten sieben Tage und eine Auflistung der jüngsten Bestellungen. Mockups befi
 Im Rahmen des Projekts wurden im Express-Backend folgende eigene \gls{api}-Endpunkte
 implementiert, über die das Frontend alle Anfragen abwickelt. Sie bilden eine
 Zwischenschicht zwischen Frontend und JTL-Cloud-\gls{api} und übernehmen
-Authentifizierung, Token-Verifikation und Weiterleitung.
+Authentifizierung, Token-Verifikation und Weiterleitung; Tabelle~\ref{tab:api_endpunkte}
+listet die Endpunkte auf.
 
 Die JTL-Cloud-\gls{api} stellt neben klassischen REST-Endpunkten eine
 GraphQL-Schnittstelle bereit.\footcite{jtl_cloud_api} GraphQL ist eine Abfragesprache für \glspl{api},
@@ -928,7 +933,7 @@ bis zur verifizierten Tenant-Zuordnung.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{image2}
-  \caption{Sequenzdiagramm: Authentifizierungs- und Token-Verifikationsablauf}
+  \caption[Sequenzdiagramm: Authentifizierungs- und Token-Verifikationsablauf]{Sequenzdiagramm: Authentifizierungs- und Token-Verifikationsablauf\\\footnotesize Quelle: Eigene Darstellung}
   \label{fig:sequenz}
 \end{figure}
 
@@ -1127,16 +1132,16 @@ gerendert wird und die Daten anzeigt. Schlägt eine der Anfragen fehl,
 wird eine Fehlermeldung im \gls{ui} dargestellt, ohne die Anwendung zu
 unterbrechen.
 
-Die Darstellung gliedert sich in drei Bereiche: Zunächst werden zwei
-\glspl{kpi}, Gesamtumsatz und Anzahl der Bestellungen, in kompakten
-Kennzahlkarten ausgegeben. Darunter folgt ein Balkendiagramm der Bibliothek
-Recharts, das den Tagesumsatz der letzten sieben Tage visualisiert. Den
-Abschluss bildet eine Bestellliste mit den jüngsten Aufträgen; jede Zeile
-enthält Firmenname, Bestellnummer, Datum, Bruttobetrag sowie einen
-farbcodierten Statusbadge, der den aktuellen Auftragsstatus wie
-\enquote{Offen} oder \enquote{Versendet} auf einen Blick signalisiert.
-Am unteren Rand wird der durchschnittliche Bestellwert als zusammenfassende
-Kennzahl ausgegeben.
+Die Darstellung gliedert sich in mehrere Bereiche: Im oberen Bereich werden vier
+\glspl{kpi} -- Gesamtumsatz, Anzahl der Bestellungen, Anzahl aktiver Kunden und
+durchschnittlicher Bestellwert -- in kompakten Kennzahlkarten ausgegeben. Darunter
+folgen zwei Diagramme der Bibliothek Recharts: ein Liniendiagramm des Umsatzverlaufs
+der letzten zwölf Monate sowie ein Balkendiagramm der fünf umsatzstärksten Artikel.
+Den Abschluss bilden zwei Listen: eine Bestellliste mit den jüngsten Aufträgen --
+jede Zeile enthält Firmenname, Bestellnummer, Datum, Bruttobetrag sowie einen
+farbcodierten Statusbadge, der den aktuellen Auftragsstatus wie \enquote{Offen}
+oder \enquote{Versendet} auf einen Blick signalisiert -- sowie eine Übersicht der
+Artikel mit niedrigem Lagerbestand.
 
 Eine konkrete Herausforderung bei der Diagrammimplementierung bestand in der
 Datenaufbereitung für Recharts: Die JTL-Cloud-\gls{api} liefert Umsatzdaten
@@ -1153,7 +1158,7 @@ nach deutschem Gebietsschema (\texttt{de-DE}) um; \texttt{formatDate()} konverti
 befindet sich in Listing~\ref{lst:erppage} im Anhang.
 
 Ein Screenshot des fertigen Dashboards befindet sich in
-Anhang~\ref{anhang:screenshot_app}.
+Anhang~\ref{anhang:screenshot_app} (Abbildung~\ref{fig:screenshot_app}).
 
 % ============================================================
 %  6  ABNAHME- UND EINFÜHRUNGSPHASE
@@ -1457,6 +1462,8 @@ JTL-Cloud-\gls{api} bewertet werden.
 
 \subsection*{Funktionale Anforderungen}
 
+Tabelle~\ref{tab:lastenheft_fa} listet die funktionalen Anforderungen auf.
+
 \begin{table}[H]
   \centering
   \caption{Funktionale Anforderungen (Lastenheft)}
@@ -1485,6 +1492,8 @@ JTL-Cloud-\gls{api} bewertet werden.
 \end{table}
 
 \subsection*{Nicht-funktionale Anforderungen}
+
+Die nicht-funktionalen Anforderungen fasst Tabelle~\ref{tab:lastenheft_nfa} zusammen.
 
 \begin{table}[H]
   \centering
@@ -1533,7 +1542,7 @@ JTL-Cloud-\gls{api} bewertet werden.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{image4}
-  \caption{Mockup der Dashboard-Hauptansicht}
+  \caption[Mockup der Dashboard-Hauptansicht]{Mockup der Dashboard-Hauptansicht\\\footnotesize Quelle: Eigene Darstellung}
   \label{fig:mockup}
 \end{figure}
 
@@ -1566,6 +1575,8 @@ Das Backend ist der einzige Kommunikationspartner der JTL-Cloud-\gls{api}. Das F
 kommuniziert ausschließlich mit dem eigenen Backend.
 
 \subsection*{Anforderungs-Umsetzungs-Matrix}
+
+Tabelle~\ref{tab:pflichtenheft_matrix} ordnet jeder Anforderung die konkrete technische Umsetzung zu.
 
 \begin{longtable}{@{} l l p{9cm} @{}}
   \caption{Anforderungs-Umsetzungs-Matrix (Pflichtenheft)}
@@ -1889,7 +1900,7 @@ const ErpPage: React.FC<IErpPageProps> = ({ appBridge }) => {
 
   const load = useCallback(async () => {
     const token = await appBridge.method.call<string>('getSessionToken');
-    const result = await fetchDashboard(token, computeDateRange('daily'));
+    const result = await fetchDashboard(token, computeDateRange('monthly'));
     setData(result);
   }, [appBridge]);
 
@@ -1898,20 +1909,18 @@ const ErpPage: React.FC<IErpPageProps> = ({ appBridge }) => {
   return (
     <div className="flex flex-col gap-4 p-4 bg-gray-50">
       <div className="flex gap-3">
-        <KpiCard label="Umsatz" value={formatEur(data.kpis.totalRevenue)} />
-        <KpiCard label="Bestellungen" value={String(data.kpis.totalOrders)} />
+        <KpiCard label="Umsatz"        value={formatEur(data.kpis.totalRevenue)} />
+        <KpiCard label="Bestellungen"  value={String(data.kpis.totalOrders)} />
+        <KpiCard label="Aktive Kunden" value={String(data.kpis.totalCustomers)} />
+        <KpiCard label="Avg. Bestellwert" value={formatEur(data.kpis.avgOrderValue)} />
       </div>
-      <BarChart data={data.revenuePoints.slice(-7)}>
-        <Bar dataKey="revenue" fill="#1a56db" />
-      </BarChart>
-      {data.recentOrders.slice(0, 8).map(order => (
-        <div key={order.salesOrderNumber}>
-          <p>{order.companyName}</p>
-          <p>{formatEur(order.totalGrossAmount)}</p>
-          <StatusBadge status={order.status} />
-        </div>
+      <LineChart data={data.revenuePoints.slice(-12)}>
+        <Line dataKey="revenue" stroke="#1a56db" />
+      </LineChart>
+      {data.recentOrders.map(order => (
+        <OrderRow key={order.salesOrderNumber} order={order} />
       ))}
-      <p>Avg. Bestellwert: {formatEur(data.kpis.avgOrderValue)}</p>
+      {/* Top-Artikel und niedrige Bestaende analog */}
     </div>
   );
 };
@@ -1940,7 +1949,7 @@ createRoot(document.getElementById('root')!).render(
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{image}
-  \caption{Screenshot des fertigen ERP-Dashboards}
+  \caption[Screenshot des fertigen ERP-Dashboards]{Screenshot des fertigen ERP-Dashboards\\\footnotesize Quelle: Eigener Screenshot der Anwendung}
   \label{fig:screenshot_app}
 \end{figure}
 
@@ -2209,26 +2218,32 @@ Beim ersten Aufruf der App öffnet sich automatisch die \textbf{Setup-Seite}:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{image}
-  \caption{Dashboard-Ansicht (Screenshot)}
+  \caption[Dashboard-Ansicht (Screenshot)]{Dashboard-Ansicht (Screenshot)\\\footnotesize Quelle: Eigener Screenshot der Anwendung}
   \label{fig:screenshot_dashboard}
 \end{figure}
 
-Das Dashboard gliedert sich in die folgenden Bereiche:
+Das Dashboard (Abbildung~\ref{fig:screenshot_dashboard}) gliedert sich in die
+folgenden Bereiche. Über die Reiter am oberen Rand lässt sich der Auswertungszeitraum
+umschalten (täglich, wöchentlich, monatlich, jährlich oder benutzerdefiniert);
+voreingestellt ist die Monatsansicht der letzten zwölf Monate.
 
 \paragraph{\gls{kpi}-Karten (oben)}
-Zwei Kennzahlenkarten zeigen auf einen Blick:
+Vier Kennzahlenkarten zeigen auf einen Blick:
 \begin{itemize}[leftmargin=1.5em]
-  \item \textbf{Gesamtumsatz} der letzten sieben Tage in Euro
+  \item \textbf{Gesamtumsatz} im ausgewerteten Zeitraum in Euro
   \item \textbf{Anzahl der Bestellungen} im selben Zeitraum
+  \item \textbf{Anzahl aktiver Kunden}
+  \item \textbf{Durchschnittlicher Bestellwert} je Auftrag
 \end{itemize}
 
-\paragraph{Umsatzdiagramm (Mitte)}
-Ein Balkendiagramm stellt den täglichen Umsatzverlauf der letzten sieben Tage dar.
-Die horizontale Achse zeigt das Datum, die vertikale Achse den Tagesumsatz in Euro.
+\paragraph{Umsatzverlauf und Top-Artikel (Mitte)}
+Ein Liniendiagramm stellt den Umsatzverlauf der letzten zwölf Monate dar; daneben
+zeigt ein Balkendiagramm die fünf umsatzstärksten Artikel.
 
-\paragraph{Letzte Aufträge (unten)}
+\paragraph{Letzte Aufträge (unten links)}
 Eine Liste führt die zuletzt eingegangenen Aufträge mit Firmenname, Bestellnummer,
-Datum, Bruttobetrag und aktuellem Status auf. Der Status wird farbig hervorgehoben:
+Datum, Bruttobetrag und aktuellem Status auf. Der Status wird farbig hervorgehoben
+(vgl. Tabelle~\ref{tab:auftragsstatus}):
 
 \begin{table}[H]
   \centering
@@ -2247,9 +2262,9 @@ Datum, Bruttobetrag und aktuellem Status auf. Der Status wird farbig hervorgehob
   \end{tabularx}
 \end{table}
 
-\paragraph{Durchschnittlicher Bestellwert (unten)}
-Am unteren Rand des Dashboards wird der durchschnittliche Bestellwert des
-ausgewerteten Zeitraums als zusammenfassende Kennzahl ausgegeben.
+\paragraph{Niedriger Bestand (unten rechts)}
+Eine Liste zeigt die Artikel, deren verfügbarer Lagerbestand einen kritischen Wert
+unterschreitet, mit Artikelnummer, Bezeichnung sowie verfügbarer und gesamter Menge.
 
 \subsection*{Seitenleisten-Widget (Pane)}
 
@@ -2259,6 +2274,8 @@ JTL-Cloud geöffneten Kundendatensatzes an. Das Widget aktualisiert sich automat
 wenn in der JTL-Cloud zu einem anderen Kunden gewechselt wird.
 
 \subsection*{Fehlerbehebung}
+
+Tabelle~\ref{tab:fehlerbehebung} fasst häufige Probleme und ihre Lösungen zusammen.
 
 \begin{table}[H]
   \centering

@@ -77,8 +77,8 @@
 \contentsline {paragraph}{\texttt {ALL /erp-info/:tenantId/:endpoint}}{38}{lstnumber.A.18.8}%
 \contentsline {section}{\numberline {A.10}Benutzerhandbuch}{40}{section.A.10}%
 \contentsline {paragraph}{\gls {kpi}-Karten (oben)}{41}{figure.caption.21}%
-\contentsline {paragraph}{Umsatzdiagramm (Mitte)}{41}{figure.caption.21}%
-\contentsline {paragraph}{Letzte Aufträge (unten)}{41}{figure.caption.21}%
-\contentsline {paragraph}{Durchschnittlicher Bestellwert (unten)}{42}{table.caption.22}%
+\contentsline {paragraph}{Umsatzverlauf und Top-Artikel (Mitte)}{42}{figure.caption.21}%
+\contentsline {paragraph}{Letzte Aufträge (unten links)}{42}{figure.caption.21}%
+\contentsline {paragraph}{Niedriger Bestand (unten rechts)}{42}{table.caption.22}%
 \contentsline {section}{\numberline {A.11}Eigenständigkeitserklärung}{43}{section.A.11}%
 \contentsline {section}{\numberline {A.12}Protokoll der durchgeführten Projektarbeit}{43}{section.A.12}%

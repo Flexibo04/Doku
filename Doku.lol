@@ -15,7 +15,7 @@
 \contentsline {lstlisting}{\numberline {15}{\ignorespaces Entwicklungsserver starten}}{37}{lstlisting.A.15}%
 \contentsline {lstlisting}{\numberline {16}{\ignorespaces POST /connect-tenant - Beispiel-Request}}{37}{lstlisting.A.16}%
 \contentsline {lstlisting}{\numberline {17}{\ignorespaces POST /connect-tenant - Erfolgs-Response}}{37}{lstlisting.A.17}%
-\contentsline {lstlisting}{\numberline {18}{\ignorespaces POST /graphql - Beispiel-Request}}{37}{lstlisting.A.18}%
+\contentsline {lstlisting}{\numberline {18}{\ignorespaces POST /graphql - Beispiel-Request}}{38}{lstlisting.A.18}%
 \contentsline {lstlisting}{\numberline {19}{\ignorespaces JSDoc-Dokumentation: fetchDashboard()}}{38}{lstlisting.A.19}%
 \contentsline {lstlisting}{\numberline {20}{\ignorespaces JSDoc-Dokumentation: computeDateRange()}}{38}{lstlisting.A.20}%
 \contentsline {lstlisting}{\numberline {21}{\ignorespaces JSDoc-Dokumentation: Hilfsfunktionen}}{39}{lstlisting.A.21}%
