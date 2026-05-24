@@ -126,11 +126,15 @@
 }
 
 % report-Klasse setzt auf Kapitelerstseiten automatisch auf "plain" um —
-% hier überschreiben damit auch dort "X von Y" erscheint
+% hier überschreiben damit auch dort Kopfzeile und "X von Y" erscheinen
 \fancypagestyle{plain}{%
   \fancyhf{}
+  \fancyhead[L]{%
+    \footnotesize Felix Bock \textbar{} JTL Wawi Cloud BI-Tool\\[-2pt]
+    \footnotesize Erstellen einer JTL Wawi Cloud App in Form eines BI-Tools
+  }
   \fancyfoot[C]{\thepage\ von \pageref{LastPage}}
-  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0pt}
 }
 
@@ -141,6 +145,7 @@
 \renewcommand{\cfttoctitlefont}{\Large\bfseries}
 \renewcommand{\cftloftitlefont}{\Large\bfseries}
 \renewcommand{\cftlottitlefont}{\Large\bfseries}
+\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftbeforeloftitleskip}{0pt}
 \setlength{\cftbeforelottitleskip}{1.5em}
@@ -294,7 +299,7 @@
 
   \vspace{3cm}
 
-  % ── Autorenblock ────────────────────────────────────────────
+ % ── Autorenblock ────────────────────────────────────────────
   {\normalsize Bericht zur betrieblichen Projektarbeit von}\\[0.5cm]
   {\large\bfseries \AutorName}\\[0.5cm]
   {\normalsize zur Erlangung des Abschlusses}
@@ -416,25 +421,6 @@ Für \gls{ris} als JTL-Dienstleister besteht zusätzlich die strategische Notwen
 die neue Cloud-\gls{api} frühzeitig technisch zu evaluieren und deren Praxistauglichkeit
 zu prüfen.
 
-\section{Projektschnittstellen}
-
-Das System kommuniziert über folgende Schnittstellen.
-Die Kommunikation mit allen externen Diensten erfolgt verschlüsselt über \gls{https}.
-
-\begin{itemize}[leftmargin=1.5em]
-  \item \textbf{JTL-Cloud Auth-Server} (\texttt{https://auth.jtl-cloud.com}):
-        Stellt über OAuth2, einem offenen Standard zur sicheren Zugriffsautorisierung,
-        Zugriffstoken aus.\footcite{oauth2_rfc} Der verwendete \\\texttt{client\_credentials}-Flow ist ein
-        Server-zu-Server-Verfahren, bei dem die Anwendung sich direkt mit App-ID
-        und App-Secret ausweist, ohne dass eine Nutzerinteraktion erforderlich ist.
-  \item \textbf{JTL-Cloud API} (\texttt{https://api.jtl-cloud.com}):
-        \gls{rest}-\gls{api}, die einen standardisierten Datenaustausch über das
-        \gls{http} ermöglicht, zum Abruf von Geschäftsdaten wie Aufträgen,
-        Artikeln und Lagerbeständen
-  \item \textbf{Frontend} (React-\gls{spa}): Kommuniziert mit dem eigenen Backend über eine
-        interne REST-\gls{api}
-\end{itemize}
-
 \section{Projektabgrenzung}
 
 Da der Projektumfang auf 80 Stunden begrenzt ist, sind folgende Punkte ausdrücklich
@@ -485,22 +471,18 @@ Anhang~\ref{anhang:zeitplanung}.
 
 \section{Ressourcenplanung}
 
-Eine Übersicht der eingesetzten Ressourcen befindet sich im Anhang~\ref{anhang:ressourcen}.
-Bei der Auswahl der verwendeten Software wurde ausschließlich auf kostenlose
-Werkzeuge gesetzt, um anfallende Projektkosten möglichst gering zu halten.
+Die im Projekt eingesetzten Ressourcen -- Entwicklungsrechner, Betriebssystem,
+Entwicklungsumgebung und verwendete Bibliotheken -- sind im Anhang~\ref{anhang:ressourcen}
+aufgeführt. Bei der Softwareauswahl wurde durchgehend auf kostenlose Werkzeuge gesetzt,
+sodass für das Projekt keine zusätzlichen Lizenzkosten anfielen.
 
-\section{Entwicklungsprozess}
+\section{Entwicklungsprozess und Iterationsplanung}
 
-Bevor mit der Realisierung des Projekts begonnen werden konnte, musste ein geeigneter
-Entwicklungsprozess gewählt werden. Für das Abschlussprojekt wurde ein iterativ-inkrementeller
-Ansatz in Anlehnung an agile Vorgehensmodelle gewählt. Die einzelnen Implementierungsphasen
-(Backend, Frontend, Qualitätssicherung) werden nacheinander, aber mit regelmäßiger Überprüfung
-der Zwischenergebnisse, durchlaufen.
-
-\section{Iterationsplanung}
-
-Auf Basis des gewählten Entwicklungsprozesses wurde vor Beginn der Implementierung
-ein Iterationsplan erstellt, der die Umsetzung in folgende Schritte gliedert:
+Für das Abschlussprojekt wurde ein iterativ-inkrementeller Ansatz gewählt: Die Umsetzung
+wurde in abgeschlossene Teilbereiche (Backend, Frontend, Qualitätssicherung) gegliedert,
+die nacheinander, aber mit regelmäßiger Überprüfung der Zwischenergebnisse, durchlaufen
+wurden. Auf dieser Grundlage wurde vor Beginn der Implementierung ein Iterationsplan
+erstellt, der die Umsetzung in folgende Schritte gliedert:
 
 \begin{itemize}[leftmargin=1.5em]
   \item Einrichtung der Entwicklungsumgebung und Projektstruktur
@@ -527,16 +509,6 @@ Die vorhandenen integrierten Analyse-Werkzeuge der JTL-Software sind entweder au
 oder bieten keine flexible Filtermöglichkeit für individuelle Zeiträume und \glspl{kpi}, also messbare Kennzahlen wie Umsatz oder Auftragsanzahl, anhand derer der Geschäftserfolg bewertet wird.
 
 \section{Wirtschaftlichkeitsanalyse}
-
-\subsection{Make-or-Buy-Entscheidung}
-
-Da die Anwendung auf die JTL-Cloud-\gls{api} in ihrer Beta-Phase aufbaut, war eine
-Kaufentscheidung strukturell ausgeschlossen: Zum Zeitpunkt der Projektumsetzung existierte
-kein Drittanbieterprodukt, das diese Schnittstelle unterstützt. Eine \enquote{Buy}-Option stand
-damit nicht zur Verfügung. Die Eigenentwicklung bietet zudem den strategischen Vorteil,
-dass \gls{ris} frühzeitig Erfahrungswissen mit der neuen JTL-Cloud-Plattform aufbaut,
-bevor diese allgemeine Marktreife erlangt, und sich damit als früher Anbieter von
-JTL-Cloud-Erweiterungen positioniert.
 
 \subsection{Projektkosten}
 
@@ -571,11 +543,8 @@ erwartenden Lizenzeinnahmen. Als Planungsgrundlage wird folgendes Szenario
 zugrunde gelegt: Bei einer monatlichen Lizenzgebühr von 29\,\EUR{} pro Mandant und
 fünf zahlenden Kunden beläuft sich der monatliche Deckungsbeitrag auf 145\,\EUR{}.
 Bei Projektkosten von 1.450\,\EUR{} ergibt sich eine rechnerische Amortisationsdauer
-von zehn Monaten (vgl. Abbildung~\ref{fig:breakeven}). Dieses Szenario stellt eine
-konservative Schätzung dar; bei
-höherer Kundenzahl oder einem höheren Lizenzpreis verkürzt sich der Zeitraum
-entsprechend. Der tatsächliche Lizenzpreis wird nach Abschluss der Beta-Phase auf
-Basis von Markt- und Kundenfeedback festgelegt.
+von zehn Monaten (vgl. Abbildung~\ref{fig:breakeven}). Der tatsächliche Lizenzpreis
+wird nach Abschluss der Beta-Phase auf Basis von Markt- und Kundenfeedback festgelegt.
 
 \begin{figure}[H]
   \centering
@@ -644,7 +613,7 @@ festgehalten. Dieses befindet sich vollständig im Anhang~\ref{anhang:lastenheft
 \section{Zielplattform}
 
 Die Applikation wird als JTL Cloud App entwickelt, die sich nahtlos in die
-JTL-Cloud-Plattform integriert. Als Architektur wurde eine Monorepo-Struktur gewählt, bei der Frontend und Backend in einem gemeinsamen Quellcode-Repository verwaltet werden und geteilte Konfigurationen sowie koordinierte Builds ermöglicht werden:
+JTL-Cloud-Plattform integriert. Als Architektur wurde eine Monorepo-Struktur gewählt, bei der Frontend und Backend in einem gemeinsamen Quellcode-Repository verwaltet werden:
 ein Express-Backend (TypeScript) übernimmt die Authentifizierung und \gls{api}-Kommunikation,
 ein React-Frontend (TypeScript) stellt die Benutzeroberfläche bereit.
 
@@ -919,7 +888,7 @@ zeigt die verfügbaren Methoden und Events.
 \subsection{OAuth2-Authentifizierungskonzept}
 
 Die JTL-Cloud-\gls{api} erfordert eine OAuth2-Authentifizierung nach dem
-\texttt{client\_credentials}-Flow.\footcite{jtl_auth}
+\texttt{client\_credentials}-Flow.\footcite{jtl_auth,oauth2_rfc}
 Das Backend sendet dabei \texttt{CLIENT\_ID} und \texttt{CLIENT\_SECRET} als
 Base64-kodierte Basic-Auth-Kombi\-nation an \url{https://auth.jtl-cloud.com/oauth2/token}
 und erhält im Gegenzug ein kurzlebiges Access-Token zurück. Dieses Token wird bei
@@ -1381,7 +1350,7 @@ mit überschaubarem Aufwand vorgenommen werden.
   \toprule
   \textbf{Dokumentation} & \textbf{5\,h} \\
   \midrule
-  Erstellung der Entwicklerdokumentation & 5\,h \\
+  Erstellung der Kundendokumentation (Entwickler- und Benutzerdokumentation) & 5\,h \\
   \toprule
   \textbf{Abschluss} & \textbf{2\,h} \\
   \midrule
@@ -1717,7 +1686,7 @@ Zeitplanung über alle 80\,h findet sich in der detaillierten Zeitplanung
   \midrule
   \multicolumn{5}{l}{\textit{Dokumentation und Abschluss}} \\
   \midrule
-  13 & Entwicklerdokumentation (JSDoc, Typisierungen) & 5 & 5 & 0 \\
+  13 & Kundendokumentation (Entwicklerdoku.\ + Benutzerhandbuch) & 5 & 5 & 0 \\
   14 & Vorstellung, Abnahme, Abschluss & 2 & 2 & 0 \\
   \midrule
   & \textbf{Gesamt} & \textbf{65} & \textbf{65} & \textbf{0} \\
@@ -1912,7 +1881,7 @@ const ErpPage: React.FC<IErpPageProps> = ({ appBridge }) => {
         <KpiCard label="Umsatz"        value={formatEur(data.kpis.totalRevenue)} />
         <KpiCard label="Bestellungen"  value={String(data.kpis.totalOrders)} />
         <KpiCard label="Aktive Kunden" value={String(data.kpis.totalCustomers)} />
-        <KpiCard label="Avg. Bestellwert" value={formatEur(data.kpis.avgOrderValue)} />
+        <KpiCard label=" Avg Bestellwert" value={formatEur(data.kpis.avgOrderValue)} />
       </div>
       <LineChart data={data.revenuePoints.slice(-12)}>
         <Line dataKey="revenue" stroke="#1a56db" />
