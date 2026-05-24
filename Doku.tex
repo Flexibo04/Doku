@@ -172,12 +172,17 @@
 \makeatother
 
 % ── Abkürzungen ─────────────────────────────────────────────
-\usepackage[acronym, toc, nonumberlist, nogroupskip]{glossaries}
+\usepackage[acronym, nonumberlist, nogroupskip]{glossaries}
 \makeglossaries
 
 % ── Literaturverzeichnis ────────────────────────────────────
 \usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
 \addbibresource{literatur.bib}
+% Bibliografie-Überschrift mit leerer Nummern-Box (einheitliche TOC-Ausrichtung)
+\defbibheading{bibnumberline}[\bibname]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{\protect\numberline{}#1}%
+}
 
 % ── Links & PDF-Metadaten ───────────────────────────────────
 \usepackage[
@@ -337,16 +342,18 @@
   \let\clearpage\relax
   \let\cleardoublepage\relax
   \singlespacing
+  \renewcommand{\addvspace}[1]{}% Kapitel-Abstände in den Verzeichnissen entfernen
   \listoffigures
-  \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+  \addcontentsline{toc}{chapter}{\protect\numberline{}Abbildungsverzeichnis}
   \listoftables
-  \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+  \addcontentsline{toc}{chapter}{\protect\numberline{}Tabellenverzeichnis}
   \lstlistoflistings
-  \addcontentsline{toc}{chapter}{Quelltextverzeichnis}
+  \addcontentsline{toc}{chapter}{\protect\numberline{}Quelltextverzeichnis}
 }
 
 \clearpage
 {\singlespacing
+  \addcontentsline{toc}{chapter}{\protect\numberline{}Abkürzungsverzeichnis}
   \printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
 }
 
@@ -1303,7 +1310,7 @@ mit überschaubarem Aufwand vorgenommen werden.
 %  LITERATURVERZEICHNIS
 % ============================================================
 \cleardoublepage
-\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+\printbibliography[heading=bibnumberline, title={Literaturverzeichnis}]
 
 % ============================================================
 %  ANHANG
