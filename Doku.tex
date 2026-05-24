@@ -793,9 +793,11 @@ Session-Tokens übermittelt sowie Methoden und Events der JTL-Wawi abgerufen.
 
 Um die Anwendung möglichst benutzerfreundlich zu gestalten, wurde zunächst ein Prototyp
 der Oberfläche als Mockup angefertigt. Dabei wurde auf eine klare, übersichtliche
-Darstellung der \glspl{kpi} geachtet. Die Dashboard-Hauptansicht zeigt Karten für
-Umsatz und Auftragszahlen sowie ein Balkendiagramm für den Umsatzverlauf der
-letzten sieben Tage und eine Auflistung der jüngsten Bestellungen. Mockups befinden sich im Anhang~\ref{anhang:mockups} (Abbildung~\ref{fig:mockup}).
+Darstellung der \glspl{kpi} geachtet. Die Dashboard-Hauptansicht sieht
+Kennzahlkarten, ein Diagramm für den Umsatzverlauf, eine Auflistung der jüngsten
+Bestellungen sowie eine Reiterleiste zur Wahl des Auswertungszeitraums (täglich,
+wöchentlich, monatlich, jährlich oder benutzerdefiniert) vor. Mockups befinden sich
+im Anhang~\ref{anhang:mockups} (Abbildung~\ref{fig:mockup}).
 
 \section{Datenmodell und API-Kommunikation}
 
@@ -1019,14 +1021,14 @@ const [kpisRes, revenueRes, topRes, ordersRes, stockRes] =
 
 Die Abfragen \texttt{Q\_KPIS} und \texttt{Q\_REVENUE} erhalten Zeitraumvariablen
 (\texttt{\$from}, \texttt{\$to}, \texttt{\$groupBy}), die von
-\texttt{computeDateRange()} berechnet werden. Diese Hilfsfunktion nimmt einen
-Periodenparameter entgegen und liefert \gls{iso}-Start- und Endzeitstempel sowie
-den passenden Gruppierungswert zurück; im Dashboard wird der Modus
-\texttt{'daily'} eingesetzt, der die letzten sieben Tage mit tagesweiser
-Gruppierung abdeckt. Die übrigen drei Queries sind zeitraumunabhängig und
-liefern stets aktuelle Bestands- und Bestelldaten. Das Ergebnis wird als
-gebündeltes \texttt{DashboardData}-Objekt an die Dashboard-Seite
-zurückgegeben.
+\texttt{computeDateRange()} berechnet werden. Diese Hilfsfunktion nimmt den im
+Dashboard gewählten Zeitraum entgegen -- täglich, wöchentlich, monatlich, jährlich
+oder einen benutzerdefinierten Zeitraum -- und liefert dafür \gls{iso}-Start- und
+Endzeitstempel sowie den passenden Gruppierungswert zurück. Voreingestellt ist die
+Monatsansicht, die den Umsatz der letzten zwölf Monate monatsweise gruppiert. Die
+übrigen drei Queries sind zeitraumunabhängig und liefern stets aktuelle Bestands-
+und Bestelldaten. Das Ergebnis wird als gebündeltes \texttt{DashboardData}-Objekt
+an die Dashboard-Seite zurückgegeben.
 
 Eine Herausforderung im Verlauf der Implementierung bestand darin, dass sich
 im Beta-Betrieb der JTL-Cloud-\gls{api} einzelne Feldnamen ohne vorherige
@@ -1108,11 +1110,14 @@ gerendert wird und die Daten anzeigt. Schlägt eine der Anfragen fehl,
 wird eine Fehlermeldung im \gls{ui} dargestellt, ohne die Anwendung zu
 unterbrechen.
 
-Die Darstellung gliedert sich in mehrere Bereiche: Im oberen Bereich werden vier
+Über eine Reiterleiste am oberen Rand lässt sich der Auswertungszeitraum wählen --
+täglich, wöchentlich, monatlich, jährlich oder ein benutzerdefinierter Zeitraum;
+voreingestellt ist die Monatsansicht der letzten zwölf Monate. Die Darstellung
+gliedert sich in mehrere Bereiche: Im oberen Bereich werden vier
 \glspl{kpi} -- Gesamtumsatz, Anzahl der Bestellungen, Anzahl aktiver Kunden und
 durchschnittlicher Bestellwert -- in kompakten Kennzahlkarten ausgegeben. Darunter
 folgen zwei Diagramme der Bibliothek Recharts: ein Liniendiagramm des Umsatzverlaufs
-der letzten zwölf Monate sowie ein Balkendiagramm der fünf umsatzstärksten Artikel.
+im gewählten Zeitraum sowie ein Balkendiagramm der fünf umsatzstärksten Artikel.
 Den Abschluss bilden zwei Listen: eine Bestellliste mit den jüngsten Aufträgen --
 jede Zeile enthält Firmenname, Bestellnummer, Datum, Bruttobetrag sowie einen
 farbcodierten Statusbadge, der den aktuellen Auftragsstatus wie \enquote{Offen}
@@ -2163,8 +2168,8 @@ und im Alltag genutzt wird.
 Das JTL Wawi Cloud \gls{bi}-Tool ist eine Cloud App, die direkt in der
 JTL-Cloud-Oberfläche eingebettet läuft. Es zeigt ausgewählte Geschäftskennzahlen
 des verbundenen JTL-Wawi-Mandanten in einem übersichtlichen Dashboard: Gesamtumsatz,
-Anzahl der Bestellungen, durchschnittlicher Auftragswert, den Umsatzverlauf der
-letzten sieben Tage sowie die jüngsten Aufträge.
+Anzahl der Bestellungen, durchschnittlicher Auftragswert, den Umsatzverlauf über einen
+wählbaren Zeitraum sowie die jüngsten Aufträge.
 
 \subsection*{Voraussetzungen}
 
