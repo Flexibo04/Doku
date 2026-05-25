@@ -478,8 +478,8 @@ Anhang~\ref{anhang:zeitplanung}.
 
 \section{Ressourcenplanung}
 
-Die im Projekt eingesetzten Ressourcen -- Entwicklungsrechner, Betriebssystem,
-Entwicklungsumgebung und verwendete Bibliotheken -- sind im Anhang~\ref{anhang:ressourcen}
+Die im Projekt eingesetzten Ressourcen - Entwicklungsrechner, Betriebssystem,
+Entwicklungsumgebung und verwendete Bibliotheken - sind im Anhang~\ref{anhang:ressourcen}
 aufgeführt. Bei der Softwareauswahl wurde durchgehend auf kostenlose Werkzeuge gesetzt,
 sodass für das Projekt keine zusätzlichen Lizenzkosten anfielen.
 
@@ -516,6 +516,10 @@ Die vorhandenen integrierten Analyse-Werkzeuge der JTL-Software sind entweder au
 oder bieten keine flexible Filtermöglichkeit für individuelle Zeiträume und \glspl{kpi}, also messbare Kennzahlen wie Umsatz oder Auftragsanzahl, anhand derer der Geschäftserfolg bewertet wird.
 
 \section{Wirtschaftlichkeitsanalyse}
+
+Zur Beurteilung der Wirtschaftlichkeit werden im Folgenden die anfallenden
+Projektkosten ermittelt und den zu erwartenden Erträgen gegenübergestellt, woraus
+sich die Amortisationsdauer des Projekts ableiten lässt.
 
 \subsection{Projektkosten}
 
@@ -1022,8 +1026,8 @@ const [kpisRes, revenueRes, topRes, ordersRes, stockRes] =
 Die Abfragen \texttt{Q\_KPIS} und \texttt{Q\_REVENUE} erhalten Zeitraumvariablen
 (\texttt{\$from}, \texttt{\$to}, \texttt{\$groupBy}), die von
 \texttt{computeDateRange()} berechnet werden. Diese Hilfsfunktion nimmt den im
-Dashboard gewählten Zeitraum entgegen -- täglich, wöchentlich, monatlich, jährlich
-oder einen benutzerdefinierten Zeitraum -- und liefert dafür \gls{iso}-Start- und
+Dashboard gewählten Zeitraum entgegen - täglich, wöchentlich, monatlich, jährlich
+oder einen benutzerdefinierten Zeitraum - und liefert dafür \gls{iso}-Start- und
 Endzeitstempel sowie den passenden Gruppierungswert zurück. Voreingestellt ist die
 Monatsansicht, die den Umsatz der letzten zwölf Monate monatsweise gruppiert. Die
 übrigen drei Queries sind zeitraumunabhängig und liefern stets aktuelle Bestands-
@@ -1110,18 +1114,18 @@ gerendert wird und die Daten anzeigt. Schlägt eine der Anfragen fehl,
 wird eine Fehlermeldung im \gls{ui} dargestellt, ohne die Anwendung zu
 unterbrechen.
 
-Über eine Reiterleiste am oberen Rand lässt sich der Auswertungszeitraum wählen --
+Über eine Reiterleiste am oberen Rand lässt sich der Auswertungszeitraum wählen -
 täglich, wöchentlich, monatlich, jährlich oder ein benutzerdefinierter Zeitraum;
 voreingestellt ist die Monatsansicht der letzten zwölf Monate. Die Darstellung
 gliedert sich in mehrere Bereiche: Im oberen Bereich werden vier
-\glspl{kpi} -- Gesamtumsatz, Anzahl der Bestellungen, Anzahl aktiver Kunden und
-durchschnittlicher Bestellwert -- in kompakten Kennzahlkarten ausgegeben. Darunter
+\glspl{kpi} - Gesamtumsatz, Anzahl der Bestellungen, Anzahl aktiver Kunden und
+durchschnittlicher Bestellwert - in kompakten Kennzahlkarten ausgegeben. Darunter
 folgen zwei Diagramme der Bibliothek Recharts: ein Liniendiagramm des Umsatzverlaufs
 im gewählten Zeitraum sowie ein Balkendiagramm der fünf umsatzstärksten Artikel.
-Den Abschluss bilden zwei Listen: eine Bestellliste mit den jüngsten Aufträgen --
+Den Abschluss bilden zwei Listen: eine Bestellliste mit den jüngsten Aufträgen -
 jede Zeile enthält Firmenname, Bestellnummer, Datum, Bruttobetrag sowie einen
 farbcodierten Statusbadge, der den aktuellen Auftragsstatus wie \enquote{Offen}
-oder \enquote{Versendet} auf einen Blick signalisiert -- sowie eine Übersicht der
+oder \enquote{Versendet} auf einen Blick signalisiert - sowie eine Übersicht der
 Artikel mit niedrigem Lagerbestand.
 
 Eine konkrete Herausforderung bei der Diagrammimplementierung bestand in der
@@ -1151,7 +1155,9 @@ Anhang~\ref{anhang:screenshot_app} (Abbildung~\ref{fig:screenshot_app}).
 Im Rahmen der Qualitätssicherung wurden Funktionstests für alle drei
 Anwendungsseiten (Setup, Dashboard, Pane) durchgeführt. Die Tests wurden
 manuell gegen die JTL-Cloud-\gls{api} und über das \gls{api}-Testwerkzeug \textbf{Bruno}
-ausgeführt; Unit-Tests einzelner Hilfsfunktionen wurden mit \textbf{Vitest} realisiert.
+ausgeführt. Für künftige automatisierte Unit-Tests der Hilfsfunktionen wurde zudem das
+Test-Framework \textbf{Vitest} eingerichtet; im Rahmen des Prototyps wurde jedoch auf
+automatisierte Tests verzichtet.
 Tabelle~\ref{tab:testfaelle} zeigt eine Auswahl der durchgeführten Testfälle.
 
 \begin{table}[H]
@@ -1514,7 +1520,6 @@ Die nicht-funktionalen Anforderungen fasst Tabelle~\ref{tab:lastenheft_nfa} zusa
   \item Lauffähiger Prototyp (\textbf{Express}-Backend, \textbf{React}-Frontend, Monorepo-Struktur)
   \item Entwicklerdokumentation (Anhang~\ref{anhang:entwicklerdoku})
   \item Benutzerhandbuch (Anhang~\ref{anhang:benutzerhandbuch})
-  \item Projektbericht (IHK-Dokumentation)
 \end{itemize}
 
 \section{Mockups der Benutzeroberfläche}
@@ -2023,7 +2028,7 @@ Content-Type: application/json
 session-token: <jwt-vom-appbridge-event>
 
 {
-  "query": "{ orders(first: 5) { nodes { orderId status } } }",
+  "query": "{ orders(first: 5) { nodes { salesOrderNumber status } } }",
   "variables": {}
 }
 \end{lstlisting}
@@ -2042,23 +2047,22 @@ Alle nachfolgenden Funktionen befinden sich in \texttt{packages/frontend/src/com
 
 \begin{lstlisting}[language=JavaScript, caption={JSDoc-Dokumentation: fetchDashboard()}]
 /**
- * Ruft alle Dashboard-KPIs eines Mandanten parallel ab.
+ * Ruft alle Dashboard-Daten eines Mandanten parallel ab.
  * Fuehrt fuenf GraphQL-Abfragen gleichzeitig aus (Promise.all).
  *
  * @param sessionToken - Aktueller Session-Token aus der AppBridge
- * @param range - Zeitraum fuer Datenabruf ('daily'|'weekly'|
- *                'monthly'|'yearly'|'custom')
- * @returns Promise<DashboardKPIs> mit allen KPI-Werten
+ * @param range - Auswertungszeitraum (Ergebnis von computeDateRange())
+ * @returns Promise<DashboardData> mit allen Anzeigedaten
  * @throws Error bei Netzwerkfehler oder ungueltigem Token
  *
  * @example
- * const data = await fetchDashboard(token, 'monthly');
- * console.log(data.totalRevenue); // z. B. 48320.50
+ * const data = await fetchDashboard(token, computeDateRange('monthly'));
+ * console.log(data.kpis.totalRevenue); // z. B. 48320.50
  */
 async function fetchDashboard(
   sessionToken: string,
-  range: DateRangeMode
-): Promise<DashboardKPIs>
+  range: DateRange
+): Promise<DashboardData>
 \end{lstlisting}
 
 \begin{lstlisting}[language=JavaScript, caption={JSDoc-Dokumentation: computeDateRange()}]
@@ -2103,22 +2107,37 @@ function formatDate(iso: string): string
 \subsection*{TypeScript-Schnittstellen}
 
 \begin{lstlisting}[language=JavaScript, caption={TypeScript-Interfaces (api.ts)}]
-/** Alle Dashboard-Kennzahlen eines Mandanten */
-interface DashboardKPIs {
-  totalRevenue:   number;       // Gesamtumsatz im Zeitraum
-  totalOrders:    number;       // Anzahl Bestellungen im Zeitraum
-  totalCustomers: number;       // Anzahl Kunden im Zeitraum
-  avgOrderValue:  number;       // Durchschnittlicher Auftragswert
-  revenueByDay:   RevenuePoint[];  // Umsatz je Tag (fuer Balkendiagramm)
-  topProducts:    TopProduct[];    // Top-Produkte nach Umsatz
-  recentOrders:   Order[];         // Letzte Auftraege
-  lowStockItems:  LowStockItem[];  // Artikel unter Mindestbestand
+/** Gebuendelte Dashboard-Daten eines Mandanten */
+interface DashboardData {
+  kpis:          DashboardKPIs;    // Kennzahlen-Karten
+  revenuePoints: RevenuePoint[];   // Umsatzverlauf (Liniendiagramm)
+  topProducts:   TopProduct[];     // Top-Artikel nach Umsatz
+  recentOrders:  Order[];          // Letzte Auftraege
+  lowStockItems: LowStockItem[];   // Artikel mit niedrigem Bestand
 }
 
-/** Einzelner Datenpunkt fuer das Umsatzdiagramm */
+/** Kennzahlen fuer die KPI-Karten */
+interface DashboardKPIs {
+  totalRevenue:   number;   // Gesamtumsatz im Zeitraum
+  totalOrders:    number;   // Anzahl Bestellungen im Zeitraum
+  totalCustomers: number;   // Anzahl aktiver Kunden im Zeitraum
+  avgOrderValue:  number;   // Durchschnittlicher Bestellwert
+}
+
+/** Datenpunkt fuer den Umsatzverlauf */
 interface RevenuePoint {
-  date:    string;  // ISO-Datum
-  revenue: number;  // Tagesumsatz in Euro
+  label:   string;  // Perioden-Label (z. B. Monat)
+  revenue: number;  // Umsatz in der Periode
+  orders:  number;  // Anzahl Bestellungen in der Periode
+}
+
+/** Top-Artikel nach Umsatz */
+interface TopProduct {
+  sku:             string;
+  name:            string;
+  stockInOrders:   number;
+  salesPriceGross: number;
+  totalRevenue:    number;
 }
 
 /** Auftragsstatus-Mapping */
@@ -2127,18 +2146,20 @@ type OrderStatus =
 
 /** Einzelner Auftrag */
 interface Order {
-  orderId:    string;
-  status:     OrderStatus;
-  totalValue: number;
-  orderDate:  string;
+  salesOrderNumber: string;
+  salesOrderDate:   string;       // ISO-Datum
+  totalGrossAmount: number;
+  companyName:      string;
+  status:           OrderStatus;
 }
 
 /** Artikel mit niedrigem Lagerbestand */
 interface LowStockItem {
-  productId:    string;
-  productName:  string;
-  stockQuantity: number;
-  minStock:     number;
+  sku:                       string;
+  name:                      string;
+  quantityTotal:             number;
+  quantityAvailable:         number;
+  quantityLockedForShipment: number;
 }
 \end{lstlisting}
 
